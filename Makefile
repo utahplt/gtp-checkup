@@ -1,7 +1,7 @@
 RACKET=racket
 RACO=raco
 MAIN=main.rkt
-BIN_DIR=$(dirname $(which racket))
+BIN_DIR=$(shell dirname $(shell which racket))
 
 PLTSTDERR="error info@gtp-checkup"
 
