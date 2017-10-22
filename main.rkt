@@ -1,9 +1,5 @@
 #lang racket/base
 
-;; TODO
-;; - time & space limits for 'raco' and 'racket'
-;; - quickstart for adding a benchmark
-
 (require racket/contract)
 (provide
   (contract-out
@@ -17,6 +13,9 @@
   (only-in racket/file
     copy-directory/files)
   racket/path
+  (only-in racket/sandbox
+    exn:fail:resource?
+    with-deep-time-limit)
   (only-in racket/string
     string-join)
   (only-in racket/system
@@ -28,6 +27,8 @@
 (define-logger gtp-checkup)
 
 (define-runtime-path PWD ".")
+
+(define TIME-LIMIT 30) ; seconds
 
 (define SEARCH-FOR-FILES-MATCHING "**/main.rkt")
 
@@ -63,11 +64,19 @@
          (run-racket bin-dir name)
          #true)))
 
+(define (handle-resource-failure e)
+  (log-gtp-checkup-error "exceeded time limit")
+  #f)
+
 (define (raco-make bin name)
-  (system* (build-path bin "raco") "make" name))
+  (with-handlers ([exn:fail:resource? handle-resource-failure])
+    (with-deep-time-limit TIME-LIMIT
+      (system* (build-path bin "raco") "make" name))))
 
 (define (run-racket bin name)
-  (system* (build-path bin "racket") name))
+  (with-handlers ([exn:fail:resource? handle-resource-failure])
+    (with-deep-time-limit TIME-LIMIT
+      (system* (build-path bin "racket") name))))
 
 (define (print-summary results)
   (define cwd (current-directory))
