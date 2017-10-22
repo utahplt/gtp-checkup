@@ -9,4 +9,4 @@ Usage:
 @item{Run @exec{make}}
 ]
 
-Should finish in 20 minutes.
+Should finish within 5 minutes.

@@ -17,4 +17,4 @@ Alternatively, just run the Makefile to test using the directory that holds
 $ make
 ```
 
-Should finish within 2 hours.
+Should finish within 5 minutes.
