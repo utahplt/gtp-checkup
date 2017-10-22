@@ -69,14 +69,17 @@
   #f)
 
 (define (raco-make bin name)
-  (with-handlers ([exn:fail:resource? handle-resource-failure])
-    (with-deep-time-limit TIME-LIMIT
-      (system* (build-path bin "raco") "make" name))))
+  (shell (build-path bin "raco") "make" name))
 
 (define (run-racket bin name)
+  (shell (build-path bin "racket") name))
+
+(define (shell cmd . arg*)
+  (define success (box #f))
   (with-handlers ([exn:fail:resource? handle-resource-failure])
     (with-deep-time-limit TIME-LIMIT
-      (system* (build-path bin "racket") name))))
+      (set-box! success (apply system* cmd arg*)))
+    (unbox success)))
 
 (define (print-summary results)
   (define cwd (current-directory))
