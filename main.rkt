@@ -11,6 +11,7 @@
 (require
   file/glob
   (only-in racket/file
+    delete-directory/files
     copy-directory/files)
   racket/path
   (only-in racket/sandbox
@@ -58,7 +59,8 @@
   (define rel-dir (find-relative-path (current-directory) dir))
   (log-gtp-checkup-info "Checking '~a'" rel-dir)
   (parameterize ([current-directory dir])
-    (and (log-gtp-checkup-info "compiling '~a'" name)
+    (and (delete-compiled)
+         (log-gtp-checkup-info "compiling '~a'" name)
          (raco-make bin-dir name)
          (log-gtp-checkup-info "running '~a'" name)
          (run-racket bin-dir name)
@@ -73,6 +75,9 @@
 
 (define (run-racket bin name)
   (shell (build-path bin "racket") name))
+
+(define (delete-compiled)
+  (delete-directory/files "compiled" #:must-exist? #f))
 
 (define (shell cmd . arg*)
   (define success (box #f))
