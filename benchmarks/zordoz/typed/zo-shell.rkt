@@ -8,7 +8,7 @@
 
 (require
          (only-in racket/string string-split string-join string-trim)
-         "typed-zo-structs.rkt"
+         "../base/typed-zo-structs.rkt"
          racket/match)
 
 (require/typed "zo-string.rkt"

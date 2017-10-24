@@ -3,7 +3,7 @@
 (require/typed "zo-shell.rkt"
   [init (-> (Vectorof String) Void)])
 
-(define SMALL-TEST "test.zo")
+(define SMALL-TEST "../base/test.zo")
 (define (small-test)
   (init (vector SMALL-TEST "branch")))
 
