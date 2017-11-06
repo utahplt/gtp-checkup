@@ -3,11 +3,13 @@
 (define deps '(
   "base"
   "data-lib"
+  "draw-lib"
   "math-lib"
   "memoize"
   "pict-lib"
   "plot-lib"
   "rackunit-lib"
+  "require-typed-check"
   "sandbox-lib"
   "typed-racket-lib"
   "typed-racket-more"
