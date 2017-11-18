@@ -1,5 +1,6 @@
 gtp-checkup
 ===
+[![Build Status](https://travis-ci.org/bennn/gtp-checkup.svg)](https://travis-ci.org/bennn/gtp-checkup)
 
 To test typed/untyped interaction:
 
