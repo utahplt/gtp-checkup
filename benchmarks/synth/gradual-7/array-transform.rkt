@@ -51,7 +51,7 @@
              (map (λ: ([arr : Array] [ds : Indexes]) (array-broadcast arr ds)) arrs dss))
            (values new-arrs dks))]))
 
-(: array-append* (-> (Listof Array) Array))
+(: array-append* (->* ((Listof Array)) (Integer) Array))
 (define (array-append* arrs [k 0])
   (when (null? arrs) (raise-argument-error 'array-append* "nonempty (Listof Array)" arrs))
   (let-values ([(arrs dks)  (array-broadcast-for-append arrs k)])
