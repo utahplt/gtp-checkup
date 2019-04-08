@@ -178,7 +178,7 @@
   (command-line
    #:program "gtp-checkup"
    #:once-any
-   [("-n" "--new") "Import a new program" (set-box! cmd-mode 'import)]
+   [("-n" "--new" "--import") "Import a new program" (set-box! cmd-mode 'import)]
    #:args (BIN-DIR)
    (case (unbox cmd-mode)
     [(import)
