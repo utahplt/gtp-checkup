@@ -29,7 +29,7 @@
 
 (define-runtime-path PWD ".")
 
-(define TIME-LIMIT 30) ; seconds
+(define TIME-LIMIT 60) ; seconds --- used to limit compile times & run times
 
 (define SEARCH-FOR-FILES-MATCHING "**/main.rkt")
 
@@ -44,12 +44,24 @@
          contains-racket?
          contains-raco?))
 
+(define BASE "base")
+(define BENCHMARKS "benchmarks")
+(define BOTH "both")
+(define GRADUAL~a "gradual-~a")
+(define TYPED "typed")
+(define UNTYPED "untyped")
+
 ;; -----------------------------------------------------------------------------
+(require (only-in racket/string string-contains?))
 
 (define (gtp-checkup bin-dir)
   (define results
     (parameterize ([current-directory PWD])
-      (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING)))
+      (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING))
+                 #:when (and
+                          (or (string-contains? (path-string->string main) "quadU")
+                              (string-contains? (path-string->string main) "quadT"))
+                          #;(not (string-contains? (path-string->string main) "gradual"))))
         (cons main (checkup-file bin-dir main)))))
   (log-gtp-checkup-info "=== FINISHED ===")
   (print-summary results))
@@ -67,7 +79,7 @@
          #true)))
 
 (define (handle-resource-failure e)
-  (log-gtp-checkup-error "exceeded time limit")
+  (log-gtp-checkup-error "exceeded time limit (~as)" TIME-LIMIT)
   #f)
 
 (define (raco-make bin name)
@@ -114,18 +126,29 @@
 
 (define (import/gtp-dir dir)
   (define program-name (directory-name-from-path dir))
-  (define typed-dir (build-path dir "typed"))
-  (define untyped-dir (build-path dir "untyped"))
+  (define typed-dir (build-path dir TYPED))
+  (define untyped-dir (build-path dir UNTYPED))
   (define copy-base-dir
-    (make-copy-dir (build-path dir "base")))
+    (make-copy-dir (build-path dir BASE)))
   (define copy-both-dir
-    (make-copy-dir (build-path dir "both")))
+    (make-copy-dir (build-path dir BOTH)))
   (define file* (racket-files typed-dir))
   (define configuration (make-vector (length file*) 0))
-  (define new-dir (build-path PWD "benchmarks" program-name))
-  (copy-directory/files typed-dir new-dir)
-  (copy-base-dir new-dir)
-  (copy-both-dir new-dir)
+  (define new-dir (build-path PWD BENCHMARKS program-name))
+  (make-directory new-dir)
+  (copy-base-dir (build-path new-dir BASE))
+  (let ([u-dir (build-path new-dir UNTYPED)])
+    (copy-directory/files untyped-dir u-dir)
+    (copy-both-dir u-dir))
+  (let ([t-dir (build-path new-dir TYPED)])
+    (copy-directory/files typed-dir t-dir)
+    (copy-both-dir t-dir))
+  (for ([typed-file (in-list file*)]
+        [i (in-naturals)])
+    (define dirname (build-path new-dir (format GRADUAL~a i)))
+    (copy-directory/files untyped-dir dirname)
+    (copy-both-dir dirname)
+    (copy-file (build-path typed-dir typed-file) (build-path dirname typed-file) #true))
   (log-gtp-checkup-info "finished importing '~a', please manually remove dependencies" program-name)
   (void))
 
@@ -134,6 +157,8 @@
     (λ (dest)
       (for ([src (in-glob (build-path d "*"))])
         (define name (file-name-from-path src))
+        (unless (directory-exists? dest)
+          (make-directory dest))
         (copy-directory/files src (build-path dest name))))
     void))
 
@@ -148,12 +173,12 @@
 ;;  or `#false` if the directory is perfectly acceptable.
 (define (why-not-gtp-dir dir)
   (define program-name (directory-name-from-path dir))
-  (define typed-dir (build-path dir "typed"))
-  (define untyped-dir (build-path dir "untyped"))
+  (define typed-dir (build-path dir TYPED))
+  (define untyped-dir (build-path dir UNTYPED))
   (cond
    [(not program-name)
     "could not parse directory name"]
-   [(directory-exists? (build-path PWD "benchmarks" program-name))
+   [(directory-exists? (build-path PWD BENCHMARKS program-name))
     "program already exists"]
    [(not (directory-exists? typed-dir))
     "missing 'typed/' directory"]
