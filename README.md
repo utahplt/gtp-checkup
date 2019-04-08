@@ -20,4 +20,4 @@ $ make
 is similar to `racket main.rkt $(which racket)`
 
 
-Should finish within 5 minutes.
+Each compie task and run task has a strict time limit.
