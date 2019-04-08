@@ -212,3 +212,15 @@
      (gtp-checkup BIN-DIR)]
     [else
      (raise-user-error 'gtp-checkup "unknown mode '~a', goodbye" (unbox cmd-mode))])))
+
+;; -----------------------------------------------------------------------------
+
+(module+ test
+  (require compiler/find-exe)
+  (let* ((racket-exe (find-exe))
+         (bin-dir (path-only racket-exe)))
+    (unless bin-dir
+      (raise-user-error 'gtp-checkup "failed to find racket/bin/ folder because (find-exe) returned ~s" racket-exe))
+    (unless (putenv "PLTSTDERR" "error info@gtp-checkup")
+      (log-gtp-checkup-error "failed to update PLTSTDERR environment variable, going to run anyway"))
+    (gtp-checkup bin-dir)))
