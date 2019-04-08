@@ -11,11 +11,13 @@ $ racket main.rkt <BIN-DIR>
 This compiles and runs a few small programs using the `raco` and `racket`
  executables from `<BIN-DIR>`.
 
-Alternatively, just run the Makefile to test using the directory that holds
- the `racket` executable:
+There is also a Makefile. Running:
 
 ```
 $ make
 ```
+
+is similar to `racket main.rkt $(which racket)`
+
 
 Should finish within 5 minutes.
