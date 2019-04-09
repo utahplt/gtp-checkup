@@ -7,15 +7,17 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   (only-in racket/file file->value))
 
-(require/typed "morse-code-strings.rkt"
+(require/typed/check "morse-code-strings.rkt"
   [string->morse (-> String String)])
 
-(require/typed "levenshtein.rkt"
+(require/typed/check "levenshtein.rkt"
                [string-levenshtein (String String -> Integer)])
 
-(define word-frequency-list-small "../base/frequency-small.rktd")
+(define word-frequency-list "./../base/frequency.rktd")
+(define word-frequency-list-small "./../base/frequency-small.rktd")
 
 (define-predicate freq-list? (Listof (List String Integer)))
 
@@ -25,6 +27,9 @@
   (unless (freq-list? words+freqs) (error "expected a frequency list"))
   (for/list : (Listof String) ([word+freq : (List String Integer) words+freqs])
     (car word+freq)))
+
+(: allwords (Listof String))
+(define allwords (file->words word-frequency-list))
 
 (: words-small (Listof String))
 (define words-small (file->words word-frequency-list-small))
@@ -39,4 +44,4 @@
     (string-levenshtein w2 w1)
     (void)))
 
-(time (main words-small)) ;; 200ms
+(time (main words-small))

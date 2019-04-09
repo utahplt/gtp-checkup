@@ -4,9 +4,10 @@
          (only-in racket/vector vector-append)
          (only-in racket/string string-join)
          (only-in racket/list empty? first rest)
+         require-typed-check
          "typed-data.rkt")
 
-(require/typed "array-struct.rkt"
+(require/typed/check "array-struct.rkt"
   [array-strict? (-> Array Boolean)]
   [array-default-strict! (-> Array Void)]
   [array-shape (-> Array Indexes)]
@@ -14,7 +15,7 @@
   [unsafe-array-proc (-> Array (-> Indexes Float))]
   [unsafe-build-array (-> Indexes (-> Indexes Float) Array)])
 
-(require/typed "array-utils.rkt"
+(require/typed/check "array-utils.rkt"
   [make-thread-local-indexes (-> Integer (-> Indexes))])
 
 (provide array-broadcasting

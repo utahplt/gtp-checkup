@@ -21,13 +21,14 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   (only-in racket/math exact-round)
   (only-in racket/format ~r)
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   racket/match)
 
-(require/typed
+(require/typed/check
   "ymd.rkt"
     [ymd->jdn (-> YMD Integer)]
     [jdn->ymd (-> Exact-Rational YMD)]

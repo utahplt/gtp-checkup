@@ -1,14 +1,14 @@
 #lang typed/racket
 
-(require
+(require require-typed-check
          "data-adaptor.rkt")
 
-(require/typed "const.rkt"
+(require/typed/check "const.rkt"
                      [BOARD-WIDTH Integer]
                      [BOARD-HEIGHT Integer])
-(require/typed "data.rkt"
+(require/typed/check "data.rkt"
                      [posn=? (Posn Posn . -> . Boolean)])
-(require/typed "motion-help.rkt"
+(require/typed/check "motion-help.rkt"
                      [snake-slither (Snake . -> . Snake)]
                      [snake-grow    (Snake . -> . Snake)])
 

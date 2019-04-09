@@ -1,9 +1,9 @@
 #lang typed/racket/base
-(require
+(require require-typed-check
          (except-in "typed-data.rkt" make-label)
          racket/list)
 
-(require/typed
+(require/typed/check
  "label.rkt"
  [make-label (-> (U String (Vectorof (U Char Symbol))) Label)]
  [label-element-equal? (-> Any Any Boolean)]

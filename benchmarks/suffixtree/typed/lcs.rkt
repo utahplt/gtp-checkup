@@ -1,11 +1,11 @@
 #lang typed/racket/base
 ;; Some utilities.
 
-(require
+(require require-typed-check
          (except-in "typed-data.rkt" make-label)
          racket/list)
 
-(require/typed "label.rkt"
+(require/typed/check "label.rkt"
  [label->string (-> Label String)]
  [string->label (-> String Label)]
  [string->label/with-sentinel (-> String Label)]
@@ -15,13 +15,13 @@
  [vector->label (-> (Vectorof (U Char Symbol)) Label)]
  [label-ref (-> Label Integer (U Symbol Char))])
 
-(require/typed
+(require/typed/check
  "structs.rkt"
  [make-tree (-> Tree)]
  [tree-root (-> Tree Node)]
  )
 
-(require/typed "ukkonen.rkt"
+(require/typed/check "ukkonen.rkt"
  [tree-add! (-> Tree Label Void)])
 
 (: false-thunk (-> #f))

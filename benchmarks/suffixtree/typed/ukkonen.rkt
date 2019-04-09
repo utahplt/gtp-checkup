@@ -6,8 +6,9 @@
 
 (require
  (except-in "typed-data.rkt" make-label)
+ require-typed-check
 )
-(require/typed "label.rkt"
+(require/typed/check "label.rkt"
   [label-length (-> Label Index)]
   [label-ref (-> Label Integer (U Symbol Char))]
   [label->string (-> Label String)]
@@ -20,7 +21,7 @@
   [sublabel (case-> (-> Label Index Label)
                     (-> Label Index Index Label))])
 
-(require/typed "structs.rkt"
+(require/typed/check "structs.rkt"
   [new-suffix-tree (-> Tree)]
   [node-find-child (-> Node Any (U Node #f))]
   [node-root? (-> Node Boolean)]

@@ -12,13 +12,14 @@
 
 (require (only-in racket/list empty?)
          (only-in racket/string string-split string-trim)
+         require-typed-check
          "../base/typed-zo-structs.rkt"
          racket/match)
 
-(require/typed "zo-transition.rkt"
+(require/typed/check "zo-transition.rkt"
   [zo-transition (-> zo String (values (U zo (Listof zo)) Boolean))])
 
-(require/typed "zo-string.rkt"
+(require/typed/check "zo-string.rkt"
   [zo->spec (-> zo Spec)])
 
 ;; -----------------------------------------------------------------------------

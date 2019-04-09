@@ -3,14 +3,15 @@
 ;; Resolving offsets between moments
 
 (require
+  require-typed-check
   "tzinfo-adapter.rkt"
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   racket/match)
-(require/typed "hmsn.rkt"
+(require/typed/check "hmsn.rkt"
     [NS/SECOND Natural]
 )
-(require/typed "datetime.rkt"
+(require/typed/check "datetime.rkt"
     [datetime->iso8601 (-> DateTime String)]
     [posix->datetime (-> Exact-Rational DateTime)]
     [datetime->posix (-> DateTime Exact-Rational)]
@@ -18,7 +19,7 @@
     [datetime->jd (-> DateTime Exact-Rational)]
     [datetime-add-seconds (-> DateTime Integer DateTime)]
 )
-(require/typed "moment-base.rkt"
+(require/typed/check "moment-base.rkt"
     [make-moment (-> DateTime Integer (U String #f) Moment)]
     [moment->iso8601 (-> Moment String)]
     [moment->iso8601/tzid (-> Moment String)]

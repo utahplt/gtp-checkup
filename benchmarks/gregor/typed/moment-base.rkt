@@ -12,11 +12,12 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   racket/match
   "gregor-adapter.rkt"
   (only-in racket/format ~r)
 )
-(require/typed "datetime.rkt"
+(require/typed/check "datetime.rkt"
     [datetime->iso8601 (-> DateTime String)]
 )
 

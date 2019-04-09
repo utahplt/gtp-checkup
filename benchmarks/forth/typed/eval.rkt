@@ -5,16 +5,17 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   racket/match
   typed/racket/class
   "../base/command-types.rkt"
   (only-in racket/port with-input-from-string)
 )
-(require/typed "command.rkt"
+(require/typed/check "command.rkt"
   (CMD* (Listof (Instance Command%)))
   (command% Command%)
 )
-(require/typed "stack.rkt"
+(require/typed/check "stack.rkt"
   (stack-init (-> Stack))
 )
 
@@ -49,12 +50,12 @@
         (cons (cons cmd E) S)]
        [_ #f])))))
 
-(: forth-eval* (-> Input-Port (Values (Option Env) Stack)))
+(: forth-eval* (-> (Listof String) (Values (Option Env) Stack)))
 (define (forth-eval* in)
   (for/fold : (Values (Option Env) Stack)
             ([e (ann (cons defn-command CMD*) (Option Env))]
              [s (stack-init)])
-      ([ln (in-lines in)])
+      ([ln (in-list in)])
     (define token* (forth-tokenize ln))
     (cond
      [(or (null? token*)

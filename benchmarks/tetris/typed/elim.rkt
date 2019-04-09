@@ -1,12 +1,13 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require/typed "bset.rkt"
+(require require-typed-check)
+(require/typed/check "bset.rkt"
    [blocks-move (-> Real Real BSet BSet)]
    [full-row? (-> BSet Natural Boolean)]
    [blocks-union (-> BSet BSet BSet)]
    [blocks-row (-> BSet Real BSet)])
-(require/typed "consts.rkt"
+(require/typed/check "consts.rkt"
   [board-height Integer])
 
 ;; Eliminate all full rows and shift down appropriately.

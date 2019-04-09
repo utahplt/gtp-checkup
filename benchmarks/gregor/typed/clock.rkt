@@ -19,11 +19,12 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   "../base/types.rkt"
   "tzinfo-adapter.rkt"
   "gregor-adapter.rkt"
 )
-(require/typed "moment.rkt"
+(require/typed/check "moment.rkt"
     [current-timezone (Parameterof (U tz #f))]
     [posix->moment (-> Exact-Rational tz Moment)]
     [moment->datetime/local (-> Moment DateTime)]
@@ -33,7 +34,7 @@
     [moment->iso8601 (-> Moment String)]
     [moment->iso8601/tzid (-> Moment String)]
 )
-(require/typed "datetime.rkt"
+(require/typed/check "datetime.rkt"
     [datetime->date (-> DateTime Date)]
     [datetime->time (-> DateTime Time)]
 )

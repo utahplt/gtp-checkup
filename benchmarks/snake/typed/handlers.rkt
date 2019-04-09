@@ -1,12 +1,12 @@
 #lang typed/racket
 ;; Movie handlers
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require
+(require require-typed-check
          "data-adaptor.rkt")
-(require/typed "collide.rkt"
+(require/typed/check "collide.rkt"
                      [snake-wall-collide? (Snake . -> . Boolean)]
                      [snake-self-collide? (Snake . -> . Boolean)])
-(require/typed "motion.rkt"
+(require/typed/check "motion.rkt"
                      [world-change-dir (World Dir . -> . World)])
 
 (: handle-key : (World String . -> . World) )

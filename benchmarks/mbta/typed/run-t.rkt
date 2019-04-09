@@ -15,7 +15,8 @@
  run-t)
 
 ;; ===================================================================================================
-(require/typed "t-view.rkt" [manage% Manage])
+(require require-typed-check)
+(require/typed/check "t-view.rkt" [manage% Manage])
 (require "../base/t-view-types.rkt")
 
 (define PATH    #rx"from (.*) to (.*)$")

@@ -1,11 +1,11 @@
 #lang typed/racket
 
-(require
+(require require-typed-check
          "data-adaptor.rkt")
-(require/typed "const.rkt"
+(require/typed/check "const.rkt"
                      [BOARD-WIDTH Integer]
                      [BOARD-HEIGHT Integer])
-(require/typed "data.rkt"
+(require/typed/check "data.rkt"
                      [posn=? (Posn Posn . -> . Boolean)])
 
 ;; Is the snake colliding with any of the walls?

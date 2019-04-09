@@ -8,13 +8,14 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+ require-typed-check
  racket/match
  typed/racket/class
  "../base/command-types.rkt"
  (only-in racket/string string-join)
  (for-syntax racket/base racket/syntax syntax/parse)
 )
-(require/typed "stack.rkt"
+(require/typed/check "stack.rkt"
   (stack-drop (-> Stack Stack))
   (stack-dup (-> Stack Stack))
   (stack-init (-> Stack))

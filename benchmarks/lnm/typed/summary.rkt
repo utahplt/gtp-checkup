@@ -17,6 +17,7 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   racket/path
   math/statistics
   (only-in racket/file file->value)
@@ -27,7 +28,7 @@
   [stream-map (-> (-> Index String) (Sequenceof Index) (Sequenceof String))]
   [stream-filter (-> (-> String Boolean) (Sequenceof String) (Sequenceof String))]
 )
-(require/typed "bitstring.rkt"
+(require/typed/check "bitstring.rkt"
   [bitstring->natural (-> String Index)]
   [log2 (-> Index Index)]
   [natural->bitstring (-> Index #:pad Index String)]
@@ -47,7 +48,7 @@
 ;; -- constants
 
 ;; Default location for TiKZ module graphs
-(define MODULE_GRAPH_DIR "../base/module-graphs")
+(define MODULE_GRAPH_DIR "module-graphs")
 
 ;; -----------------------------------------------------------------------------
 ;; -- parsing

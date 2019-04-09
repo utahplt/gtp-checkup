@@ -16,9 +16,10 @@
   "deck-types.rkt"
   "player-types.rkt"
   racket/list
+  require-typed-check
   typed/racket/class)
 
-(require/typed "basics.rkt"
+(require/typed/check "basics.rkt"
   (FACE  Natural)
   (FIVE  Natural)
   (STACKS Natural)
@@ -28,13 +29,13 @@
   (MAX-BULL Bulls)
   (configuration (-> (Listof (List Symbol Natural))))
 )
-(require/typed "card-pool.rkt"
+(require/typed/check "card-pool.rkt"
   (create-card-pool (-> (-> (Listof Card) (Listof Card)) (-> Bulls) CardPool))
 )
-(require/typed "deck.rkt"
+(require/typed/check "deck.rkt"
   (create-deck (-> CardPool Deck))
 )
-(require/typed "player.rkt"
+(require/typed/check "player.rkt"
   (player% Player%)
 )
 

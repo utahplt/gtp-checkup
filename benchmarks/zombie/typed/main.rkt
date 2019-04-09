@@ -1,9 +1,10 @@
 #lang typed/racket/base
 
 (require
+  require-typed-check
   "image-adapted.rkt"
 )
-(require/typed "zombie.rkt"
+(require/typed/check "zombie.rkt"
   (w0 World)
   (world-on-mouse (-> World (-> Real Real String World)))
   (world-on-tick (-> World (-> World)))
@@ -30,9 +31,6 @@
     (define m (caar h))
     (define as (cdar h))
     (case m
-     ;; no rendering
-     [(to-draw stop-when)
-       (loop w (cdr h))]
      [(on-mouse)
       (define r (apply (world-on-mouse w) (cast as (List Real Real String))))
       (loop r (cdr h))]
@@ -40,17 +38,16 @@
       (define r ((world-on-tick w)))
       (loop r (cdr h))])])))
 
-(define MICRO_TEST "../base/zombie-hist-micro.rktd")
+(define TEST
+  (with-input-from-file "../base/zombie-hist.rktd" read))
 
-(: main (-> Path-String Void))
-(define (main filename)
-  (define raw-hist (with-input-from-file filename read))
+(: main (-> Any Void))
+(define (main hist)
   (cond
-   [(list? raw-hist)
-    (define hist (reverse raw-hist))
+   [(list? hist)
     (for ([i : Integer (in-range 100)])
       (replay w0 hist))]
    [else
     (error "bad input")]))
 
-(time (main MICRO_TEST))
+(time (main TEST))

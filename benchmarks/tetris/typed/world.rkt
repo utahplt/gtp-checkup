@@ -1,24 +1,25 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require/typed "bset.rkt"
+(require require-typed-check)
+(require/typed/check "bset.rkt"
    [blocks-union (-> BSet BSet BSet)]
    [blocks-max-x (-> BSet Real)]
    [blocks-min-x (-> BSet Real)]
    [blocks-max-y (-> BSet Real)])
-(require/typed "tetras.rkt"
+(require/typed/check "tetras.rkt"
   [tetra-move (-> Real Real Tetra Tetra)]
   [tetra-rotate-ccw (-> Tetra Tetra)]
   [tetra-rotate-cw (-> Tetra Tetra)]
   [tetra-overlaps-blocks? (-> Tetra BSet Boolean)]
   [tetra-change-color (-> Tetra Color Tetra)])
-(require/typed "aux.rkt"
+(require/typed/check "aux.rkt"
   [list-pick-random (-> (Listof Tetra) Tetra)]
   [neg-1  Negative-Fixnum]
   [tetras (Listof Tetra)])
-(require/typed "elim.rkt"
+(require/typed/check "elim.rkt"
   [eliminate-full-rows (-> BSet BSet)])
-(require/typed "consts.rkt"
+(require/typed/check "consts.rkt"
   [board-height Integer]
   [board-width Integer])
 

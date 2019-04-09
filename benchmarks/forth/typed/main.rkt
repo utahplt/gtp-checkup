@@ -1,17 +1,23 @@
 #lang typed/racket/base
 
 (require
+  require-typed-check
   "../base/command-types.rkt")
-(require/typed "eval.rkt"
-  (forth-eval* (-> Input-Port (Values Any Any)))
+(require/typed/check "eval.rkt"
+  (forth-eval* (-> (Listof String) (Values Any Any)))
 )
+(require (only-in racket/file file->lines))
 
 ;; =============================================================================
 
-(define (main)
-  (call-with-input-file* (ann "../base/history.txt" Path-String)
-    (lambda ([p : Input-Port])
-      (let-values ([(_e _s) (forth-eval* p)]) (void))))
-  (void))
+(define LOOPS 10)
 
-(time (main))
+(: main (-> (Listof String) Void))
+(define (main lines)
+  (for ((i (in-range LOOPS)))
+    (define-values [_e _s] (forth-eval* lines))
+    (void)))
+
+(define lines (file->lines "../base/history-100.txt"))
+
+(time (main lines))

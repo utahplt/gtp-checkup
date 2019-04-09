@@ -1,13 +1,13 @@
 #lang typed/racket
 
-(require
+(require require-typed-check
          "data-adaptor.rkt")
-(require/typed "const.rkt"
+(require/typed/check "const.rkt"
                      [WORLD (-> World)])
-(require/typed "motion.rkt"
+(require/typed/check "motion.rkt"
                      [reset!           (-> Void)]
                      [world->world     (World . -> . World)])
-(require/typed "handlers.rkt"
+(require/typed/check "handlers.rkt"
                      [handle-key (World String . -> . World)]
                      [game-over? (World . -> . Boolean)])
 
@@ -31,17 +31,16 @@
            (cdr h)))))
   (void))
 
-(define SMALL_TEST "../base/snake-hist-small.rktd")
+(define DATA (with-input-from-file "../base/snake-hist.rktd" read))
+(define LOOPS 200)
 
-(: main (-> String Void))
-(define (main filename)
+(: main (-> Any Void))
+(define (main hist)
   (define w0 (WORLD))
-  (define raw-hist (with-input-from-file filename read))
-  (cond [(list? raw-hist)
-         (define hist (reverse raw-hist))
-         (for ([i (in-range 100)])
+  (cond [(list? hist)
+         (for ([i (in-range LOOPS)])
            (replay w0 hist))]
         [else
          (error "bad input")]))
 
-(time (main SMALL_TEST))
+(time (main DATA))

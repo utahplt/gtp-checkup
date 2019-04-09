@@ -17,9 +17,10 @@
 ;; ----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   (only-in racket/file file->value)
 )
-(require/typed "bitstring.rkt"
+(require/typed/check "bitstring.rkt"
   [log2 (-> Index Index)]
   [natural->bitstring (-> Index #:pad Index String)])
 
@@ -51,21 +52,19 @@
 ;; Format the data to a human-readable spreadsheet using `sep` to separate rows
 (: vector->spreadsheet (-> (Vectorof (Listof Index)) Path-String String Void))
 (define (vector->spreadsheet vec out-file sep)
-  (with-output-to-file out-file #:exists 'replace
-    (lambda ()
-      ;; First print the index
-      (: num-configs Index)
-      (define num-configs (vector-length vec))
-      (define num-runs (length (vector-ref vec 0)))
-      (display "Run")
-      (for ([n num-runs])
-        (printf "~a~a" sep (add1 n)))
-      (newline)
-      ;; For each row, print the config ID and all the values
-      (for ([(row n) (in-indexed vec)])
-        (display (natural->bitstring (cast n Index) #:pad (log2 num-configs)))
-        (for ([v row]) (printf "~a~a" sep v))
-        (newline)))))
+  ;; First print the index
+  (: num-configs Index)
+  (define num-configs (vector-length vec))
+  (define num-runs (length (vector-ref vec 0)))
+  (void "Run")
+  (for ([n num-runs])
+    (void "~a~a" sep (add1 n)))
+  (void)
+  ;; For each row, print the config ID and all the values
+  (for ([(row n) (in-indexed vec)])
+    (void (natural->bitstring (cast n Index) #:pad (log2 num-configs)))
+    (for ([v row]) (void "~a~a" sep v))
+    (void)))
 
 ;; Print the rktd data stored in file `input-filename` to a spreadsheet.
 (: rktd->spreadsheet (->* (Path-String) (#:output (U Path-String #f) #:format Symbol) Void))

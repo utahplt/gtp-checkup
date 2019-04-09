@@ -2,9 +2,10 @@
 
 (require (for-syntax racket/base syntax/parse)
          (only-in racket/fixnum fx+ fx*)
+         require-typed-check
          "typed-data.rkt")
 
-(require/typed "array-utils.rkt"
+(require/typed/check "array-utils.rkt"
   [unsafe-array-index->value-index (-> Indexes Indexes Integer)]
   [check-array-shape-size (-> Symbol Indexes Integer)]
   [check-array-shape (-> (Vectorof Integer) (-> Nothing) Indexes)])

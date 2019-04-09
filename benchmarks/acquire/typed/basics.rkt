@@ -90,9 +90,10 @@
 ;; ---------------------------------------------------------------------------------------------------
 
 (require
+ require-typed-check
  "../base/types.rkt"
 )
-(require/typed "auxiliaries.rkt"
+(require/typed/check "auxiliaries.rkt"
  (randomly-pick (-> (Listof Hotel) Hotel))
  )
 

@@ -4,17 +4,18 @@
 ;; (i.e. dates and times at the same time)
 
 (require
+  require-typed-check
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   racket/match
   (only-in racket/math exact-round exact-floor))
 
-(require/typed
+(require/typed/check
   "hmsn.rkt"
     [NS/DAY Natural]
     [NS/SECOND Natural]
 )
-(require/typed
+(require/typed/check
   "date.rkt"
     [date->iso8601 (-> Date String)]
     [date->jdn (-> Date Integer)]
@@ -23,7 +24,7 @@
     [date (->* (Natural) (Month Natural) Date)]
     [date=? (-> Date Date Boolean)]
 )
-(require/typed "time.rkt"
+(require/typed/check "time.rkt"
     [time->iso8601 (-> Time String)]
     [time->ns (-> Time Natural)]
     [day-ns->time (-> Natural Time)]

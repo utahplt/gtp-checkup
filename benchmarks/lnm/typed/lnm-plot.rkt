@@ -16,6 +16,7 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   "pict-adapted.rkt"
   "summary-adapted.rkt"
   plot/typed/pict
@@ -28,7 +29,7 @@
   [stream->list (-> (Sequenceof String) (Listof String))]
   [stream-filter (-> (-> String Boolean) (Sequenceof String) (Sequenceof String))]
 )
-(require/typed "bitstring.rkt"
+(require/typed/check "bitstring.rkt"
   [in-reach (-> String Index (Listof String))]
   [log2 (-> Index Index)]
 )

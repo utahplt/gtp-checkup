@@ -1,12 +1,13 @@
 #lang typed/racket/base
 
 (require
+  require-typed-check
   "summary-adapted.rkt"
 )
-(require/typed "spreadsheet.rkt"
+(require/typed/check "spreadsheet.rkt"
   [rktd->spreadsheet (-> Path-String #:output Path-String #:format Symbol Void)]
 )
-(require/typed "lnm-plot.rkt"
+(require/typed/check "lnm-plot.rkt"
  [lnm-plot (-> Summary
                #:L (Listof Index)
                #:N Index
@@ -21,8 +22,8 @@
 ;; Just testing
 
 (: l-list (Listof Index))
-(define l-list '(0 1 2))
-(define NUM_SAMPLES 60)
+(define l-list '(0 1 2 3))
+(define NUM_SAMPLES 100)
 
 (: main (-> String Void))
 (define (main filename)
@@ -30,18 +31,17 @@
   (define summary (from-rktd filename))
   (define name (get-project-name summary))
   ;; Create L-N/M pictures
-  (define picts (lnm-plot summary #:L l-list
-                                  #:N 3
-                                  #:M 10
-                                  #:max-overhead 20
-                                  #:cutoff-proportion 0.6
-                                  #:num-samples NUM_SAMPLES
-                                  #:plot-height 300
-                                  #:plot-width 400))
-  ;; Make a spreadsheet, just to test that too
-  (rktd->spreadsheet filename #:output "./test-case-output.out" #:format 'tab)
-  (delete-file "./test-case-output.out")
-  (void)
-)
+  (time
+    (begin
+      (lnm-plot summary #:L l-list
+                        #:N 3
+                        #:M 10
+                        #:max-overhead 20
+                        #:cutoff-proportion 0.6
+                        #:num-samples NUM_SAMPLES
+                        #:plot-height 300
+                        #:plot-width 400)
+      (rktd->spreadsheet filename #:output "./test-case-output.out" #:format 'tab)
+      (void))))
 
-(time (main "../base/data/suffixtree.rktd")) ;; 143ms
+(main "../base/data/snake.rktd")

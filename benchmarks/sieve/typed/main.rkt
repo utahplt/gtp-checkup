@@ -1,9 +1,8 @@
 #lang typed/racket/base
 
-;; Use the partner file "streams.rkt" to implement the Sieve of Eratosthenes.
-;; Then compute and print the 10,000th prime number.
+(require require-typed-check)
 
-(require/typed "streams.rkt"
+(require/typed/check "streams.rkt"
   [#:struct stream ([first : Natural]
                     [rest : (-> stream)])]
   [make-stream (-> Natural (-> stream) stream)]
@@ -37,7 +36,7 @@
 (define primes (sieve (count-from 2)))
 
 (: N-1 Natural)
-(define N-1 999)
+(define N-1 6666)
 
 (: main (-> Void))
 (define (main)

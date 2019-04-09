@@ -6,15 +6,16 @@
  main)
 
 (require
+  require-typed-check
   typed/racket/class
   "player-types.rkt"
   "dealer-types.rkt"
 )
 
-(require/typed "player.rkt"
+(require/typed/check "player.rkt"
   (create-player (-> Natural Player)))
 
-(require/typed "dealer.rkt"
+(require/typed/check "dealer.rkt"
   (create-dealer (-> (Listof Player) Dealer))
 )
 
@@ -34,7 +35,7 @@
   (send dealer play-game))
 
 (define PLAYERS 10)
-(define ITERS PLAYERS)
+(define LOOPS 1000)
 
 (module+ test
   (unless (equal? (main PLAYERS)
@@ -43,4 +44,5 @@
     (raise-user-error 'take5 "TEST FAILURE")))
 
 (module+ main
-  (time (for ([n (in-range ITERS)]) (main PLAYERS))))
+  (time (for ([n (in-range LOOPS)])
+          (main PLAYERS))))

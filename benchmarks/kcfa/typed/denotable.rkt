@@ -5,6 +5,7 @@
 ;; (A value is a closure)
 
 (require
+  require-typed-check
   racket/set
   "structs-adapted.rkt"
   "benv-adapted.rkt"

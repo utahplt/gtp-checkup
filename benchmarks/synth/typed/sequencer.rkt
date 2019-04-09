@@ -1,18 +1,18 @@
 #lang typed/racket/base
 
-(require
+(require require-typed-check
          "typed-data.rkt")
 
-(require/typed "array-struct.rkt"
+(require/typed/check "array-struct.rkt"
   [build-array (-> Indexes (-> Indexes Flonum) Array)])
 
-(require/typed "array-transform.rkt"
+(require/typed/check "array-transform.rkt"
   [array-append* ((Listof Array) -> Array)])
 
-(require/typed "synth.rkt"
+(require/typed/check "synth.rkt"
   [fs Natural])
 
-(require/typed "mixer.rkt"
+(require/typed/check "mixer.rkt"
   [mix (-> Weighted-Signal * Array)])
 
 (provide sequence note)

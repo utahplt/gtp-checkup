@@ -11,22 +11,23 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   racket/match
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   (only-in racket/math exact-floor))
-(require/typed
+(require/typed/check
   "ymd.rkt"
     [days-in-month (-> Natural Month (U 28 29 30 31))]
   )
-(require/typed "hmsn.rkt"
+(require/typed/check "hmsn.rkt"
     [NS/DAY Natural]
 )
-(require/typed "date.rkt"
+(require/typed/check "date.rkt"
     [date->ymd (-> Date YMD)]
     [date (->* (Natural) (Month Natural) Date)]
 )
-(require/typed "datetime.rkt"
+(require/typed/check "datetime.rkt"
     [datetime<? (-> DateTime DateTime Boolean)]
     [datetime->date (-> DateTime Date)]
     [date+time->datetime (-> Date Time DateTime)]

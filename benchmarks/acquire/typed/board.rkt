@@ -100,9 +100,10 @@
 ;; IMPLEMENTATION: SPOTS
 
 (require
+ require-typed-check
  "../base/types.rkt"
  )
-(require/typed "basics.rkt"
+(require/typed/check "basics.rkt"
  (hotel? (-> Any Boolean))
  (SAFE# Natural)
  (price-per-share (-> Hotel Natural (Option Cash)))
@@ -110,7 +111,7 @@
  (hotel->color (-> Hotel Color))
  (hotel->label (-> Hotel String))
 )
-(require/typed "auxiliaries.rkt"
+(require/typed/check "auxiliaries.rkt"
   (aux:partition (All (A B) (-> (Listof A) (-> A Real) (-> A B) (Listof (Listof B)))))
   (distinct (-> (Listof Any) Boolean))
   (randomly-pick (All (A) (-> (Listof A) A)))

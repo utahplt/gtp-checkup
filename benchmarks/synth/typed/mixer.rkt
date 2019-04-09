@@ -1,18 +1,18 @@
 #lang typed/racket/base
 
-(require
+(require require-typed-check
          "typed-data.rkt"
          (for-syntax racket/base)
          (only-in racket/list first second rest))
 
-(require/typed "array-struct.rkt"
+(require/typed/check "array-struct.rkt"
   [array? (-> Array Boolean)]
   [array-shape (-> Array Indexes)]
   [array-default-strict! (-> Array Void)]
   [unsafe-array-proc (-> Array (-> Indexes Float))]
   [unsafe-build-array (-> Indexes (-> Indexes Float) Array)])
 
-(require/typed "array-broadcast.rkt"
+(require/typed/check "array-broadcast.rkt"
   [array-broadcast (-> Array Indexes Array)]
   [array-shape-broadcast (case-> ((Listof Indexes) -> Indexes)
                                  ((Listof Indexes) (U #f #t 'permissive) -> Indexes))]

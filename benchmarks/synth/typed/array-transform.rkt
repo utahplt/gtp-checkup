@@ -2,19 +2,20 @@
 
 (require racket/vector
          (only-in racket/fixnum fx+)
+         require-typed-check
          "typed-data.rkt")
 
-(require/typed "array-struct.rkt"
+(require/typed/check "array-struct.rkt"
   [array-shape (-> Array Indexes)]
   [unsafe-array-proc (-> Array (-> Indexes Float))]
   [array-default-strict! (-> Array Void)]
   [unsafe-build-array (-> Indexes (-> Indexes Float) Array)])
 
-(require/typed "array-broadcast.rkt"
+(require/typed/check "array-broadcast.rkt"
   [array-broadcast (-> Array Indexes Array)]
   [array-shape-broadcast (-> (Listof Indexes) Indexes)])
 
-(require/typed "array-utils.rkt"
+(require/typed/check "array-utils.rkt"
   [unsafe-vector-remove (-> Indexes Integer Indexes)]
   [vector-copy-all (-> Indexes Indexes)]
   [unsafe-vector-insert (-> Indexes Integer Integer Indexes)])
@@ -51,7 +52,7 @@
              (map (λ: ([arr : Array] [ds : Indexes]) (array-broadcast arr ds)) arrs dss))
            (values new-arrs dks))]))
 
-(: array-append* (->* ((Listof Array)) (Integer) Array))
+(: array-append* (-> (Listof Array) Array))
 (define (array-append* arrs [k 0])
   (when (null? arrs) (raise-argument-error 'array-append* "nonempty (Listof Array)" arrs))
   (let-values ([(arrs dks)  (array-broadcast-for-append arrs k)])

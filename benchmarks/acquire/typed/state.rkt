@@ -139,10 +139,11 @@
 ;; IMPLEMENTATION: 
 
 (require
+ require-typed-check
  "../base/types.rkt"
  "board-adapted.rkt"
  )
-(require/typed "basics.rkt"
+(require/typed/check "basics.rkt"
   (ALL-HOTELS (Listof Hotel))
   (CASH0 Cash)
   (FINAL# Natural)
@@ -162,7 +163,7 @@
   (shares-minus (-> Shares Shares Shares))
   (shares-plus (-> Shares Shares Shares))
 )
-(require/typed "auxiliaries.rkt"
+(require/typed/check "auxiliaries.rkt"
   (aux:partition (All (A B) (-> (Listof A) (-> A Real) (-> A B) (Listof (Listof B)))))
  (distinct (-> (Listof Any) Boolean))
  )

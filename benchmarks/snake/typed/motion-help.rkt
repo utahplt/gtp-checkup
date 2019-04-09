@@ -1,8 +1,8 @@
 #lang typed/racket
 
-(require
+(require require-typed-check
          "data-adaptor.rkt")
-(require/typed "cut-tail.rkt"
+(require/typed/check "cut-tail.rkt"
                      [cut-tail ((NEListof Posn) . -> . (Listof Posn))])
 
 ;; next-head : Posn Direction -> Posn

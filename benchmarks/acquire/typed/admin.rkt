@@ -13,6 +13,7 @@
 ;; ---------------------------------------------------------------------------------------------------
 
 (require
+ require-typed-check
  "../base/types.rkt"
  "board-adapted.rkt"
  "state-adapted.rkt"
@@ -22,7 +23,7 @@
   (call-with-limits (All (A) (-> Natural Natural (-> A) A)))
   (exn:fail:resource? (All (A) (-> A Boolean)))
 )
-(require/typed "basics.rkt"
+(require/typed/check "basics.rkt"
   (ALL-HOTELS (Listof Hotel))
   (hotel? (-> Any Boolean))
   (shares-available? (-> Shares (Listof Hotel) Boolean))

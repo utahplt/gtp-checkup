@@ -20,11 +20,12 @@
 ;; -----------------------------------------------------------------------------
 
 (require
+  require-typed-check
   (only-in racket/format ~r)
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   racket/match)
-(require/typed
+(require/typed/check
   "hmsn.rkt"
     [hmsn->day-ns (-> HMSN Natural)]
     [day-ns->hmsn (-> Natural HMSN)]

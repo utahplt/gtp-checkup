@@ -1,7 +1,8 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require/typed "tetras.rkt"
+(require require-typed-check)
+(require/typed/check "tetras.rkt"
   [build-tetra-blocks (-> Color Real Real Real Real Real Real Real Real Real Real Tetra)]
   )
 

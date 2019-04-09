@@ -4,9 +4,9 @@
 (random-seed 7480)
 
 ;; =============================================================================
-(require
+(require require-typed-check
  "automata-adapted.rkt")
-(require/typed "population.rkt"
+(require/typed/check "population.rkt"
  (build-random-population
   (-> Natural Population))
  (population-payoffs (-> Population [Listof Payoff]))
@@ -15,7 +15,7 @@
  (match-up*
   (-> Population Natural Population))
 )
-(require/typed "utilities.rkt"
+(require/typed/check "utilities.rkt"
  (relative-average (-> [Listof Real] Real Real))
 )
 
@@ -23,7 +23,7 @@
 ;; effect: measure time needed for the simulation
 (define (main)
    (simulation->lines
-    (evolve (build-random-population 100) 10 10 20))
+    (evolve (build-random-population 300) 500 100 20))
    (void))
 
 (: simulation->lines (-> [Listof Payoff] [Listof [List Integer Real]]))

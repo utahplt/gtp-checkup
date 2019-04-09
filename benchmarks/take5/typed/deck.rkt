@@ -16,13 +16,14 @@
   "deck-types.rkt"
   "stack-types.rkt"
   racket/list
+  require-typed-check
 )
 
-(require/typed "basics.rkt"
+(require/typed/check "basics.rkt"
   (FACE Natural)
   (STACKS Natural))
 
-(require/typed "stack.rkt"
+(require/typed/check "stack.rkt"
   (bulls  (-> Stack Natural)))
 
 ;; ---------------------------------------------------------------------------------------------------
@@ -80,11 +81,9 @@
               (cond
                 [(equal? (first s) top0)
                  (set! result (bulls s))
-                 (cast
-                  (if (cons? c)
-                   c
-                   (cons c s))
-                  Stack)]
+                 (if (cons? c)
+                  c
+                  (if (null? c) (error 'invalid-input) (cons c s)))]
                 [else s])))
       result)
 

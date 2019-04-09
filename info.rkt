@@ -15,7 +15,7 @@
   "typed-racket-more"
   "zo-lib"))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib" "gtp-benchmarks"))
-(define pkg-desc "Gradual typing correctness check")
+(define pkg-desc "Gradual typing performance check")
 (define version "0.1")
 (define pkg-authors '(ben))
 (define scribblings '(("scribblings/gtp-checkup.scrbl" ())))

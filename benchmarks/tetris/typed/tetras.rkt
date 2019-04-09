@@ -1,7 +1,8 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require/typed "bset.rkt"
+(require require-typed-check)
+(require/typed/check "bset.rkt"
    [blocks-intersect (-> BSet BSet BSet)]
    [blocks-move (-> Real Real BSet BSet)]
    [blocks-rotate-cw (-> Posn BSet BSet)]

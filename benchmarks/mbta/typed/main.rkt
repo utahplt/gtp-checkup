@@ -3,8 +3,9 @@
 ;; stress testing run-t on 100 look ups, plus 5 [dis|en]ables
 
 ;; ===================================================================================================
+(require require-typed-check)
 (require (only-in racket/string string-join))
-(require/typed "run-t.rkt"
+(require/typed/check "run-t.rkt"
                [EOM String]
                [run-t (-> String String)])
 

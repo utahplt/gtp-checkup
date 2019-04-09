@@ -4,19 +4,20 @@
 ;; (Use `raco make` to generate bytecode)
 
 (provide
+ zo-read
  init)
 
-(require
+(require require-typed-check
          (only-in racket/string string-split string-join string-trim)
          "../base/typed-zo-structs.rkt"
          racket/match)
 
-(require/typed "zo-string.rkt"
+(require/typed/check "zo-string.rkt"
   [zo->spec (-> zo Spec)]
   [zo->string (->* (zo) (#:deep? Boolean) String)])
-(require/typed "zo-transition.rkt"
+(require/typed/check "zo-transition.rkt"
   [zo-transition (-> zo String (values (U zo (Listof zo)) Boolean))])
-(require/typed "zo-find.rkt"
+(require/typed/check "zo-find.rkt"
   [zo-find (-> zo String [#:limit (U Natural #f)] (Listof result))]
   [#:struct result ([zo : zo]
                     [path : (Listof zo)])])
@@ -40,17 +41,17 @@
 
 ;; Entry point to the REPL, expects command-line arguments passed as a list.
 ;; In the future, there may be more entry points.
-(: init (-> (Vectorof String) Void))
+(: init (-> (Vector zo String) Void))
 (define (init args)
   (match args
-    ['#()
-     (print-usage)]
-    ;; Catch --help flag, and any others
-    [(? has-any-flags?) (print-usage)]
-    [(vector fname)
-     (filename->shell fname)]
-    [(vector fname args ...)
-     (find-all fname args)]))
+    [(vector ctx arg)
+     (find-all ctx (list arg))]))
+
+(: zo-read (-> Path-String zo))
+(define (zo-read fname)
+  (call-with-input-file fname
+    (lambda (port)
+      (zo-parse port))))
 
 ;; --- Commands (could go in their own file)
 
@@ -437,18 +438,11 @@
                  [c2 (in-string prefix)])
          (char=? c1 c2))))
 
-(: find-all (->* [String (Listof String)] [#:limit (U Natural #f)] Void))
-(define (find-all name args #:limit [lim #f])
-  (print-info (format "Loading bytecode file '~a'..." name))
-  (call-with-input-file name
-    (lambda ([port : Input-Port])
-      (print-info "Parsing bytecode...")
-      (define ctx (zo-parse port))
-      (print-info "Parsing complete! Searching...")
-      (for ([arg (in-list args)])
-        (printf "FIND '~a' : " arg)
-        (printf "~a results\n" (length (zo-find ctx arg #:limit lim))))
-      (displayln "All done!"))))
+(: find-all (->* [zo (Listof String)] [#:limit (U Natural #f)] Void))
+(define (find-all ctx args #:limit [lim #f])
+  (for ([arg (in-list args)])
+    (void (length (zo-find ctx arg #:limit lim))))
+  (void))
 
 ;; Split the string `raw` by whitespace and
 ;; return the second element of the split, if any.
