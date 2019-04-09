@@ -31,9 +31,8 @@
 
 (define-runtime-path PWD ".")
 
-(define TIME-LIMIT 60) ; seconds --- used to limit compile times & run times
-
-(define SEARCH-FOR-FILES-MATCHING "**/main.rkt")
+(define COMPILE-TIME-LIMIT 60) ; seconds
+(define RUN-TIME-LIMIT     (* 60 5)) ; seconds
 
 (define (contains-racket? d)
   (file-exists? (build-path d "racket")))
@@ -52,6 +51,8 @@
 (define TWC "typed-worst-case")
 (define TYPED "typed")
 (define UNTYPED "untyped")
+
+(define SEARCH-FOR-FILES-MATCHING "benchmarks/*/*/main.rkt")
 
 ;; -----------------------------------------------------------------------------
 
@@ -75,23 +76,23 @@
          (run-racket bin-dir name)
          #true)))
 
-(define (handle-resource-failure e)
-  (log-gtp-checkup-error "exceeded time limit (~as)" TIME-LIMIT)
+(define ((handle-resource-failure time-limit) e)
+  (log-gtp-checkup-error "exceeded time limit (~as)" time-limit)
   #f)
 
 (define (raco-make bin name)
-  (shell (build-path bin "raco") "make" name))
+  (shell #:time-limit COMPILE-TIME-LIMIT (build-path bin "raco") "make" name))
 
 (define (run-racket bin name)
-  (shell (build-path bin "racket") name))
+  (shell #:time-limit RUN-TIME-LIMIT (build-path bin "racket") name))
 
 (define (delete-compiled)
   (delete-directory/files "compiled" #:must-exist? #f))
 
-(define (shell cmd . arg*)
+(define (shell cmd #:time-limit [time-limit RUN-TIME-LIMIT] . arg*)
   (define success (box #f))
-  (with-handlers ([exn:fail:resource? handle-resource-failure])
-    (with-deep-time-limit TIME-LIMIT
+  (with-handlers ([exn:fail:resource? (handle-resource-failure time-limit)])
+    (with-deep-time-limit time-limit
       (set-box! success (apply system* cmd arg*)))
     (unbox success)))
 
@@ -129,6 +130,7 @@
 (define (import/gtp-dir src-dir)
   (define program-name (directory-name-from-path src-dir))
   (define typed-dir (build-path src-dir TYPED))
+  (define untyped-dir (build-path src-dir UNTYPED))
   (define copy-base-dir
     (make-copy-dir (build-path src-dir BASE)))
   (define copy-both-dir
@@ -138,10 +140,16 @@
   (void
     (make-directory new-dir))
   (copy-base-dir (build-path new-dir BASE))
-  (let ([new-t-dir (build-path new-dir TWC)])
+  (let ([new-u-dir (build-path new-dir UNTYPED)])
+    (copy-directory/files untyped-dir new-u-dir)
+    (copy-both-dir new-u-dir))
+  (let ([new-t-dir (build-path new-dir TYPED)])
     (copy-directory/files typed-dir new-t-dir)
-    (copy-both-dir new-t-dir)
-    (remove-require-typed-check new-t-dir))
+    (copy-both-dir new-t-dir))
+  (let ([new-twc-dir (build-path new-dir TWC)])
+    (copy-directory/files typed-dir new-twc-dir)
+    (copy-both-dir new-twc-dir)
+    (remove-require-typed-check new-twc-dir))
   (log-gtp-checkup-info "finished importing '~a', please check that everything looks good and that 'main.rkt' runs" program-name)
   (void))
 
@@ -199,8 +207,8 @@
       (with-input-from-file fn
         (lambda ()
           (for ((ln (in-lines)))
-            (writeln (string-replace* ln '(("require-typed-check" " ") ("require/typed/check" "require/typed")))))))))
-  (copy-file tmp fn)
+            (displayln (string-replace* ln '(("require-typed-check" " ") ("require/typed/check" "require/typed")))))))))
+  (copy-file tmp fn #true)
   (void))
 
 (define (string-replace* str ft* #:all? [all? #true])
