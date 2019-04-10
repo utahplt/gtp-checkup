@@ -22,9 +22,9 @@ Each compile job and each run job has a time limit, to keep things from taking t
   @item{
     @history[#:changed "0.1"
       @elem{Renamed @bm{quadBG} to @bm{quadU} and replaced @bm{quadMB} with @bm{quadT}.
-            The version notes for
+            The version notes in
             @other-doc['(lib "gtp-benchmarks/scribblings/gtp-checkup.scrbl")
-                       #:indirect "GTP Benchmarks package"] explain why.
+                       #:indirect "GTP Benchmarks"] explain why.
             Updated other benchmarks to match the GTP benchmarks versions.}]}
 ]
 
