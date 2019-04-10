@@ -4,7 +4,7 @@
 (provide
   (contract-out
     (gtp-checkup
-     (-> racket-bin-dir/c void?))
+     (->* [racket-bin-dir/c] [#:iterations (or/c #f exact-positive-integer?)]  void?))
     (import-benchmark
      (-> directory-exists? void?))))
 
@@ -54,17 +54,20 @@
 
 (define SEARCH-FOR-FILES-MATCHING "benchmarks/*/*/main.rkt")
 
+(define DEFAULT-NUM-ITERATIONS 4)
+
 ;; -----------------------------------------------------------------------------
 
-(define (gtp-checkup bin-dir)
+(define (gtp-checkup bin-dir #:iterations [pre-iters #f])
+  (define iterations (or pre-iters DEFAULT-NUM-ITERATIONS))
   (define results
     (parameterize ([current-directory PWD])
       (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING)))
-        (cons main (checkup-file bin-dir main)))))
+        (cons main (checkup-file bin-dir main iterations)))))
   (log-gtp-checkup-info "=== FINISHED ===")
   (print-summary results))
 
-(define (checkup-file bin-dir main.rkt)
+(define (checkup-file bin-dir main.rkt iters)
   (define-values [dir name _] (split-path main.rkt))
   (define rel-dir (find-relative-path (current-directory) dir))
   (log-gtp-checkup-info "Checking '~a'" rel-dir)
@@ -73,7 +76,8 @@
          (log-gtp-checkup-info "compiling '~a'" name)
          (raco-make bin-dir name)
          (log-gtp-checkup-info "running '~a'" name)
-         (run-racket bin-dir name)
+         (for/and ((i (in-range iters)))
+           (run-racket bin-dir name))
          #true)))
 
 (define ((handle-resource-failure time-limit) e)
@@ -220,17 +224,25 @@
 
 (module* main racket/base
   (require racket/cmdline (submod ".."))
+  (define program-name "gtp-checkup")
   (define cmd-mode (box 'checkup))
+  (define new-iters (box #false))
+  (define (parse-iters str)
+    (define i-val (string->number str))
+    (if (or (not i-val) (< i-val 0))
+      (raise-argument-error (string->symbol program-name) "exact-positive-integer?" str)
+      i-val))
   (command-line
-   #:program "gtp-checkup"
+   #:program program-name
    #:once-any
    [("-n" "--new" "--import") "Import a new program" (set-box! cmd-mode 'import)]
+   [("-i" "--iters") i-str "Number of times to run each configuration" (set-box! new-iters (parse-iters i-str))]
    #:args (BIN-DIR)
    (case (unbox cmd-mode)
     [(import)
      (import-benchmark BIN-DIR)]
     [(checkup)
-     (gtp-checkup BIN-DIR)]
+     (gtp-checkup BIN-DIR #:iterations (unbox new-iters))]
     [else
      (raise-user-error 'gtp-checkup "unknown mode '~a', goodbye" (unbox cmd-mode))])))
 
