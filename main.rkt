@@ -4,7 +4,10 @@
 (provide
   (contract-out
     (gtp-checkup
-     (->* [racket-bin-dir/c] [#:iterations (or/c #f exact-positive-integer?)]  void?))
+     (->* [racket-bin-dir/c]
+          [#:iterations (or/c #f exact-positive-integer?)
+           #:timeout (or/c #f (cons/c exact-positive-integer? exact-positive-integer?))]
+          void?))
     (import-benchmark
      (-> directory-exists? void?))))
 
@@ -58,37 +61,41 @@
 
 ;; -----------------------------------------------------------------------------
 
-(define (gtp-checkup bin-dir #:iterations [pre-iters #f])
+(define (gtp-checkup bin-dir
+                     #:iterations [pre-iters #f]
+                     #:timeout [pre-timeout #f])
   (define iterations (or pre-iters DEFAULT-NUM-ITERATIONS))
+  (define timeout (or pre-timeout (cons COMPILE-TIME-LIMIT RUN-TIME-LIMIT)))
   (define results
     (parameterize ([current-directory PWD])
       (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING)))
-        (cons main (checkup-file bin-dir main iterations)))))
+        (cons main (checkup-file bin-dir main iterations timeout)))))
   (log-gtp-checkup-info "=== FINISHED ===")
   (print-summary results))
 
-(define (checkup-file bin-dir main.rkt iters)
+(define (checkup-file bin-dir main.rkt iters time*)
   (define-values [dir name _] (split-path main.rkt))
+  (define-values [compile-time-limit run-time-limit] (values (car time*) (cdr time*)))
   (define rel-dir (find-relative-path (current-directory) dir))
   (log-gtp-checkup-info "Checking '~a'" rel-dir)
   (parameterize ([current-directory dir])
     (and (delete-compiled)
          (log-gtp-checkup-info "compiling '~a'" name)
-         (raco-make bin-dir name)
+         (raco-make bin-dir name compile-time-limit)
          (log-gtp-checkup-info "running '~a'" name)
          (for/and ((i (in-range iters)))
-           (run-racket bin-dir name))
+           (run-racket bin-dir name run-time-limit))
          #true)))
 
 (define ((handle-resource-failure time-limit) e)
   (log-gtp-checkup-error "exceeded time limit (~as)" time-limit)
   #f)
 
-(define (raco-make bin name)
-  (shell #:time-limit COMPILE-TIME-LIMIT (build-path bin "raco") "make" name))
+(define (raco-make bin name time-limit)
+  (shell #:time-limit time-limit (build-path bin "raco") "make" name))
 
-(define (run-racket bin name)
-  (shell #:time-limit RUN-TIME-LIMIT (build-path bin "racket") name))
+(define (run-racket bin name time-limit)
+  (shell #:time-limit time-limit (build-path bin "racket") name))
 
 (define (delete-compiled)
   (delete-directory/files "compiled" #:must-exist? #f))
@@ -227,22 +234,32 @@
   (define program-name "gtp-checkup")
   (define cmd-mode (box 'checkup))
   (define new-iters (box #false))
+  (define new-timeout (box #false))
   (define (parse-iters str)
     (define i-val (string->number str))
     (if (or (not i-val) (< i-val 0))
       (raise-argument-error (string->symbol program-name) "exact-positive-integer?" str)
       i-val))
+  (define (parse-timeout str)
+    (define t-val (string->number str))
+    (if (or (not t-val) (< 0 t-val))
+      t-val
+      (raise-argument-error (string->symbol program-name) "(or/c #false exact-positive-integer?)" str)))
   (command-line
    #:program program-name
    #:once-any
    [("-n" "--new" "--import") "Import a new program" (set-box! cmd-mode 'import)]
    [("-i" "--iters") i-str "Number of times to run each configuration" (set-box! new-iters (parse-iters i-str))]
+   [("--time-limit") t-str "Max seconds to wait for a configuration to compile or run, or #false" (set-box! new-timeout (parse-timeout t-str))]
    #:args (BIN-DIR)
    (case (unbox cmd-mode)
     [(import)
      (import-benchmark BIN-DIR)]
     [(checkup)
-     (gtp-checkup BIN-DIR #:iterations (unbox new-iters))]
+     (define t
+       (let ((v (unbox new-timeout)))
+         (if v (cons v v) v)))
+     (gtp-checkup BIN-DIR #:iterations (unbox new-iters) #:timeout t)]
     [else
      (raise-user-error 'gtp-checkup "unknown mode '~a', goodbye" (unbox cmd-mode))])))
 
