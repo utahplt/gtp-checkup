@@ -1,0 +1,551 @@
+raco test: (submod "main.rkt" test)
+gtp-checkup: Checking 'benchmarks/acquire/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 961 real time: 964 gc time: 105
+gtp-checkup: Checking 'benchmarks/acquire/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5858 real time: 5874 gc time: 1580
+gtp-checkup: Checking 'benchmarks/acquire/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 439 real time: 440 gc time: 62
+gtp-checkup: Checking 'benchmarks/dungeon/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 167 real time: 167 gc time: 54
+gtp-checkup: Checking 'benchmarks/dungeon/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 73594 real time: 73772 gc time: 3636
+gtp-checkup: Checking 'benchmarks/dungeon/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 267 real time: 268 gc time: 16
+gtp-checkup: Checking 'benchmarks/forth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 15 real time: 15 gc time: 0
+gtp-checkup: Checking 'benchmarks/forth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/forth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 13 real time: 12 gc time: 0
+gtp-checkup: Checking 'benchmarks/fsm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 96 real time: 97 gc time: 5
+gtp-checkup: Checking 'benchmarks/fsm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 130532 real time: 130649 gc time: 57
+gtp-checkup: Checking 'benchmarks/fsm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 202 real time: 202 gc time: 13
+gtp-checkup: Checking 'benchmarks/fsmoo/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 337 real time: 338 gc time: 43
+gtp-checkup: Checking 'benchmarks/fsmoo/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/fsmoo/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 284 real time: 285 gc time: 7
+gtp-checkup: Checking 'benchmarks/gregor/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 272 real time: 273 gc time: 49
+gtp-checkup: Checking 'benchmarks/gregor/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 434 real time: 435 gc time: 11
+gtp-checkup: Checking 'benchmarks/gregor/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 281 real time: 281 gc time: 48
+gtp-checkup: Checking 'benchmarks/jpeg/typed'
+gtp-checkup: compiling 'main.rkt'
+bit-ports.rkt:61:53: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   ...
+bit-ports.rkt:105:78: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:133:21: for-loop
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   ...
+bit-ports.rkt:111:53: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:133:21: for-loop
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   ...
+Type Checker: Summary: 3 errors encountered
+  location...:
+   bit-ports.rkt:105:78
+   bit-ports.rkt:111:53
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   ...
+gtp-checkup: Checking 'benchmarks/jpeg/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+bit-ports.rkt:61:53: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/bit-ports.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/jfif.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/main.rkt
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:572:26
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:564:42
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:635:0: compile-root
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:782:4: compilation-manager-load-handler
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:439:5
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:266:21: try-next
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:243:2
+   ...
+bit-ports.rkt:105:78: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/bit-ports.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/jfif.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/main.rkt
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:133:21: for-loop
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:572:26
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:564:42
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:635:0: compile-root
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:782:4: compilation-manager-load-handler
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:439:5
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:266:21: try-next
+   ...
+bit-ports.rkt:111:53: Type Checker: missing type for identifier;
+ consider using `require/typed' to import it
+  identifier: natural?
+  from module: typed/racket
+  in: natural?
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/bit-ports.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/jfif.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/main.rkt
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:133:21: for-loop
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:572:26
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:564:42
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:635:0: compile-root
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:782:4: compilation-manager-load-handler
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:439:5
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:266:21: try-next
+   ...
+Type Checker: Summary: 3 errors encountered
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/bit-ports.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/jfif.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/jpeg/typed-worst-case/main.rkt
+  location...:
+   bit-ports.rkt:105:78
+   bit-ports.rkt:111:53
+  context...:
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:344:0: type-check
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:587:0: tc-module
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:572:26
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:564:42
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:635:0: compile-root
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:782:4: compilation-manager-load-handler
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:439:5
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:266:21: try-next
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:243:2
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   ...
+gtp-checkup: Checking 'benchmarks/jpeg/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 357 real time: 358 gc time: 73
+gtp-checkup: Checking 'benchmarks/kcfa/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1090 real time: 1091 gc time: 53
+gtp-checkup: Checking 'benchmarks/kcfa/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 6026 real time: 6034 gc time: 208
+gtp-checkup: Checking 'benchmarks/kcfa/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1027 real time: 1028 gc time: 55
+gtp-checkup: Checking 'benchmarks/lnm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4745 real time: 4752 gc time: 882
+gtp-checkup: Checking 'benchmarks/lnm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4828 real time: 4836 gc time: 917
+gtp-checkup: Checking 'benchmarks/lnm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 899 real time: 900 gc time: 29
+gtp-checkup: Checking 'benchmarks/mbta/typed'
+gtp-checkup: compiling 'main.rkt'
+/home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/mbta/base/compiled/t-view-types_rkt.zo::1: read (compiled): wrong version for compiled code
+  compiled version: 6.8
+  expected version: 6.9
+  context...:
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   ...
+gtp-checkup: Checking 'benchmarks/mbta/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16.56
+cpu time: 1129 real time: 1132 gc time: 56
+gtp-checkup: Checking 'benchmarks/mbta/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 600 real time: 601 gc time: 48
+gtp-checkup: Checking 'benchmarks/morsecode/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1679 real time: 1682 gc time: 43
+gtp-checkup: Checking 'benchmarks/morsecode/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2683 real time: 2686 gc time: 11
+gtp-checkup: Checking 'benchmarks/morsecode/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1709 real time: 1710 gc time: 9
+gtp-checkup: Checking 'benchmarks/quadT/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: exceeded time limit (60s)
+gtp-checkup: Checking 'benchmarks/quadT/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+contract violation
+  Attempted to use a higher-order value passed as `Any` in untyped code: '#hash()
+  in: Any
+  contract from: typed-world
+  blaming: cast
+   (assuming the contract is correct)
+  at: /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/ocm.rkt:141.26
+  context...:
+   /home/ben/code/racket/6.9/racket/collects/racket/contract/private/blame.rkt:159:0: raise-blame-error16
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/ocm.rkt:121:2: for-loop
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/ocm.rkt:114:0: interpolate2
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/ocm.rkt:178:0: advance!
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/ocm.rkt:171:0: min-index
+   /home/ben/code/racket/6.9/racket/collects/racket/contract/private/arrow-higher-order.rkt:346:33
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt:497:0: core95
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt:450:2: core87
+   /home/ben/code/racket/6.9/racket/collects/racket/contract/private/../../private/kw.rkt:763:9
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt:167:0: block->lines
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt:119:55: for-loop
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt:116:36: for-loop
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt:110:0: typeset
+   /home/ben/code/racket/6.9/racket/collects/racket/contract/private/arrow-higher-order.rkt:346:33
+   .../more-scheme.rkt:336:52
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt: [running body]
+gtp-checkup: Checking 'benchmarks/quadT/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 786 real time: 787 gc time: 94
+gtp-checkup: Checking 'benchmarks/quadU/typed'
+gtp-checkup: compiling 'main.rkt'
+/home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/base/compiled/core-types_rkt.zo::1: read (compiled): wrong version for compiled code
+  compiled version: 6.8
+  expected version: 6.9
+  context...:
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   ...
+gtp-checkup: Checking 'benchmarks/quadU/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5637 real time: 5649 gc time: 329
+gtp-checkup: Checking 'benchmarks/quadU/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1118 real time: 1121 gc time: 44
+gtp-checkup: Checking 'benchmarks/sieve/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2729 real time: 2732 gc time: 173
+gtp-checkup: Checking 'benchmarks/sieve/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 12959 real time: 12980 gc time: 2049
+gtp-checkup: Checking 'benchmarks/sieve/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2823 real time: 2827 gc time: 206
+gtp-checkup: Checking 'benchmarks/snake/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 567 real time: 567 gc time: 57
+gtp-checkup: Checking 'benchmarks/snake/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 8877 real time: 8889 gc time: 62
+gtp-checkup: Checking 'benchmarks/snake/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 571 real time: 572 gc time: 13
+gtp-checkup: Checking 'benchmarks/suffixtree/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1983 real time: 1986 gc time: 39
+gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 80717 real time: 80881 gc time: 155
+gtp-checkup: Checking 'benchmarks/suffixtree/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2583 real time: 2588 gc time: 17
+gtp-checkup: Checking 'benchmarks/synth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: exceeded time limit (60s)
+gtp-checkup: Checking 'benchmarks/synth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 24690 real time: 24727 gc time: 2457
+gtp-checkup: Checking 'benchmarks/synth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 414 real time: 414 gc time: 70
+gtp-checkup: Checking 'benchmarks/take5/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1057 real time: 1060 gc time: 50
+gtp-checkup: Checking 'benchmarks/take5/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 99885 real time: 100101 gc time: 5311
+gtp-checkup: Checking 'benchmarks/take5/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 494 real time: 496 gc time: 11
+gtp-checkup: Checking 'benchmarks/tetris/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 732 real time: 733 gc time: 17
+gtp-checkup: Checking 'benchmarks/tetris/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 8332 real time: 8343 gc time: 78
+gtp-checkup: Checking 'benchmarks/tetris/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 817 real time: 818 gc time: 7
+gtp-checkup: Checking 'benchmarks/zombie/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 204 real time: 204 gc time: 57
+gtp-checkup: Checking 'benchmarks/zombie/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/zombie/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 43 real time: 43 gc time: 6
+gtp-checkup: Checking 'benchmarks/zordoz/typed'
+gtp-checkup: compiling 'main.rkt'
+.../code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/zordoz/base/compiled/compiler-zo-parse_rkt.zo::1: read (compiled): wrong version for compiled code
+  compiled version: 6.8
+  expected version: 6.9
+  context...:
+   standard-module-name-resolver
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:439:5
+   /home/ben/code/racket/6.9/racket/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:266:21: try-next
+   /home/ben/code/racket/6.9/racket/collects/racket/private/reqprov.rkt:243:2
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   standard-module-name-resolver
+   .../more-scheme.rkt:261:28
+   /home/ben/code/racket/6.9/racket/collects/racket/private/more-scheme.rkt:373:13: hash-ref!
+   /home/ben/code/racket/6.9/racket/share/pkgs/require-typed-check/private/require-typed-check.rkt:146:0
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:94:0: tc-module/full
+   /home/ben/code/racket/6.9/racket/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:23:4
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:363:0: compile-zo*
+   /home/ben/code/racket/6.9/racket/collects/compiler/cm.rkt:572:26
+   ...
+gtp-checkup: Checking 'benchmarks/zordoz/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 7338 real time: 7357 gc time: 418
+gtp-checkup: Checking 'benchmarks/zordoz/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 812 real time: 814 gc time: 77
+gtp-checkup: === FINISHED ===
+gtp-checkup: Error running the following files:
+gtp-checkup: - benchmarks/forth/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/fsmoo/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/jpeg/typed/main.rkt
+gtp-checkup: - benchmarks/jpeg/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/mbta/typed/main.rkt
+gtp-checkup: - benchmarks/quadT/typed/main.rkt
+gtp-checkup: - benchmarks/quadT/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/quadU/typed/main.rkt
+gtp-checkup: - benchmarks/synth/typed/main.rkt
+gtp-checkup: - benchmarks/zombie/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/zordoz/typed/main.rkt
