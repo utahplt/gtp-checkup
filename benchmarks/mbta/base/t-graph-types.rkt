@@ -13,7 +13,12 @@
  Colors->Lines)
 
 ;; ===================================================================================================
+
+;; 2019-04-11 : if necessary, we can hide the TR opaque error message with these comments
+;(define ep (current-error-port))
+;(current-error-port (open-output-nowhere))
 (require/typed "./graph/graph/main.rkt" [#:opaque Graph graph?])
+;(current-error-port ep)
 
 (define-type MBTA
   (Class 
