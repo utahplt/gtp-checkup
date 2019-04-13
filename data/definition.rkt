@@ -2,14 +2,29 @@
 
 (require racket/contract)
 (provide
-  benchmark-name?
-  cpu-time?
-  configuration-data?
-  configuration-name?
-  benchmarks-data?
-  commit-name?
-  commit-data?
-  machine-data?)
+  make-commit-data
+  make-machine-data
+  (contract-out
+    (configuration-name*
+      (listof symbol?))
+    (benchmark-name?
+      (-> any/c boolean?))
+    (cpu-time?
+      (-> any/c boolean?))
+    (configuration-data?
+      (-> any/c boolean?))
+    (configuration-name?
+      (-> any/c boolean?))
+    (benchmarks-data?
+      (-> any/c boolean?))
+    (commit-name?
+      (-> any/c boolean?))
+    (struct commit-data
+            ((id commit-name?)
+             (benchmark# benchmarks-data?)))
+    (struct machine-data
+            ((id machine-name?)
+             (commit* (listof commit-data?))))))
 
 ;; -----------------------------------------------------------------------------
 
@@ -22,7 +37,14 @@
 
 (define configuration-name? (or/c 'untyped 'typed 'typed-worst-case))
 
-(define benchmarks-data? (hash/c benchmark-name? (hash/c configuration-name? configuration-data?)))
+(define configuration-name* '(untyped typed typed-worst-case))
+
+(define benchmarks-data?
+  (hash/c benchmark-name?
+          (hash/c configuration-name?
+                  configuration-data?
+                  #:immutable #true #:flat? #true)
+          #:immutable #true #:flat? #true))
 
 (define commit-name?
   ;; <TIMESTAMP>_<COMMIT-HASH>.txt
@@ -31,7 +53,10 @@
     (lambda (str)
       (and (string? str) (regexp-match? rx str)))))
 
-(define commit-data? (cons/c commit-name? benchmarks-data?))
+(struct commit-data [id benchmark#] #:prefab)
+(define make-commit-data commit-data)
 
-(define machine-data? (cons/c directory-exists? (listof commit-data?)))
+(define machine-name? string?)
+(struct machine-data [id commit*] #:prefab)
+(define make-machine-data machine-data)
 

@@ -39,12 +39,16 @@
     (check-pred commit-name? "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f")))
 
 (define (load-directory src-dir)
+  (define m-id (directory->machine-name src-dir))
   (define d*
     (for/list ((data-file (in-glob (build-path src-dir "*.txt")))
                #:when (commit-name? (path->name data-file)))
-      (cons (path->name data-file)
-            (load-file data-file))))
-  (cons src-dir d*))
+      (make-commit-data (path->name data-file) (load-file data-file))))
+  (make-machine-data m-id d*))
+
+(define (directory->machine-name src-dir)
+  (define-values [_base name _mbd] (split-path src-dir))
+  (path-string->string src-dir))
 
 (define (path->name pth)
   (path-string->string (path-replace-extension (file-name-from-path pth) "")))
@@ -160,6 +164,8 @@
             (zordoz .  #hasheq((typed . error) (typed-worst-case . (7472)) (untyped . (815)))))))
 
   (test-case "load-directory"
-    (check-equal? (length (cdr (load-directory "nsa")))
+    (define md (load-directory "nsa"))
+    (check-equal? (machine-data-id md) "nsa")
+    (check-equal? (length (machine-data-commit* md))
                   (length (glob "nsa/*.txt"))))
 )
