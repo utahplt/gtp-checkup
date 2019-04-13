@@ -16,6 +16,7 @@
 (require
   file/glob
   racket/path
+  gtp-checkup/data/definition
   (only-in racket/file
     file->lines)
   (only-in racket/list
@@ -33,29 +34,17 @@
 
 ;; =============================================================================
 
-(define benchmark-name? symbol?) ;; additionally matches the name of a `benchmarks/` folder
-(define cpu-time? exact-nonnegative-integer?)
-(define configuration-data? (or/c 'error (listof cpu-time?) (cons/c 'timeout exact-nonnegative-integer?)))
-(define configuration-name? (or/c 'untyped 'typed 'typed-worst-case))
-(define benchmarks-data? (hash/c benchmark-name? (hash/c configuration-name? configuration-data?)))
-(define commit-name?
-  ;; <TIMESTAMP>_<COMMIT-HASH>.txt
-  ;; e.g. 2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f
-  (let ((rx #px"^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]Z[+-][0-9][0-9][0-9][0-9]_[a-z0-9]{40}$"))
-    (lambda (str)
-      (and (string? str) (regexp-match? rx str)))))
-(define commit-data? (cons/c commit-name? benchmarks-data?))
-(define machine-data? (listof commit-data?))
-
 (module+ test
   (test-case "commit-name?"
     (check-pred commit-name? "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f")))
 
 (define (load-directory src-dir)
-  (for/list ((data-file (in-glob (build-path src-dir "*.txt")))
-             #:when (commit-name? (path->name data-file)))
-    (cons (path->name data-file)
-          (load-file data-file))))
+  (define d*
+    (for/list ((data-file (in-glob (build-path src-dir "*.txt")))
+               #:when (commit-name? (path->name data-file)))
+      (cons (path->name data-file)
+            (load-file data-file))))
+  (cons src-dir d*))
 
 (define (path->name pth)
   (path-string->string (path-replace-extension (file-name-from-path pth) "")))
@@ -171,6 +160,6 @@
             (zordoz .  #hasheq((typed . error) (typed-worst-case . (7472)) (untyped . (815)))))))
 
   (test-case "load-directory"
-    (check-equal? (length (load-directory "nsa"))
+    (check-equal? (length (cdr (load-directory "nsa")))
                   (length (glob "nsa/*.txt"))))
 )
