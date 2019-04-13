@@ -2,8 +2,6 @@
 
 (require racket/contract)
 (provide
-  make-commit-data
-  make-machine-data
   (contract-out
     (configuration-name*
       (listof symbol?))
@@ -11,6 +9,12 @@
       (-> any/c boolean?))
     (cpu-time?
       (-> any/c boolean?))
+    (cpu-time*?
+      (-> any/c boolean?))
+    (timeout?
+      (-> any/c boolean?))
+    (timeout->time-limit
+      (-> timeout? exact-nonnegative-integer?))
     (configuration-data?
       (-> any/c boolean?))
     (configuration-name?
@@ -22,9 +26,13 @@
     (struct commit-data
             ((id commit-name?)
              (benchmark# benchmarks-data?)))
+    (make-commit-data
+      (-> commit-name? benchmarks-data? commit-data?))
     (struct machine-data
             ((id machine-name?)
-             (commit* (listof commit-data?))))))
+             (commit* (listof commit-data?))))
+    (make-machine-data
+      (-> machine-name? (listof commit-data?) machine-data?))))
 
 ;; -----------------------------------------------------------------------------
 
@@ -33,7 +41,13 @@
 
 (define cpu-time? exact-nonnegative-integer?)
 
-(define configuration-data? (or/c 'error (listof cpu-time?) (cons/c 'timeout exact-nonnegative-integer?)))
+(define cpu-time*? (listof cpu-time?))
+
+(define timeout? (cons/c 'timeout exact-nonnegative-integer?))
+
+(define timeout->time-limit cdr)
+
+(define configuration-data? (or/c 'error cpu-time*? timeout?))
 
 (define configuration-name? (or/c 'untyped 'typed 'typed-worst-case))
 
