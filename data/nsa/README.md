@@ -10,6 +10,12 @@ nsa
   440 Huntington Avenue
   Boston, MA, 02115
 
+uname -a
+---
+
+```
+Linux NSA 4.15.18-2-MANJARO #1 SMP PREEMPT Fri May 11 06:26:10 UTC 2018 x86_64 GNU/Linux
+```
 
 lscpu (2019-04-11)
 ---
