@@ -28,11 +28,11 @@
   (define m-id (machine-data-id md))
   (define benchmark-name* (machine-data->benchmark-name* md))
   (define min-timeout (min* (machine-data->timeout* md)))
-  (define max-cpu-time (max* (machine-data->cpu-time* md)))
   (parameterize ([plot-x-ticks (date-ticks)]
                  [plot-width (*wide-plot-width*)]
                  [point-alpha 0.8])
     (for/list ([b-id (in-list benchmark-name*)])
+      (define max-cpu-time (box 0))
       (plot-pict
         (for/list ((cfg (in-list configuration-name*)))
           (define point-color (configuration-name->color cfg))
@@ -42,8 +42,11 @@
               (define ms (commit-id->ms (commit-data-id cd)))
               (define cfg# (hash-ref (commit-data-benchmark# cd) b-id))
               (define-values [k v]
-                (let ((r (hash-ref cfg# cfg)))
-                  (values (result->kind r) (or (result->natural r) min-timeout))))
+                (let* ((r (hash-ref cfg# cfg))
+                       (n (result->natural r)))
+                  (when n
+                    (set-box! max-cpu-time (max n (unbox max-cpu-time))))
+                  (values (result->kind r) (or n min-timeout))))
               (hash-update acc
                            k
                            (lambda (p*)
@@ -54,8 +57,8 @@
                     #:color point-color
                     #:fill-color point-color
                     #:sym (kind->symbol r-kind))))
-        #:x-min 0
-        #:x-max (min min-timeout max-cpu-time)
+        #:y-min 0
+        #:y-max (min min-timeout (unbox max-cpu-time))
         #:width (plot-width)
         #:height (* 3/4 (plot-width))
         #:title (format "~a, ~a" b-id m-id)
@@ -163,7 +166,7 @@
 (define (result->natural x)
   (cond
     [(cpu-time*? x)
-     (mean x)]
+     (/ (mean x) 1000)]
     [(timeout? x)
      #f]
     [else
