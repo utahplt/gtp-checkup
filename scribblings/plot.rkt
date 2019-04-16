@@ -72,9 +72,17 @@
                  [plot-font-size 18]
                  [plot-font-family 'default])
     (for/list ([b-id (in-list benchmark-name*)])
-      (define *max-cpu-time (box 0))
-      (define *min-time (box #f))
-      (define *max-time (box #f))
+      (define-values [max-cpu-time min-time max-time]
+        (for*/fold ((t-cpu #f)
+                    (t-min #f)
+                    (t-max #f))
+                   ((cd (in-list (machine-data-commit* md))))
+          (define ctime (commit-id->time (commit-data-id cd)))
+          (define n* (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
+                       (result->natural v #f)))
+          (values (max* (filter values (cons t-cpu n*)))
+                  (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
+                  (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
       (define renderer*
         (for/list ((cfg (in-list configuration-name*)))
           ;; cfg = a dataset ... one group of points
@@ -82,24 +90,11 @@
           (define p* ;; collect all, find max/min statistics
             (for/list ((cd (in-list (machine-data-commit* md))))
               (define commit-seconds
-                (let ((ctime (commit-id->time (commit-data-id cd)))
-                      (old-min (unbox *min-time))
-                      (old-max (unbox *max-time)))
-                  (when (or (not old-min) (datetime<? ctime old-min))
-                    (set-box! *min-time ctime))
-                  (when (or (not old-max) (datetime<? old-max ctime))
-                    (set-box! *max-time ctime))
-                  (->posix ctime)))
+                (->posix (commit-id->time (commit-data-id cd))))
               (define r-val
-                (let* ((r-val (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
-                       (n (result->natural r-val 0)))
-                  (when (and n (< (unbox *max-cpu-time) n))
-                    (set-box! *max-cpu-time n))
-                  r-val))
+                (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
               (cons commit-seconds r-val)))
-          (define max-cpu-time (unbox *max-cpu-time))
           (define (point->plot-point p)
-            ;; slight misnomer, because `p` might be a valid plot point --- if the `cdr` is right
             (vector (car p) (result->natural (cdr p) max-cpu-time)))
           (define point-renderer*
             (filter
@@ -128,8 +123,6 @@
                   #:width width
                   #:alpha alpha))))
           (list line-renderer* point-renderer*)))
-      (define-values [max-cpu-time min-time max-time]
-        (values (unbox *max-cpu-time) (unbox *min-time) (unbox *max-time)))
       (define time-padding day-seconds)
       (define the-plot
         (plot-pict
@@ -392,72 +385,19 @@
   (define aquire-data
     '#s(machine-data
          "/path/to/../data/nsa"
-         (#s(commit-data "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f"
-                         #hasheq((acquire . #hasheq((typed . (934)) (typed-worst-case . (5731)) (untyped . (426))))))
-          #s(commit-data "2017-04-27T09:21:16Z-0500_70348f2b84459a5eb3e8feaa737e70028ece0747"
-                         #hasheq((acquire . #hasheq((typed . (961)) (typed-worst-case . (5858)) (untyped . (439))))))
-          #s(commit-data "2018-07-27T10:22:15Z-0500_00f2b69e22f7f5bf87c43fb2513fd8f2da269cef"
-                         #hasheq((acquire . #hasheq((typed . (1066)) (typed-worst-case . (2971)) (untyped . (469))))))
-          #s(commit-data "2018-10-26T14:51:55Z-0500_3475e86862a6fd5389ff5f22c456107c74fd05c5"
-                         #hasheq((acquire . #hasheq((typed . (984)) (typed-worst-case . (2916)) (untyped . (462))))))
-          #s(commit-data "2019-01-30T09:19:22Z-0600_5bf83b8ef26856bc473eaf74fc8ee4813e167f9e"
-                         #hasheq((acquire . #hasheq((typed . (843)) (typed-worst-case . (1892)) (untyped . (462))))))
-          #s(commit-data "2019-02-25T13:10:08Z-0700_84837f4330cef3df9271b778f2fbfba09d34fc3b"
-                         #hasheq((acquire . #hasheq((typed . (854 843 857 875 852 861 873 854 837 847)) (typed-worst-case . (1901 1895 1864 1887 1859 1878 1923 1877 1873 1892)) (untyped . (469 462 460 453 462 466 464 464 477 462))))))
-          #s(commit-data "2019-03-15T22:13:10Z-0500_ce324be9f8b8ad8b88bc3a39e7b1de438b462c87"
-                         #hasheq((acquire . #hasheq((typed . (865 866 869 854 848 852 864 847 847 838)) (typed-worst-case . (1889 1898 1923 1852 1876 1893 1917 1869 1863 1886)) (untyped . (486 457 467 466 469 462 470 476 464 467))))))
-          #s(commit-data "2019-03-16T17:11:55Z-0400_a2d87c353eb3ae6431a91a2e924c2216756ff079"
-                         #hasheq((acquire . #hasheq((typed . (840 860 847 860 858 868 840 865 841 840)) (typed-worst-case . (1876 1952 1893 1895 1905 1869 1963 1883 1882 1937)) (untyped . (470 469 471 473 482 468 480 462 465 470))))))
-          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475"
-                         #hasheq((acquire . #hasheq((typed . (857 865 871 851 842 854 852 845 872 859)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae"
-                         #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546"
-                         #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
-          #s(commit-data "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f"
-                         #hasheq((acquire . #hasheq((typed . (934)) (typed-worst-case . (5731)) (untyped . (426))))))
-          #s(commit-data "2017-04-27T09:21:16Z-0500_70348f2b84459a5eb3e8feaa737e70028ece0747"
-                         #hasheq((acquire . #hasheq((typed . (961)) (typed-worst-case . (5858)) (untyped . (439))))))
-          #s(commit-data "2018-07-27T10:22:15Z-0500_00f2b69e22f7f5bf87c43fb2513fd8f2da269cef"
-                         #hasheq((acquire . #hasheq((typed . (1066)) (typed-worst-case . (2971)) (untyped . (469))))))
-          #s(commit-data "2018-10-26T14:51:55Z-0500_3475e86862a6fd5389ff5f22c456107c74fd05c5"
-                         #hasheq((acquire . #hasheq((typed . (984)) (typed-worst-case . (2916)) (untyped . (462))))))
-          #s(commit-data "2019-01-30T09:19:22Z-0600_5bf83b8ef26856bc473eaf74fc8ee4813e167f9e"
-                         #hasheq((acquire . #hasheq((typed . (843)) (typed-worst-case . (1892)) (untyped . (462))))))
-          #s(commit-data "2019-02-25T13:10:08Z-0700_84837f4330cef3df9271b778f2fbfba09d34fc3b"
-                         #hasheq((acquire . #hasheq((typed . (854 843 857 875 852 861 873 854 837 847)) (typed-worst-case . (1901 1895 1864 1887 1859 1878 1923 1877 1873 1892)) (untyped . (469 462 460 453 462 466 464 464 477 462))))))
-          #s(commit-data "2019-03-15T22:13:10Z-0500_ce324be9f8b8ad8b88bc3a39e7b1de438b462c87"
-                         #hasheq((acquire . #hasheq((typed . (865 866 869 854 848 852 864 847 847 838)) (typed-worst-case . (1889 1898 1923 1852 1876 1893 1917 1869 1863 1886)) (untyped . (486 457 467 466 469 462 470 476 464 467))))))
-          #s(commit-data "2019-03-16T17:11:55Z-0400_a2d87c353eb3ae6431a91a2e924c2216756ff079"
-                         #hasheq((acquire . #hasheq((typed . (840 860 847 860 858 868 840 865 841 840)) (typed-worst-case . (1876 1952 1893 1895 1905 1869 1963 1883 1882 1937)) (untyped . (470 469 471 473 482 468 480 462 465 470))))))
-          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475"
-                         #hasheq((acquire . #hasheq((typed . (857 865 871 851 842 854 852 845 872 859)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae"
-                         #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546"
-                         #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
-          #s(commit-data "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f"
-                         #hasheq((acquire . #hasheq((typed . (934)) (typed-worst-case . (5731)) (untyped . (426))))))
-          #s(commit-data "2017-04-27T09:21:16Z-0500_70348f2b84459a5eb3e8feaa737e70028ece0747"
-                         #hasheq((acquire . #hasheq((typed . (961)) (typed-worst-case . (5858)) (untyped . (439))))))
-          #s(commit-data "2018-07-27T10:22:15Z-0500_00f2b69e22f7f5bf87c43fb2513fd8f2da269cef"
-                         #hasheq((acquire . #hasheq((typed . (1066)) (typed-worst-case . (2971)) (untyped . (469))))))
-          #s(commit-data "2018-10-26T14:51:55Z-0500_3475e86862a6fd5389ff5f22c456107c74fd05c5"
-                         #hasheq((acquire . #hasheq((typed . (984)) (typed-worst-case . (2916)) (untyped . (462))))))
-          #s(commit-data "2019-01-30T09:19:22Z-0600_5bf83b8ef26856bc473eaf74fc8ee4813e167f9e"
-                         #hasheq((acquire . #hasheq((typed . (843)) (typed-worst-case . (1892)) (untyped . (462))))))
-          #s(commit-data "2019-02-25T13:10:08Z-0700_84837f4330cef3df9271b778f2fbfba09d34fc3b"
-                         #hasheq((acquire . #hasheq((typed . (854 843 857 875 852 861 873 854 837 847)) (typed-worst-case . (1901 1895 1864 1887 1859 1878 1923 1877 1873 1892)) (untyped . (469 462 460 453 462 466 464 464 477 462))))))
-          #s(commit-data "2019-03-15T22:13:10Z-0500_ce324be9f8b8ad8b88bc3a39e7b1de438b462c87"
-                         #hasheq((acquire . #hasheq((typed . (865 866 869 854 848 852 864 847 847 838)) (typed-worst-case . (1889 1898 1923 1852 1876 1893 1917 1869 1863 1886)) (untyped . (486 457 467 466 469 462 470 476 464 467))))))
-          #s(commit-data "2019-03-16T17:11:55Z-0400_a2d87c353eb3ae6431a91a2e924c2216756ff079"
-                         #hasheq((acquire . #hasheq((typed . (840 860 847 860 858 868 840 865 841 840)) (typed-worst-case . (1876 1952 1893 1895 1905 1869 1963 1883 1882 1937)) (untyped . (470 469 471 473 482 468 480 462 465 470))))))
-          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475"
-                         #hasheq((acquire . #hasheq((typed . (857 865 871 851 842 854 852 845 872 859)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae"
-                         #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
-          #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546"
-                         #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465)))))))))
+         (
+          #s(commit-data "2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f" #hasheq((acquire . #hasheq((typed . (934)) (typed-worst-case . (5731)) (untyped . (426))))))
+          #s(commit-data "2017-04-27T09:21:16Z-0500_70348f2b84459a5eb3e8feaa737e70028ece0747" #hasheq((acquire . #hasheq((typed . (961)) (typed-worst-case . (5858)) (untyped . (439))))))
+          #s(commit-data "2018-07-27T10:22:15Z-0500_00f2b69e22f7f5bf87c43fb2513fd8f2da269cef" #hasheq((acquire . #hasheq((typed . (1066)) (typed-worst-case . (2971)) (untyped . (469))))))
+          #s(commit-data "2018-10-26T14:51:55Z-0500_3475e86862a6fd5389ff5f22c456107c74fd05c5" #hasheq((acquire . #hasheq((typed . (984)) (typed-worst-case . (2916)) (untyped . (462))))))
+          #s(commit-data "2019-01-30T09:19:22Z-0600_5bf83b8ef26856bc473eaf74fc8ee4813e167f9e" #hasheq((acquire . #hasheq((typed . (843)) (typed-worst-case . (1892)) (untyped . (462))))))
+          #s(commit-data "2019-02-25T13:10:08Z-0700_84837f4330cef3df9271b778f2fbfba09d34fc3b" #hasheq((acquire . #hasheq((typed . (854 843 857 875 852 861 873 854 837 847)) (typed-worst-case . (1901 1895 1864 1887 1859 1878 1923 1877 1873 1892)) (untyped . (469 462 460 453 462 466 464 464 477 462))))))
+          #s(commit-data "2019-03-15T22:13:10Z-0500_ce324be9f8b8ad8b88bc3a39e7b1de438b462c87" #hasheq((acquire . #hasheq((typed . (865 866 869 854 848 852 864 847 847 838)) (typed-worst-case . (1889 1898 1923 1852 1876 1893 1917 1869 1863 1886)) (untyped . (486 457 467 466 469 462 470 476 464 467))))))
+          #s(commit-data "2019-03-16T17:11:55Z-0400_a2d87c353eb3ae6431a91a2e924c2216756ff079" #hasheq((acquire . #hasheq((typed . (840 860 847 860 858 868 840 865 841 840)) (typed-worst-case . (1876 1952 1893 1895 1905 1869 1963 1883 1882 1937)) (untyped . (470 469 471 473 482 468 480 462 465 470))))))
+          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475" #hasheq((acquire . #hasheq((typed . (timeout . 5500)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
+          #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae" #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
+          #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546" #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
+          )))
   (save-pict "acquire.png"
              (car (make-machine-data-pict* aquire-data)))
 )
