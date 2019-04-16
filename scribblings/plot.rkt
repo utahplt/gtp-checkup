@@ -122,7 +122,18 @@
                   #:color cfg-color
                   #:width width
                   #:alpha alpha))))
-          (list line-renderer* point-renderer*)))
+          (define commit-renderer*
+            (let ((new-fail? (change-type->predicate 'new-fail)))
+              (for/list ((pp (in-pairs p*))
+                         (c-id (in-list (map commit-data-id (cdr (machine-data-commit* md)))))
+                         #:when (new-fail? pp))
+                (point-pict (midpoint (point->plot-point (car pp))
+                                      (point->plot-point (cdr pp)))
+                            (commit-id->pict c-id)
+                            #:anchor 'bottom-right
+                            #:point-color 0
+                            #:point-fill-color 0))))
+          (list line-renderer* point-renderer* commit-renderer*)))
       (define time-padding day-seconds)
       (define the-plot
         (plot-pict
@@ -139,6 +150,30 @@
           #:x-label "commit date"
           #:y-label "runtime (seconds)"))
       (hb-append 10 the-plot (make-cfg-color-legend)))))
+
+(define (midpoint p0 p1)
+  (for/vector #:length 2
+              ((n0 (in-vector p0))
+               (n1 (in-vector p1)))
+    (/ (+ n0 n1) 2)))
+
+(module+ test
+  (test-case "midpoint"
+    (check-equal? (midpoint (vector 0 0) (vector 4 4))
+                  (vector 2 2))
+    (check-equal? (midpoint (vector 4 -4) (vector 0 4))
+                  (vector 2 0))))
+
+(define (commit-id->pict c-id)
+  (define commit-hash (cadr (string-split c-id "_")))
+  (define short-hash (substring commit-hash 0 7))
+  (define commit-txt (text short-hash (plot-font-family) (- (plot-font-size) 1)))
+  (add-rectangle-background
+    commit-txt
+    #:radius 2
+    #:draw-border? #true
+    #:x-margin 4
+    #:y-margin 4))
 
 (define (make-cfg-color-legend)
   (add-rectangle-background
