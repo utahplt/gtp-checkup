@@ -78,9 +78,11 @@
                     (t-max #f))
                    ((cd (in-list (machine-data-commit* md))))
           (define ctime (commit-id->time (commit-data-id cd)))
-          (define n* (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
-                       (result->natural v #f)))
-          (values (max* (filter values (cons t-cpu n*)))
+          (define n* (filter
+                       values
+                       (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
+                         (result->natural v #f))))
+          (values (if (null? n*) t-cpu (max* (cons (or t-cpu 0) n*)))
                   (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
                   (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
       (define renderer*
