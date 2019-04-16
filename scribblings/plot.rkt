@@ -46,16 +46,16 @@
 (define day-seconds (* 60 60 60 24))
 
 (define racket-release-time*
-  (list (datetime 2016 10 26) ;; 6.7
-        (datetime 2017 01 24)
-        (datetime 2017 04 27)
-        (datetime 2017 07 31)
-        (datetime 2017 09 12)
-        (datetime 2017 10 30)
-        (datetime 2018 01 26)
-        (datetime 2018 07 27)
-        (datetime 2018 10 26)
-        (datetime 2019 01 30)))
+  `(("6.7" ,(datetime 2016 10 26))
+    ("6.8" ,(datetime 2017 01 24))
+    ("6.9" ,(datetime 2017 04 27))
+    ("6.10" ,(datetime 2017 07 31))
+    ("6.10.1" ,(datetime 2017 09 12))
+    ("6.11" ,(datetime 2017 10 30))
+    ("6.12" ,(datetime 2018 01 26))
+    ("7.0" ,(datetime 2018 07 27))
+    ("7.1" ,(datetime 2018 10 26))
+    ("7.2" ,(datetime 2019 01 30))))
 
 (define change-type* '(slower faster new-fail new-fix still-fail))
 
@@ -167,9 +167,14 @@
 (define (commit-id->pict c-id)
   (define commit-hash (cadr (string-split c-id "_")))
   (define short-hash (substring commit-hash 0 7))
-  (define commit-txt (text short-hash (plot-font-family) (- (plot-font-size) 1)))
+  (make-label-pict short-hash))
+
+(define (make-label-pict str)
+  (add-label-background (text str (plot-font-family) (- (plot-font-size) 1))))
+
+(define (add-label-background pp)
   (add-rectangle-background
-    commit-txt
+    pp
     #:radius 2
     #:draw-border? #true
     #:x-margin 4
@@ -206,12 +211,24 @@
       (and (datetime<=?2 (car t*) (cadr t*)) (loop (cdr t*))))))
 
 (define (make-release-renderer* min-time max-time)
-  (for/list ((r (in-list racket-release-time*))
-             #:when (datetime<=? min-time r max-time))
-    (vrule (->posix r)
-           #:color (*release-rule-color*)
-           #:width (*release-rule-width*)
-           #:alpha (*release-rule-alpha*))))
+  (for/list ((rt (in-list racket-release-time*))
+             #:when (datetime<=? min-time (cadr rt) max-time))
+    (define x (->posix (cadr rt)))
+    (define r-lbl
+      (point-pict (vector x 0)
+                  (make-release-pict (car rt))
+                  #:anchor 'bottom
+                  #:point-sym 'none
+                  #:point-size 0))
+    (define r-bar
+      (vrule x
+             #:color (*release-rule-color*)
+             #:width (*release-rule-width*)
+             #:alpha (*release-rule-alpha*)))
+    (list r-bar r-lbl)))
+
+(define (make-release-pict str)
+  (make-label-pict str))
 
 (define (commit-id->time cid)
   ;; posix = seconds since UNIX epoch
