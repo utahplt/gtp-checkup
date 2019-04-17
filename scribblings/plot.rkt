@@ -8,11 +8,9 @@
 ;; - run more commits
 ;; -
 
-;; - larger X and TRI points
 ;; - smaller font for racket versions
 ;; - raise error & timeout dots --- what if we went from ~max up to a timeout?
 ;;   that line wouldn't look good
-;; - move legend to top, or close-to-top
 ;; - 
 
 (provide
@@ -52,6 +50,8 @@
 (define *release-rule-alpha* (make-parameter 0.14))
 
 (define day-seconds (* 60 60 60 24))
+
+(define result-kind* '(ok error timeout))
 
 (define racket-release-time*
   `(("6.7" ,(datetime 2016 10 26))
@@ -159,7 +159,7 @@
           #:title (format "~a" b-id)
           #:x-label "commit date"
           #:y-label "runtime (seconds)"))
-      (hb-append 10 the-plot (make-cfg-color-legend)))))
+      (ht-append 10 the-plot (make-machine-data-legend)))))
 
 (define (midpoint p0 p1)
   (for/vector #:length 2
@@ -177,10 +177,11 @@
 (define (commit-id->pict c-id)
   (define commit-hash (cadr (string-split c-id "_")))
   (define short-hash (substring commit-hash 0 7))
-  (make-label-pict short-hash))
+  (parameterize ((plot-font-size (max 10 (- (plot-font-size) 1))))
+    (make-label-pict short-hash)))
 
 (define (make-label-pict str)
-  (add-label-background (text str (plot-font-family) (- (plot-font-size) 1))))
+  (add-label-background (text str (plot-font-family) (plot-font-size))))
 
 (define (add-label-background pp)
   (add-rectangle-background
@@ -190,22 +191,51 @@
     #:x-margin 4
     #:y-margin 4))
 
+(define (make-machine-data-legend)
+  (vl-append
+    10
+    (make-cfg-color-legend)
+    (make-point-sym-legend)))
+
 (define (make-cfg-color-legend)
+  (make-legend-table
+    (for/list ((nm (in-list configuration-name*)))
+      (list (filled-rounded-rectangle 18 10
+                                      #:draw-border? #false
+                                      #:color (configuration-name->color nm))
+            (make-legend-text (symbol->string nm))))))
+
+(define (make-legend-text str)
+  (text str (plot-font-family) (plot-font-size)))
+
+(define (make-legend-table kv**)
   (add-rectangle-background
     #:radius 0
     #:x-margin 10
     #:y-margin 10
     (table 2
-           (apply append
-             (for/list ((nm (in-list configuration-name*)))
-               (list (filled-rounded-rectangle 18 10
-                                               #:draw-border? #false
-                                               #:color (configuration-name->color nm))
-                     (text (symbol->string nm) (plot-font-family) (plot-font-size)))))
+           (apply append kv**)
            lc-superimpose
            lc-superimpose
            10
            8)))
+
+(define (make-point-sym-legend)
+  (make-legend-table
+    (for/list ((rk (in-list result-kind*)))
+      (list (parameterize ((plot-decorations? #false))
+              (plot-pict
+                (points '#(#(0 0))
+                        #:sym (kind->symbol rk)
+                        #:size 8
+                        #:color "black"
+                        #:fill-color "black")
+                #:width 10
+                #:height 10
+                #:title #f
+                #:x-label #f
+                #:y-label #f))
+            (make-legend-text (symbol->string rk))))))
 
 (define (make-year-renderer* min-time max-time)
   (for/list ((y (in-range (->year min-time) (+ 1 (->year max-time)))))
@@ -238,7 +268,8 @@
     (list r-bar r-lbl)))
 
 (define (make-release-pict str)
-  (make-label-pict str))
+  (parameterize ((plot-font-size (max 10 (- (plot-font-size) 8))))
+    (make-label-pict str)))
 
 (define (commit-id->time cid)
   ;; posix = seconds since UNIX epoch
@@ -329,7 +360,7 @@
     ((ok)
      10)
     ((error timeout)
-     20)
+     14)
     (else
      (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'timeout)" x))))
 
