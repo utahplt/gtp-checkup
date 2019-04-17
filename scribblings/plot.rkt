@@ -8,11 +8,6 @@
 ;; - run more commits
 ;; -
 
-;; - smaller font for racket versions
-;; - raise error & timeout dots --- what if we went from ~max up to a timeout?
-;;   that line wouldn't look good
-;; - 
-
 (provide
   )
 
@@ -92,6 +87,8 @@
           (values (if (null? n*) t-cpu (max* (cons (or t-cpu 0) n*)))
                   (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
                   (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
+      (define y-max (* 1.1 max-cpu-time))
+      (define timeout-y (* 1.08 max-cpu-time))
       (define renderer*
         (for/list ((cfg (in-list configuration-name*)))
           ;; cfg = a dataset ... one group of points
@@ -104,7 +101,7 @@
                 (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
               (cons commit-seconds r-val)))
           (define (point->plot-point p)
-            (vector (car p) (result->natural (cdr p) max-cpu-time)))
+            (vector (car p) (result->natural (cdr p) timeout-y)))
           (define point-renderer*
             (filter
               values
@@ -153,7 +150,7 @@
           #:x-min (- (->posix min-time) time-padding)
           #:x-max (+ (->posix max-time) time-padding)
           #:y-min 0
-          #:y-max (+ max-cpu-time (expt 10 (- (order-of-magnitude max-cpu-time) 1)))
+          #:y-max y-max
           #:width (plot-width)
           #:height (* 3/4 (plot-width))
           #:title (format "~a" b-id)
