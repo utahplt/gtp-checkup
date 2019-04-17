@@ -5,6 +5,14 @@
 
 ;; TODO
 ;; - make scribble page with machine name + specs at top
+;; - run more commits
+;; -
+
+;; - larger X and TRI points
+;; - smaller font for racket versions
+;; - raise error & timeout dots --- what if we went from ~max up to a timeout?
+;;   that line wouldn't look good
+;; - move legend to top, or close-to-top
 ;; - 
 
 (provide
@@ -68,7 +76,6 @@
                  [plot-x-ticks (date-ticks #:formats '("~m/~d"))]
                  [plot-width (*wide-plot-width*)]
                  [point-alpha 0.8]
-                 [point-size (*release-rule-width*)]
                  [plot-font-size 18]
                  [plot-font-family 'default])
     (for/list ([b-id (in-list benchmark-name*)])
@@ -110,6 +117,7 @@
                      (points p*/kind
                              #:color (*point-outline-color*)
                              #:fill-color cfg-color
+                             #:size (kind->point-size r-kind)
                              #:sym (kind->symbol r-kind))))))
           (define line-renderer*
             (for/list ((dt (in-list change-type*)))
@@ -314,6 +322,15 @@
     ((timeout)
      'fulltriangledown)))
 
+(define (kind->point-size x)
+  (case x
+    ((ok)
+     10)
+    ((error timeout)
+     20)
+    (else
+     (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'timeout)" x))))
+
 (define configuration-name->color
   (let ((H #hasheq((typed . "Gold")
                    (untyped . "Plum")
@@ -433,10 +450,10 @@
 
 (module+ main
   (define-runtime-path data-dir "../data/")
-  #;(define d (load-directory (build-path data-dir "nsa")))
-  #;(save-pict "nsa.png"
+  (define d (load-directory (build-path data-dir "nsa")))
+  (save-pict "nsa.png"
              (apply vl-append 20 (make-machine-data-pict* d)))
-  (define aquire-data
+  #;(define aquire-data
     '#s(machine-data
          "/path/to/../data/nsa"
          (
@@ -452,7 +469,7 @@
           #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae" #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
           #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546" #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
           )))
-  (save-pict "acquire.png"
+  #;(save-pict "acquire.png"
              (car (make-machine-data-pict* aquire-data)))
 )
 
