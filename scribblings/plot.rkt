@@ -317,10 +317,12 @@
   (case x
     ((ok)
      'fullcircle)
-    ((error)
-     'times)
     ((timeout)
-     'fulltriangledown)))
+     'fulldiamond)
+    ((error)
+     'full8star)
+    (else
+      (raise-argument-error 'kind->symbol "(or/c 'ok 'timeout 'error)" x))))
 
 (define (kind->point-size x)
   (case x
