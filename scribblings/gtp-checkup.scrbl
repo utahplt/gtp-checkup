@@ -1,10 +1,20 @@
 #lang scribble/manual
 
+@require[
+  gtp-checkup/data/parse
+  gtp-checkup/scribblings/plot]
+
 @(define bm tt)
 
+@; -----------------------------------------------------------------------------
 @title{GTP Checkup}
 
-Usage:
+@; defmodulename ? ... anyway explain the motivation
+
+
+@section{Usage}
+
+@; TODO update the instructions ... maybe change the title here
 
 @itemlist[
 @item{Install this package}
@@ -28,3 +38,16 @@ Each compile job and each run job has a time limit, to keep things from taking t
             Updated other benchmarks to match the GTP benchmarks versions.}]}
 ]
 
+
+@section{Data}
+
+@(define (format-machine-spec dir)
+   (list
+     (exec "uname -a") ":"
+     (nested #:style 'inset (tt (directory->machine-uname dir)))))
+
+@(for/list ((name+data (in-list (parameterize ((*wide-plot-width* 550))
+                                  (make-all-machine-data-pict*)))))
+   (list (section (directory->machine-name (car name+data)))
+         (format-machine-spec (car name+data))
+         (cdr name+data)))
