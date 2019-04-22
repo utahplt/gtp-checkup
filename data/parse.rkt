@@ -5,8 +5,12 @@
 (require racket/contract)
 (provide
   (contract-out
+    (directory->machine-name
+      (-> path-string? string?))
+    (directory->machine-uname
+      (-> path-string? string?))
     (load-directory
-      (-> directory-exists? machine-data?))
+      (-> directory-exists? (or/c machine-data? #f)))
     ;; Extract all datasets in a directory.
     (load-file
       (-> file-exists? benchmarks-data?))
@@ -23,8 +27,7 @@
     index-where
     split-at
     take)
-  (only-in racket/string
-    string-prefix?)
+  racket/string
   (only-in gtp-util
     time-string->cpu-time
     path-string->string)
@@ -44,11 +47,32 @@
     (for/list ((data-file (in-glob (build-path src-dir "*.txt")))
                #:when (commit-name? (path->name data-file)))
       (make-commit-data (path->name data-file) (load-file data-file))))
-  (make-machine-data m-id d*))
+  (if (null? d*)
+    #f
+    (make-machine-data m-id d*)))
 
 (define (directory->machine-name src-dir)
   (define-values [_base name _mbd] (split-path src-dir))
-  (path-string->string src-dir))
+  (path-string->string name))
+
+(define (directory->machine-uname src-dir)
+  (define readme-str "README.md")
+  (define readme (build-path src-dir readme-str))
+  (unless (file-exists? readme)
+    (raise-argument-error 'directory->machine-uname
+                          (format "directory containing a '~a' file" readme-str)
+                          src-dir))
+  (with-input-from-file readme
+    (lambda ()
+      (void
+        ;; Ignore everything before the uname section
+        (let loop ()
+          (unless (string-contains? (read-line) "uname -a")
+            (loop))))
+      (let loop ()
+        (if (string-contains? (read-line) "```")
+          (read-line)
+          (loop))))))
 
 (define (path->name pth)
   (path-string->string (path-replace-extension (file-name-from-path pth) "")))
@@ -164,7 +188,9 @@
             (zordoz .  #hasheq((typed . error) (typed-worst-case . (7472)) (untyped . (815)))))))
 
   (test-case "load-directory"
-    (define md (load-directory "nsa"))
+    (define name "nsa")
+    (define md (or (load-directory name)
+                   (raise-user-error 'load-directory "failed to load '~a' directory" name)))
     (check-equal? (machine-data-id md) "nsa")
     (check-equal? (length (machine-data-commit* md))
                   (length (glob "nsa/*.txt"))))
