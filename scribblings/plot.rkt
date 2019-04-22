@@ -10,8 +10,10 @@
 
 (require racket/contract)
 (provide
-  (make-all-machine-data-pict*
-    (-> (listof (cons/c path-string? pict?)))))
+  *wide-plot-width*
+  (contract-out
+    (make-all-machine-data-pict*
+      (-> (listof (cons/c path-string? pict?))))))
 
 (require
   (only-in racket/math order-of-magnitude)
@@ -21,12 +23,13 @@
   (only-in gtp-util path-string->string)
   (only-in gregor ->posix parse-datetime ->year datetime datetime<?)
   (rename-in gregor [datetime<=? datetime<=?2])
+  file/glob
   gtp-checkup/data/definition
   gtp-checkup/data/parse
+  pict-abbrevs
   racket/generator
   racket/runtime-path
   racket/sequence
-  pict-abbrevs
   pict
   (only-in plot/utils ->pen-color)
   plot/no-gui)
@@ -78,13 +81,13 @@
 
 (define (directory->machine-data-pict dir)
   (define md (load-directory dir))
-  (and md (cons dir (apply vl-append 20 (make-machine-data-pict* d)))))
+  (and md (apply vl-append 20 (make-machine-data-pict* md))))
 
 (define (make-machine-data-pict* md)
   (define m-id (machine-data-id md))
   (define benchmark-name* (machine-data->benchmark-name* md))
   (parameterize (;; TODO possible to (1) set defaults (2) let users override (3) don't define new parameters like gtp-plot does?
-                 [plot-x-ticks (date-ticks #:formats '("~m/~d"))]
+                 [plot-x-ticks (date-ticks #:number 5 #:formats '("~m/~d"))]
                  [plot-width (*wide-plot-width*)]
                  [point-alpha 0.8]
                  [plot-font-size 18]
@@ -160,8 +163,8 @@
       (define time-padding day-seconds)
       (define the-plot
         (plot-pict
-          (list (make-release-renderer* min-time max-time)
-                (make-year-renderer* min-time max-time)
+          (list (make-year-renderer* min-time max-time)
+                (make-release-renderer* min-time max-time)
                 renderer*)
           #:x-min (- (->posix min-time) time-padding)
           #:x-max (+ (->posix max-time) time-padding)
@@ -172,7 +175,7 @@
           #:title (format "~a" b-id)
           #:x-label "commit date"
           #:y-label "runtime (seconds)"))
-      (ht-append 10 the-plot (make-machine-data-legend)))))
+      (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend))))))
 
 (define (midpoint p0 p1)
   (for/vector #:length 2
