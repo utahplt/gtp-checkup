@@ -4,12 +4,14 @@
 ;; See `data/` for raw data and `data/parse.rkt` for parsing tools.
 
 ;; TODO
-;; - make scribble page with machine name + specs at top
-;; - run more commits
+;; - machine specs in scribble page
+;; - find where dungeon started to fail, run more commits
 ;; -
 
+(require racket/contract)
 (provide
-  )
+  (make-all-machine-data-pict*
+    (-> (listof (cons/c path-string? pict?)))))
 
 (require
   (only-in racket/math order-of-magnitude)
@@ -62,7 +64,21 @@
 
 (define change-type* '(slower faster new-fail new-fix still-fail))
 
+(define-runtime-path data-dir "../data/")
+
 ;; -----------------------------------------------------------------------------
+
+(define (make-all-machine-data-pict*)
+  (filter
+    values
+    (for/list ((dir (in-glob (build-path data-dir "*/")))
+               #:when (if (directory-exists? dir) #true (begin (printf "oops ~s~n") #f)))
+      (define p (directory->machine-data-pict dir))
+      (and p (cons dir p)))))
+
+(define (directory->machine-data-pict dir)
+  (define md (load-directory dir))
+  (and md (cons dir (apply vl-append 20 (make-machine-data-pict* d)))))
 
 (define (make-machine-data-pict* md)
   (define m-id (machine-data-id md))
@@ -479,10 +495,11 @@
 ;; =============================================================================
 
 (module+ main
-  (define-runtime-path data-dir "../data/")
-  (define d (load-directory (build-path data-dir "nsa")))
-  (save-pict "nsa.png"
-             (apply vl-append 20 (make-machine-data-pict* d)))
+  (define (plot-dir name)
+    (define p (directory->machine-data-pict (build-path data-dir name)))
+    (save-pict (string-append name ".png") p))
+  #;(plot-dir "nsa")
+  #;(plot-dir "albany")
   #;(define aquire-data
     '#s(machine-data
          "/path/to/../data/nsa"
