@@ -4,9 +4,11 @@
 ;; See `data/` for raw data and `data/parse.rkt` for parsing tools.
 
 ;; TODO
-;; - machine specs in scribble page
 ;; - find where dungeon started to fail, run more commits
-;; -
+;; - add summary plot?
+;; - clean up the docs, add explaination
+;; - how to run other commits, continuously?
+;; - 
 
 (require racket/contract)
 (provide
@@ -87,7 +89,7 @@
   (define m-id (machine-data-id md))
   (define benchmark-name* (machine-data->benchmark-name* md))
   (parameterize (;; TODO possible to (1) set defaults (2) let users override (3) don't define new parameters like gtp-plot does?
-                 [plot-x-ticks (date-ticks #:number 5 #:formats '("~m/~d"))]
+                 [plot-x-ticks (date-ticks #:number 3 #:formats '("~Y"))]
                  [plot-width (*wide-plot-width*)]
                  [point-alpha 0.8]
                  [plot-font-size 18]
