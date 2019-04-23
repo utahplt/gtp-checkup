@@ -1,6 +1,7 @@
 RACKET=racket
 RACO=raco
 MAIN=main.rkt
+NIGHTLY=nightly.rkt
 
 all:
 	${RACO} make ${MAIN}
