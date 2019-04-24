@@ -1,6 +1,7 @@
 #lang racket/base
 
 (require
+  basedir
   racket/os
   racket/string
   racket/system
@@ -12,7 +13,7 @@
 ;; =============================================================================
 
 (define-runtime-path CWD ".")
-(define SRC "src")
+(define SRC (writable-data-dir #:program "gtp-checkup"))
 (define DATA "data")
 (define RACKET "racket")
 (define BIN "bin")
@@ -23,12 +24,12 @@
 
 (module+ main
   (parameterize ((current-directory CWD))
-    (define rkt-dir (download-racket))
-    (unless (is-new-commit? rkt-dir)
+    (define rkt-dir (build-path SRC "2019-04-23/") #;(download-racket))
+    #;(unless (is-new-commit? rkt-dir)
       (raise-user-error PROGRAM "data for today already exists"))
-    (unless (install-racket rkt-dir)
+    #;(unless (install-racket rkt-dir)
       (raise-user-error PROGRAM "failed to install racket, sorry"))
-    (unless (install-gtp-checkup rkt-dir)
+    #;(unless (install-gtp-checkup rkt-dir)
       (raise-user-error PROGRAM "failed to install gtp-checkup, very sorry"))
     (run-checkup rkt-dir)))
 
@@ -36,7 +37,7 @@
 
 (define (download-racket)
   (define today (timestamp #false))
-  (define rkt-dir (build-path CWD SRC today))
+  (define rkt-dir (build-path SRC today))
   (when (directory-exists? rkt-dir)
     (raise-user-error PROGRAM "directory for today already exists (~a), goodbye" today))
   (unless (system (format "git clone https://github.com/racket/racket ~a"
@@ -45,20 +46,25 @@
   rkt-dir)
 
 (define (is-new-commit? rkt-dir)
-  (define rkt-filename (directory->data-filename rkt-dir))
-  (define machine-data-dir (find-machine-data-dir))
-  (not (file-exists? (build-path machine-data-dir rkt-filename))))
+  (define commit-file (directory->data-path rkt-dir))
+  (not (file-exists? commit-file)))
 
 (define (install-racket rkt-dir)
   (parameterize ((current-directory rkt-dir))
     (system "make")))
 
 (define (install-gtp-checkup rkt-dir)
-  (system* (build-path rkt-dir "racket" "bin" "raco") "pkg" "install" "--auto"))
+  (parameterize ((current-directory CWD))
+    (system* (build-path rkt-dir "racket" "bin" "raco") "pkg" "install" "--auto")))
 
 (define (run-checkup rkt-dir)
   (define bin-dir (build-path rkt-dir RACKET BIN))
-  (gtp-checkup bin-dir #:iterations 10))
+  (define commit-file (directory->data-path rkt-dir))
+  (call-with-output-file commit-file
+    (lambda (op)
+      (parameterize ((current-output-port op)
+                     (current-error-port op))
+        (gtp-checkup bin-dir #:iterations 10)))))
 
 (define (directory->HEAD dir)
   (parameterize ((current-directory dir))
@@ -95,3 +101,8 @@
 
 (define (make-new-data-filename h t)
   (format "~a_~a.txt" t h))
+
+(define (directory->data-path rkt-dir)
+  (define rkt-filename (directory->data-filename rkt-dir))
+  (define machine-data-dir (find-machine-data-dir))
+  (build-path machine-data-dir rkt-filename))

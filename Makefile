@@ -1,5 +1,5 @@
-RACKET=racket
-RACO=raco
+RACKET=/usr/local/bin/racket
+RACO=/usr/local/bin/raco
 MAIN=main.rkt
 NIGHTLY=nightly.rkt
 
