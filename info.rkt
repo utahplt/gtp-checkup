@@ -2,8 +2,11 @@
 (define collection "gtp-checkup")
 (define deps '(
   "base"
+  "basedir"
   "data-lib"
   "draw-lib"
+  "gregor"
+  "gtp-util"
   "math-lib"
   "memoize"
   "pict-lib"
