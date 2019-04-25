@@ -188,7 +188,7 @@
           #:y-max y-max
           #:width (plot-width)
           #:height (* 3/4 (plot-width))
-          #:title (format "~a" b-id)
+          #:title (format "~a : ~a" m-id b-id)
           #:x-label "commit date"
           #:y-label "runtime (seconds)"))
       (cons
