@@ -15,7 +15,8 @@
   *wide-plot-width*
   (contract-out
     (make-all-machine-data-pict*
-      (-> (listof (cons/c path-string? pict?))))))
+      (-> (flat-hash/c path-string?
+                       (flat-hash/c symbol? pict?))))))
 
 (require
   (only-in racket/math order-of-magnitude)
@@ -74,16 +75,29 @@
 ;; -----------------------------------------------------------------------------
 
 (define (make-all-machine-data-pict*)
-  (filter
-    values
-    (for/list ((dir (in-glob (build-path data-dir "*/")))
-               #:when (if (directory-exists? dir) #true (begin (printf "oops ~s~n") #f)))
-      (define p (directory->machine-data-pict dir))
-      (and p (cons dir p)))))
+  (let loop ((acc (make-immutable-hash))
+             (dir* (glob (build-path data-dir "*/"))))
+    (if (null? dir*)
+      acc
+      (if (not (directory-exists? (car dir*)))
+        (loop acc (cdr dir*))
+        (let ((p (directory->machine-data-pict* (car dir*))))
+          (if (not p)
+            (loop acc (cdr dir*))
+            (loop (hash-set acc (car dir*) (list->hash p)) (cdr dir*))))))))
+
+(define (list->hash kv*)
+  (for/hash ((kv (in-list kv*)))
+    (values (car kv) (cdr kv))))
 
 (define (directory->machine-data-pict dir)
+  (define bp* (directory->machine-data-pict* dir))
+  (and bp*
+       (apply vl-append 20 (map cdr bp*))))
+
+(define (directory->machine-data-pict* dir)
   (define md (load-directory dir))
-  (and md (apply vl-append 20 (make-machine-data-pict* md))))
+  (and md (make-machine-data-pict* md)))
 
 (define (make-machine-data-pict* md)
   (define m-id (machine-data-id md))
@@ -177,7 +191,9 @@
           #:title (format "~a" b-id)
           #:x-label "commit date"
           #:y-label "runtime (seconds)"))
-      (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend))))))
+      (cons
+        b-id
+        (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
 
 (define (midpoint p0 p1)
   (for/vector #:length 2
