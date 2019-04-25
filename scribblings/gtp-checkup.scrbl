@@ -4,6 +4,9 @@
   gtp-checkup/data/parse
   gtp-checkup/scribblings/plot
   (for-label
+    racket/base
+    racket/contract
+    gtp-checkup
     (only-in typed/racket require/typed))]
 
 @(define bm tt)
@@ -53,6 +56,48 @@ Run @exec{racket main.rkt --help} for more information.
             Updated other benchmarks to match the GTP benchmarks versions.}]}
 ]
 
+
+@section{Checkup API}
+
+@defmodule[gtp-checkup]{
+  Main entry point, for running the benchmarks and for importing a new benchmark.
+}
+
+@defproc[(gtp-checkup [bin racket-bin-dir/c]
+                      [#:iterations i (or/c #f exact-positive-integer?)]
+                      [#:timeout time-limit (or/c #f (cons/c exact-positive-integer? exact-positive-integer?))])
+         void?]{
+  Run the benchmarks using the given executables.
+  Post results to @racket[gtp-checkup-logger] at the @racket['info] level.
+
+  The value of @racket[i] determines the number of times to run each benchmark
+   configuration.
+
+  The value of @racket[time-limit] determines how long to wait for each
+   configuration to compile and run.
+  If @racket[time-limit] is a @racket[cons]-pair, then its @racket[car] is the compile-time
+   limit and its @racket[cdr] is the run-time limit.
+}
+
+@defproc[(import-benchmark [dir directory-exists?]) void?]{
+  Extract code from the given directory and create a new folder
+   in the @filepath{benchmarks/} directory of the @racketmodname[gtp-checkup]
+   repo.
+  The directory @racket[dir] must have a different name than any existing
+   benchmark, and it must match the subdirectory structure of a
+   @hyperlink["https://docs.racket-lang.org/gtp-benchmarks/index.html"]{GTP benchmark}.
+}
+
+@defthing[gtp-checkup-logger logger?]{
+  Receives messages about running times and timeouts.
+  To subscribe to this logger, set @litchar|{PLTSTDERR="error info@gtp-checkup"}|
+}
+
+
+@defproc[(racket-bin-dir/c [x any/c]) boolean?]{
+  Predicate for a directory that exists and contains @litchar{racket} and
+  @litchar{raco} executables.
+}
 
 @section{Checkup data for @tt{racket/racket}}
 
