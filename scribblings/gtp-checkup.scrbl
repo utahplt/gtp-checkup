@@ -2,27 +2,45 @@
 
 @require[
   gtp-checkup/data/parse
-  gtp-checkup/scribblings/plot]
+  gtp-checkup/scribblings/plot
+  (for-label
+    (only-in typed/racket require/typed))]
 
 @(define bm tt)
 
 @; -----------------------------------------------------------------------------
 @title{GTP Checkup}
 
-@; defmodulename ? ... anyway explain the motivation
+Source: @url{https://github.com/bennn/gtp-checkup}
+
+Contains a few configurations of the @hyperlink["https://docs.racket-lang.org/gtp-benchmarks/index.html"]{GTP benchmark programs},
+ code for continuously testing their performance as Racket changes,
+ and data from past runs.
 
 
-@section{Usage}
+@section[#:tag "gtp-checkup:basic-usage"]{Basic Usage}
 
-@; TODO update the instructions ... maybe change the title here
+To run a performance test on your machine:
 
 @itemlist[
-@item{Install this package}
+@item{Clone the repo
+  @itemlist[
+    @item{
+    Either via @tt{git clone},
+     or better yet via @exec{raco pkg install --clone gtp-checkup}
+     to get the dependencies.
+  }]}
 @item{Run @exec{make}}
+@item{See results on @litchar{STDOUT}}
 ]
 
-Compiles and runs all @tt{main.rkt} scripts in the @filepath{benchmarks/} directory.
-Each compile job and each run job has a time limit to keep things from taking too long.
+The Makefile compiles and runs all @tt{main.rkt} scripts in the
+ @filepath{benchmarks/} directory.
+Each compile job and each run job has a time limit to keep things from taking
+ too long.
+Run @exec{racket main.rkt --help} for more information.
+
+@section[#:tag "gtp-checkup:version-history"]{Version History}
 
 @itemlist[
   @item{
@@ -77,11 +95,13 @@ The data comes from the following machines:
         (for/list ((dir (in-hash-keys dir-pict#)))
           (item (list (tt (directory->machine-name dir)) " $ " (format-machine-spec dir)))))
 
-@(let ()
-   (define v0 (for/first ((v (in-hash-values dir-pict#))) v))
+The points labeled @bm{typed-worst-case} are for a configuration where:
+ (1) every module is typed and (2) every import is guarded with contracts
+ via @racket[require/typed].
+
+@(let ((v0 (for/first ((v (in-hash-values dir-pict#))) v)))
    (for/list ((bm (in-list (sort (hash-keys v0) symbol<?))))
      (cons
        (subsection (format "~a" bm))
-       (for/list (((dir pict#) (in-hash dir-pict#)))
-         (list (tt (directory->machine-name dir))
-               (hash-ref pict# bm))))))
+       (for/list ((pict# (in-hash-values dir-pict#)))
+         (hash-ref pict# bm)))))
