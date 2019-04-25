@@ -24,12 +24,12 @@
 
 (module+ main
   (parameterize ((current-directory CWD))
-    (define rkt-dir (build-path SRC "2019-04-23/") #;(download-racket))
-    #;(unless (is-new-commit? rkt-dir)
+    (define rkt-dir (download-racket))
+    (unless (is-new-commit? rkt-dir)
       (raise-user-error PROGRAM "data for today already exists"))
-    #;(unless (install-racket rkt-dir)
+    (unless (install-racket rkt-dir)
       (raise-user-error PROGRAM "failed to install racket, sorry"))
-    #;(unless (install-gtp-checkup rkt-dir)
+    (unless (install-gtp-checkup rkt-dir)
       (raise-user-error PROGRAM "failed to install gtp-checkup, very sorry"))
     (run-checkup rkt-dir)))
 
