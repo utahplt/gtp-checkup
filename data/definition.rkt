@@ -2,6 +2,7 @@
 
 (require racket/contract)
 (provide
+  flat-hash/c
   (contract-out
     (configuration-name*
       (listof symbol?))
@@ -36,6 +37,9 @@
 
 ;; -----------------------------------------------------------------------------
 
+(define (flat-hash/c k v)
+  (hash/c k v #:immutable #true #:flat? #true))
+
 (define benchmark-name? symbol?)
 ;; additionally matches the name of a `benchmarks/` folder
 
@@ -54,11 +58,8 @@
 (define configuration-name* '(untyped typed typed-worst-case))
 
 (define benchmarks-data?
-  (hash/c benchmark-name?
-          (hash/c configuration-name?
-                  configuration-data?
-                  #:immutable #true #:flat? #true)
-          #:immutable #true #:flat? #true))
+  (flat-hash/c benchmark-name?
+          (flat-hash/c configuration-name?  configuration-data?)))
 
 (define commit-name?
   ;; <TIMESTAMP>_<COMMIT-HASH>.txt
