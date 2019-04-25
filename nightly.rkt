@@ -19,6 +19,7 @@
 (define BIN "bin")
 (define RACO "raco")
 (define MAIN.rkt "main.rkt")
+(define NIGHTLY.log "nightly.log")
 
 (define PROGRAM 'nightly)
 
@@ -59,12 +60,18 @@
 
 (define (run-checkup rkt-dir)
   (define bin-dir (build-path rkt-dir RACKET BIN))
+  (gtp-checkup bin-dir #:iterations 10))
+
+(define (save-results rkt-dir)
   (define commit-file (directory->data-path rkt-dir))
-  (call-with-output-file commit-file
-    (lambda (op)
-      (parameterize ((current-output-port op)
-                     (current-error-port op))
-        (gtp-checkup bin-dir #:iterations 10)))))
+  (copy-file (build-path CWD NIGHTLY.log) commit-file)
+  (shell "git" (list "add" (path-string->string commit-file)))
+  (define commit-msg
+    (format "data/~a: snapshot" (find-machine-name)))
+  (shell "git" (list "commit" "-m" commit-msg))
+  (shell "git" (list "pull" "-r" "upstream" "master"))
+  #;(shell "git" (list "push" "upstream" "master"))
+  (void))
 
 (define (directory->HEAD dir)
   (parameterize ((current-directory dir))
