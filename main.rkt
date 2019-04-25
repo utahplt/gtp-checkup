@@ -2,6 +2,8 @@
 
 (require racket/contract)
 (provide
+  racket-bin-dir/c
+  gtp-checkup-logger
   (contract-out
     (gtp-checkup
      (->* [racket-bin-dir/c]
