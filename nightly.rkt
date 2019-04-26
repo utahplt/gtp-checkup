@@ -20,6 +20,7 @@
 (define RACO "raco")
 (define MAIN.rkt "main.rkt")
 (define NIGHTLY.log "nightly.log")
+(define BUILD.log "build-nightly.log")
 
 (define PROGRAM 'nightly)
 
@@ -29,10 +30,11 @@
     (unless (is-new-commit? rkt-dir)
       (raise-user-error PROGRAM "data for today already exists"))
     (unless (install-racket rkt-dir)
-      (raise-user-error PROGRAM "failed to install racket, sorry"))
+      (raise-user-error PROGRAM "failed to install racket, see log in '~a'" BUILD.log))
     (unless (install-gtp-checkup rkt-dir)
-      (raise-user-error PROGRAM "failed to install gtp-checkup, very sorry"))
-    (run-checkup rkt-dir)))
+      (raise-user-error PROGRAM "failed to install gtp-checkup, see log in '~a'" BUILD.log))
+    (run-checkup rkt-dir)
+    (save-results)))
 
 ;; -----------------------------------------------------------------------------
 
@@ -51,12 +53,18 @@
   (not (file-exists? commit-file)))
 
 (define (install-racket rkt-dir)
-  (parameterize ((current-directory rkt-dir))
-    (system "make")))
+  (with-output-to-file BUILD.log #:exists 'replace
+    (lambda ()
+      (parameterize ((current-directory rkt-dir)
+                     (current-error-port (current-output-port)))
+        (system "make")))))
 
 (define (install-gtp-checkup rkt-dir)
-  (parameterize ((current-directory CWD))
-    (system* (build-path rkt-dir "racket" "bin" "raco") "pkg" "install" "--auto")))
+  (with-output-to-file BUILD.log #:exists 'append
+    (lambda ()
+      (parameterize ((current-directory CWD)
+                     (current-error-port (current-output-port)))
+        (system* (build-path rkt-dir "racket" "bin" "raco") "pkg" "install" "--auto")))))
 
 (define (run-checkup rkt-dir)
   (define bin-dir (build-path rkt-dir RACKET BIN))
@@ -64,13 +72,15 @@
 
 (define (save-results rkt-dir)
   (define commit-file (directory->data-path rkt-dir))
+  (unless (file-exists? NIGHTLY.log)
+    (raise-argument-error 'save-results "file-exists?" NIGHTLY.log))
   (copy-file (build-path CWD NIGHTLY.log) commit-file)
   (shell "git" (list "add" (path-string->string commit-file)))
   (define commit-msg
     (format "data/~a: snapshot" (find-machine-name)))
   (shell "git" (list "commit" "-m" commit-msg))
   (shell "git" (list "pull" "-r" "upstream" "master"))
-  #;(shell "git" (list "push" "upstream" "master"))
+  (shell "git" (list "push" "upstream" "master"))
   (void))
 
 (define (directory->HEAD dir)
