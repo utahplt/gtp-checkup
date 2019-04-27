@@ -8,4 +8,5 @@ all:
 	PLTSTDERR="error info@gtp-checkup" ${RACO} test ${MAIN}
 
 nightly:
+	find . -name "compiled" -exec "rm -rf {}" \;
 	PLTSTDERR="error info@gtp-checkup" ${RACKET} ${NIGHTLY}
