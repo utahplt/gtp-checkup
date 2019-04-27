@@ -2,13 +2,15 @@
 
 (require
   basedir
-  racket/os
-  racket/string
-  racket/system
+  file/tar
   gtp-checkup
   gtp-util
   gtp-util/system
-  racket/runtime-path)
+  racket/os
+  racket/runtime-path
+  racket/string
+  racket/system
+  pkg/dirs-catalog)
 
 ;; =============================================================================
 
@@ -34,7 +36,8 @@
     (unless (install-gtp-checkup rkt-dir)
       (raise-user-error PROGRAM "failed to install gtp-checkup, see log in '~a'" BUILD.log))
     (run-checkup rkt-dir)
-    (save-results)))
+    (save-results rkt-dir)
+    (save-catalog rkt-dir)))
 
 ;; -----------------------------------------------------------------------------
 
@@ -82,6 +85,11 @@
   (shell "git" (list "pull" "-r" "upstream" "master"))
   (shell "git" (list "push" "upstream" "master"))
   (void))
+
+(define (save-catalog rkt-dir)
+  (define catalog-dest (path-replace-extension rkt-dir "-catalog"))
+  (void (create-dirs-catalog catalog-dest (list rkt-dir)))
+  (tar-gzip (path-add-extension catalog-dest ".tar.gz") catalog-dest))
 
 (define (directory->HEAD dir)
   (parameterize ((current-directory dir))
