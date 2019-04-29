@@ -78,12 +78,15 @@
   (unless (file-exists? NIGHTLY.log)
     (raise-argument-error 'save-results "file-exists?" NIGHTLY.log))
   (copy-file (build-path CWD NIGHTLY.log) commit-file)
-  (shell "git" (list "add" (path-string->string commit-file)))
-  (define commit-msg
-    (format "data/~a: snapshot" (find-machine-name)))
-  (shell "git" (list "commit" "-m" commit-msg))
-  (shell "git" (list "pull" "-r" "upstream" "master"))
-  (shell "git" (list "push" "upstream" "master"))
+  (with-output-to-file BUILD.log #:exists 'append
+    (lambda ()
+      (parameterize ((current-error-port (current-output-port)))
+        (shell "git" (list "add" (path-string->string commit-file)))
+        (define commit-msg
+          (format "data/~a: snapshot" (find-machine-name)))
+        (shell "git" (list "commit" "-m" commit-msg))
+        (shell "git" (list "pull" "-r" "upstream" "master"))
+        (shell "git" (list "push" "upstream" "master")))))
   (void))
 
 (define (save-catalog rkt-dir)
