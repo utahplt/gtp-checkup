@@ -9,8 +9,7 @@
   racket/os
   racket/runtime-path
   racket/string
-  racket/system
-  pkg/dirs-catalog)
+  racket/system)
 
 ;; =============================================================================
 
@@ -36,8 +35,7 @@
     (unless (install-gtp-checkup rkt-dir)
       (raise-user-error PROGRAM "failed to install gtp-checkup, see log in '~a'" BUILD.log))
     (run-checkup rkt-dir)
-    (save-results rkt-dir)
-    (save-catalog rkt-dir)))
+    (save-results rkt-dir)))
 
 ;; -----------------------------------------------------------------------------
 
@@ -67,11 +65,17 @@
     (lambda ()
       (parameterize ((current-directory CWD)
                      (current-error-port (current-output-port)))
-        (system* (build-path rkt-dir "racket" "bin" "raco") "pkg" "install" "--auto")))))
+        (system* (build-path rkt-dir RACKET BIN RACO) "pkg" "install" "--auto")))))
 
 (define (run-checkup rkt-dir)
+  (write-pkg-table rkt-dir)
   (define bin-dir (build-path rkt-dir RACKET BIN))
   (gtp-checkup bin-dir #:iterations 10))
+
+(define (write-pkg-table rkt-dir)
+  (system* (build-path rkt-dir RACKET BIN RACKET)
+           "--eval"
+           "(begin (require pkg/lib) (writeln (installed-pkg-table #:scope (quote installation))))"))
 
 (define (save-results rkt-dir)
   (define commit-file (directory->data-path rkt-dir))
@@ -88,11 +92,6 @@
         (shell "git" (list "pull" "-r" "upstream" "master"))
         (shell "git" (list "push" "upstream" "master")))))
   (void))
-
-(define (save-catalog rkt-dir)
-  (define catalog-dest (path-replace-extension rkt-dir "-catalog"))
-  (void (create-dirs-catalog catalog-dest (list rkt-dir)))
-  (tar-gzip (path-add-extension catalog-dest ".tar.gz") catalog-dest))
 
 (define (directory->HEAD dir)
   (parameterize ((current-directory dir))
