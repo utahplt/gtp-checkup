@@ -1,0 +1,1164 @@
+find . -name "compiled" -exec rm -r {} \;
+find: './scribblings/compiled': No such file or directory
+find: './benchmarks/mbta/untyped/compiled': No such file or directory
+find: './benchmarks/mbta/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/mbta/base/compiled': No such file or directory
+find: './benchmarks/mbta/base/graph/graph/compiled': No such file or directory
+find: './benchmarks/mbta/base/graph/queue/compiled': No such file or directory
+find: './benchmarks/mbta/typed/compiled': No such file or directory
+find: './benchmarks/take5/untyped/compiled': No such file or directory
+find: './benchmarks/take5/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/take5/base/compiled': No such file or directory
+find: './benchmarks/take5/typed/compiled': No such file or directory
+find: './benchmarks/snake/untyped/compiled': No such file or directory
+find: './benchmarks/snake/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/snake/typed/compiled': No such file or directory
+find: './benchmarks/zombie/untyped/compiled': No such file or directory
+find: './benchmarks/zombie/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/zombie/typed/compiled': No such file or directory
+find: './benchmarks/tetris/untyped/compiled': No such file or directory
+find: './benchmarks/tetris/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/tetris/typed/compiled': No such file or directory
+find: './benchmarks/acquire/untyped/compiled': No such file or directory
+find: './benchmarks/acquire/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/acquire/base/compiled': No such file or directory
+find: './benchmarks/acquire/typed/compiled': No such file or directory
+find: './benchmarks/zordoz/untyped/compiled': No such file or directory
+find: './benchmarks/zordoz/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/zordoz/base/compiled': No such file or directory
+find: './benchmarks/zordoz/typed/compiled': No such file or directory
+find: './benchmarks/jpeg/untyped/compiled': No such file or directory
+find: './benchmarks/jpeg/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/jpeg/base/compiled': No such file or directory
+find: './benchmarks/jpeg/base/math/compiled': No such file or directory
+find: './benchmarks/jpeg/base/math/private/compiled': No such file or directory
+find: './benchmarks/jpeg/base/math/private/array/compiled': No such file or directory
+find: './benchmarks/jpeg/typed/compiled': No such file or directory
+find: './benchmarks/fsmoo/untyped/compiled': No such file or directory
+find: './benchmarks/fsmoo/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/fsmoo/typed/compiled': No such file or directory
+find: './benchmarks/gregor/untyped/compiled': No such file or directory
+find: './benchmarks/gregor/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/gregor/base/tzinfo/compiled': No such file or directory
+find: './benchmarks/gregor/base/tzinfo/private/os/compiled': No such file or directory
+find: './benchmarks/gregor/base/tzinfo/private/compiled': No such file or directory
+find: './benchmarks/gregor/base/cldr/compiled': No such file or directory
+find: './benchmarks/gregor/base/compiled': No such file or directory
+find: './benchmarks/gregor/typed/compiled': No such file or directory
+find: './benchmarks/lnm/untyped/compiled': No such file or directory
+find: './benchmarks/lnm/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/lnm/typed/compiled': No such file or directory
+find: './benchmarks/suffixtree/untyped/compiled': No such file or directory
+find: './benchmarks/suffixtree/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/suffixtree/typed/compiled': No such file or directory
+find: './benchmarks/fsm/untyped/compiled': No such file or directory
+find: './benchmarks/fsm/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/fsm/typed/compiled': No such file or directory
+find: './benchmarks/sieve/untyped/compiled': No such file or directory
+find: './benchmarks/sieve/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/sieve/typed/compiled': No such file or directory
+find: './benchmarks/quadU/untyped/compiled': No such file or directory
+find: './benchmarks/quadU/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/quadU/base/csp/compiled': No such file or directory
+find: './benchmarks/quadU/base/compiled': No such file or directory
+find: './benchmarks/quadU/typed/compiled': No such file or directory
+find: './benchmarks/forth/untyped/compiled': No such file or directory
+find: './benchmarks/forth/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/forth/base/compiled': No such file or directory
+find: './benchmarks/forth/typed/compiled': No such file or directory
+find: './benchmarks/quadT/untyped/compiled': No such file or directory
+find: './benchmarks/quadT/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/quadT/base/csp/compiled': No such file or directory
+find: './benchmarks/quadT/base/compiled': No such file or directory
+find: './benchmarks/quadT/typed/compiled': No such file or directory
+find: './benchmarks/dungeon/untyped/compiled': No such file or directory
+find: './benchmarks/dungeon/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/dungeon/base/compiled': No such file or directory
+find: './benchmarks/dungeon/typed/compiled': No such file or directory
+find: './benchmarks/synth/untyped/compiled': No such file or directory
+find: './benchmarks/synth/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/synth/typed/compiled': No such file or directory
+find: './benchmarks/morsecode/untyped/compiled': No such file or directory
+find: './benchmarks/morsecode/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/morsecode/typed/compiled': No such file or directory
+find: './benchmarks/kcfa/untyped/compiled': No such file or directory
+find: './benchmarks/kcfa/typed-worst-case/compiled': No such file or directory
+find: './benchmarks/kcfa/typed/compiled': No such file or directory
+find: './compiled': No such file or directory
+find: './data/compiled': No such file or directory
+make: [Makefile:11: nightly] Error 1 (ignored)
+PLTSTDERR="error info@gtp-checkup" /usr/local/bin/racket nightly.rkt
+Cloning into '/home/ben/.local/share/gtp-checkup/2019-05-01'...
+gtp-checkup: Checking 'benchmarks/acquire/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 854 real time: 857 gc time: 93
+cpu time: 840 real time: 843 gc time: 91
+cpu time: 863 real time: 866 gc time: 93
+cpu time: 849 real time: 852 gc time: 93
+cpu time: 850 real time: 853 gc time: 89
+cpu time: 847 real time: 849 gc time: 95
+cpu time: 857 real time: 860 gc time: 95
+cpu time: 862 real time: 865 gc time: 108
+cpu time: 843 real time: 846 gc time: 93
+cpu time: 845 real time: 847 gc time: 91
+gtp-checkup: Checking 'benchmarks/acquire/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1900 real time: 1906 gc time: 301
+cpu time: 1890 real time: 1896 gc time: 297
+cpu time: 1918 real time: 1923 gc time: 304
+cpu time: 1927 real time: 1932 gc time: 307
+cpu time: 1965 real time: 1972 gc time: 302
+cpu time: 1927 real time: 1933 gc time: 298
+cpu time: 1913 real time: 1919 gc time: 292
+cpu time: 1914 real time: 1920 gc time: 296
+cpu time: 1940 real time: 1946 gc time: 320
+cpu time: 1961 real time: 1968 gc time: 302
+gtp-checkup: Checking 'benchmarks/acquire/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 460 real time: 462 gc time: 60
+cpu time: 456 real time: 458 gc time: 59
+cpu time: 467 real time: 469 gc time: 63
+cpu time: 463 real time: 464 gc time: 61
+cpu time: 468 real time: 469 gc time: 63
+cpu time: 458 real time: 459 gc time: 59
+cpu time: 452 real time: 452 gc time: 57
+cpu time: 474 real time: 476 gc time: 71
+cpu time: 465 real time: 466 gc time: 64
+cpu time: 464 real time: 465 gc time: 62
+gtp-checkup: Checking 'benchmarks/dungeon/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 158 real time: 158 gc time: 42
+cpu time: 158 real time: 159 gc time: 42
+cpu time: 158 real time: 159 gc time: 42
+cpu time: 159 real time: 159 gc time: 43
+cpu time: 163 real time: 163 gc time: 42
+cpu time: 158 real time: 159 gc time: 42
+cpu time: 159 real time: 159 gc time: 43
+cpu time: 159 real time: 159 gc time: 43
+cpu time: 162 real time: 162 gc time: 43
+cpu time: 159 real time: 159 gc time: 43
+gtp-checkup: Checking 'benchmarks/dungeon/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/dungeon/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 309 real time: 309 gc time: 59
+cpu time: 306 real time: 306 gc time: 59
+cpu time: 310 real time: 311 gc time: 59
+cpu time: 307 real time: 308 gc time: 58
+cpu time: 313 real time: 314 gc time: 59
+cpu time: 316 real time: 316 gc time: 57
+cpu time: 305 real time: 306 gc time: 59
+cpu time: 321 real time: 322 gc time: 70
+cpu time: 312 real time: 312 gc time: 59
+cpu time: 320 real time: 321 gc time: 61
+gtp-checkup: Checking 'benchmarks/forth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 21 real time: 20 gc time: 0
+cpu time: 20 real time: 21 gc time: 0
+cpu time: 21 real time: 22 gc time: 0
+cpu time: 21 real time: 21 gc time: 0
+cpu time: 22 real time: 22 gc time: 0
+cpu time: 22 real time: 22 gc time: 0
+cpu time: 21 real time: 22 gc time: 0
+cpu time: 21 real time: 20 gc time: 0
+cpu time: 22 real time: 22 gc time: 0
+cpu time: 21 real time: 20 gc time: 0
+gtp-checkup: Checking 'benchmarks/forth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 100517 real time: 100733 gc time: 2960
+cpu time: 101652 real time: 101896 gc time: 3001
+cpu time: 103798 real time: 104069 gc time: 2942
+cpu time: 98893 real time: 99115 gc time: 3008
+cpu time: 100034 real time: 100276 gc time: 2967
+cpu time: 99569 real time: 99808 gc time: 3113
+cpu time: 102900 real time: 103150 gc time: 2931
+cpu time: 99151 real time: 99394 gc time: 2929
+cpu time: 100863 real time: 101102 gc time: 2936
+cpu time: 96514 real time: 96732 gc time: 2900
+gtp-checkup: Checking 'benchmarks/forth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 17 real time: 17 gc time: 0
+cpu time: 18 real time: 19 gc time: 0
+cpu time: 20 real time: 20 gc time: 0
+cpu time: 17 real time: 17 gc time: 0
+cpu time: 17 real time: 17 gc time: 0
+cpu time: 18 real time: 18 gc time: 0
+cpu time: 17 real time: 17 gc time: 0
+cpu time: 16 real time: 16 gc time: 0
+cpu time: 17 real time: 17 gc time: 0
+cpu time: 17 real time: 17 gc time: 0
+gtp-checkup: Checking 'benchmarks/fsm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 126 real time: 128 gc time: 43
+cpu time: 128 real time: 128 gc time: 43
+cpu time: 128 real time: 128 gc time: 43
+cpu time: 128 real time: 128 gc time: 43
+cpu time: 128 real time: 127 gc time: 43
+cpu time: 127 real time: 128 gc time: 42
+cpu time: 129 real time: 130 gc time: 45
+cpu time: 127 real time: 127 gc time: 43
+cpu time: 128 real time: 128 gc time: 42
+cpu time: 128 real time: 128 gc time: 43
+gtp-checkup: Checking 'benchmarks/fsm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 454 real time: 454 gc time: 58
+cpu time: 504 real time: 505 gc time: 60
+cpu time: 455 real time: 456 gc time: 59
+cpu time: 473 real time: 474 gc time: 70
+cpu time: 462 real time: 462 gc time: 63
+cpu time: 470 real time: 471 gc time: 71
+cpu time: 466 real time: 468 gc time: 70
+cpu time: 467 real time: 468 gc time: 69
+cpu time: 454 real time: 455 gc time: 59
+cpu time: 463 real time: 464 gc time: 66
+gtp-checkup: Checking 'benchmarks/fsm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 245 real time: 245 gc time: 57
+cpu time: 256 real time: 256 gc time: 65
+cpu time: 246 real time: 246 gc time: 57
+cpu time: 249 real time: 249 gc time: 59
+cpu time: 246 real time: 246 gc time: 57
+cpu time: 247 real time: 248 gc time: 58
+cpu time: 259 real time: 260 gc time: 66
+cpu time: 247 real time: 247 gc time: 57
+cpu time: 248 real time: 249 gc time: 59
+cpu time: 246 real time: 247 gc time: 57
+gtp-checkup: Checking 'benchmarks/fsmoo/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 320 real time: 321 gc time: 43
+cpu time: 320 real time: 320 gc time: 44
+cpu time: 327 real time: 328 gc time: 51
+cpu time: 317 real time: 317 gc time: 43
+cpu time: 315 real time: 315 gc time: 45
+cpu time: 337 real time: 338 gc time: 46
+cpu time: 316 real time: 316 gc time: 44
+cpu time: 313 real time: 313 gc time: 44
+cpu time: 316 real time: 317 gc time: 46
+cpu time: 313 real time: 313 gc time: 43
+gtp-checkup: Checking 'benchmarks/fsmoo/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 105037 real time: 105295 gc time: 16326
+cpu time: 101879 real time: 102100 gc time: 16146
+cpu time: 113357 real time: 113621 gc time: 15983
+cpu time: 103734 real time: 103965 gc time: 16147
+cpu time: 104044 real time: 104274 gc time: 16115
+cpu time: 101483 real time: 101692 gc time: 15959
+cpu time: 103285 real time: 103516 gc time: 16064
+cpu time: 102451 real time: 102673 gc time: 15976
+cpu time: 103894 real time: 104137 gc time: 16037
+cpu time: 101485 real time: 101727 gc time: 16132
+gtp-checkup: Checking 'benchmarks/fsmoo/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 278 real time: 278 gc time: 6
+cpu time: 278 real time: 278 gc time: 7
+cpu time: 280 real time: 280 gc time: 6
+cpu time: 282 real time: 283 gc time: 7
+cpu time: 277 real time: 277 gc time: 8
+cpu time: 277 real time: 277 gc time: 7
+cpu time: 276 real time: 277 gc time: 5
+cpu time: 278 real time: 279 gc time: 8
+cpu time: 280 real time: 280 gc time: 8
+cpu time: 283 real time: 284 gc time: 6
+gtp-checkup: Checking 'benchmarks/gregor/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 288 real time: 289 gc time: 59
+cpu time: 292 real time: 293 gc time: 58
+cpu time: 289 real time: 289 gc time: 50
+cpu time: 312 real time: 313 gc time: 48
+cpu time: 284 real time: 285 gc time: 48
+cpu time: 298 real time: 299 gc time: 55
+cpu time: 284 real time: 284 gc time: 50
+cpu time: 277 real time: 278 gc time: 48
+cpu time: 276 real time: 277 gc time: 50
+cpu time: 288 real time: 289 gc time: 57
+gtp-checkup: Checking 'benchmarks/gregor/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 468 real time: 469 gc time: 38
+cpu time: 455 real time: 456 gc time: 38
+cpu time: 490 real time: 492 gc time: 40
+cpu time: 488 real time: 489 gc time: 46
+cpu time: 465 real time: 466 gc time: 38
+cpu time: 463 real time: 465 gc time: 39
+cpu time: 472 real time: 472 gc time: 39
+cpu time: 470 real time: 472 gc time: 38
+cpu time: 469 real time: 470 gc time: 37
+cpu time: 488 real time: 489 gc time: 39
+gtp-checkup: Checking 'benchmarks/gregor/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 308 real time: 308 gc time: 53
+cpu time: 268 real time: 268 gc time: 44
+cpu time: 267 real time: 267 gc time: 43
+cpu time: 270 real time: 269 gc time: 53
+cpu time: 305 real time: 305 gc time: 54
+cpu time: 269 real time: 270 gc time: 42
+cpu time: 262 real time: 262 gc time: 43
+cpu time: 290 real time: 291 gc time: 54
+cpu time: 271 real time: 271 gc time: 45
+cpu time: 263 real time: 263 gc time: 46
+gtp-checkup: Checking 'benchmarks/jpeg/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 122 real time: 122 gc time: 53
+cpu time: 123 real time: 123 gc time: 53
+cpu time: 121 real time: 121 gc time: 52
+cpu time: 121 real time: 121 gc time: 51
+cpu time: 122 real time: 122 gc time: 52
+cpu time: 122 real time: 122 gc time: 52
+cpu time: 122 real time: 122 gc time: 52
+cpu time: 122 real time: 122 gc time: 53
+cpu time: 122 real time: 122 gc time: 52
+cpu time: 122 real time: 123 gc time: 53
+gtp-checkup: Checking 'benchmarks/jpeg/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 7012 real time: 7023 gc time: 68
+cpu time: 7020 real time: 7029 gc time: 65
+cpu time: 7031 real time: 7040 gc time: 73
+cpu time: 7018 real time: 7028 gc time: 73
+cpu time: 7002 real time: 7011 gc time: 76
+cpu time: 7026 real time: 7036 gc time: 69
+cpu time: 7004 real time: 7013 gc time: 69
+cpu time: 7053 real time: 7065 gc time: 72
+cpu time: 7077 real time: 7088 gc time: 74
+cpu time: 7058 real time: 7069 gc time: 69
+gtp-checkup: Checking 'benchmarks/jpeg/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 338 real time: 339 gc time: 69
+cpu time: 345 real time: 345 gc time: 61
+cpu time: 332 real time: 332 gc time: 61
+cpu time: 332 real time: 333 gc time: 65
+cpu time: 331 real time: 332 gc time: 70
+cpu time: 339 real time: 340 gc time: 62
+cpu time: 334 real time: 334 gc time: 61
+cpu time: 330 real time: 330 gc time: 61
+cpu time: 340 real time: 341 gc time: 74
+cpu time: 337 real time: 337 gc time: 61
+gtp-checkup: Checking 'benchmarks/kcfa/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1065 real time: 1066 gc time: 52
+cpu time: 1126 real time: 1128 gc time: 55
+cpu time: 1086 real time: 1087 gc time: 54
+cpu time: 1070 real time: 1072 gc time: 49
+cpu time: 1081 real time: 1083 gc time: 58
+cpu time: 1083 real time: 1084 gc time: 50
+cpu time: 1119 real time: 1121 gc time: 51
+cpu time: 1107 real time: 1108 gc time: 51
+cpu time: 1083 real time: 1084 gc time: 59
+cpu time: 1177 real time: 1179 gc time: 51
+gtp-checkup: Checking 'benchmarks/kcfa/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4551 real time: 4557 gc time: 50
+cpu time: 4536 real time: 4544 gc time: 45
+cpu time: 4566 real time: 4573 gc time: 50
+cpu time: 4550 real time: 4556 gc time: 54
+cpu time: 4573 real time: 4581 gc time: 55
+cpu time: 4641 real time: 4649 gc time: 54
+cpu time: 4629 real time: 4636 gc time: 53
+cpu time: 4841 real time: 4847 gc time: 53
+cpu time: 4591 real time: 4597 gc time: 54
+cpu time: 4551 real time: 4556 gc time: 56
+gtp-checkup: Checking 'benchmarks/kcfa/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1168 real time: 1169 gc time: 67
+cpu time: 1104 real time: 1106 gc time: 69
+cpu time: 1103 real time: 1104 gc time: 67
+cpu time: 1115 real time: 1116 gc time: 64
+cpu time: 1110 real time: 1112 gc time: 65
+cpu time: 1135 real time: 1136 gc time: 65
+cpu time: 1112 real time: 1113 gc time: 63
+cpu time: 1280 real time: 1281 gc time: 75
+cpu time: 1127 real time: 1128 gc time: 64
+cpu time: 1127 real time: 1129 gc time: 75
+gtp-checkup: Checking 'benchmarks/lnm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5651 real time: 5662 gc time: 1122
+cpu time: 5301 real time: 5311 gc time: 1104
+cpu time: 5343 real time: 5353 gc time: 1137
+cpu time: 5296 real time: 5305 gc time: 1064
+cpu time: 5356 real time: 5365 gc time: 1106
+cpu time: 5308 real time: 5319 gc time: 1094
+cpu time: 5392 real time: 5402 gc time: 1069
+cpu time: 5320 real time: 5329 gc time: 1091
+cpu time: 5286 real time: 5296 gc time: 1059
+cpu time: 5252 real time: 5261 gc time: 1078
+gtp-checkup: Checking 'benchmarks/lnm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5346 real time: 5356 gc time: 1075
+cpu time: 5272 real time: 5281 gc time: 1084
+cpu time: 5370 real time: 5380 gc time: 1134
+cpu time: 5360 real time: 5370 gc time: 1118
+cpu time: 5517 real time: 5526 gc time: 1081
+cpu time: 5347 real time: 5356 gc time: 1063
+cpu time: 5722 real time: 5732 gc time: 1117
+cpu time: 5411 real time: 5421 gc time: 1092
+cpu time: 5497 real time: 5507 gc time: 1099
+cpu time: 5416 real time: 5426 gc time: 1106
+gtp-checkup: Checking 'benchmarks/lnm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1166 real time: 1168 gc time: 160
+cpu time: 1143 real time: 1146 gc time: 160
+cpu time: 1109 real time: 1111 gc time: 161
+cpu time: 1110 real time: 1112 gc time: 158
+cpu time: 1112 real time: 1113 gc time: 166
+cpu time: 1156 real time: 1159 gc time: 158
+cpu time: 1108 real time: 1110 gc time: 157
+cpu time: 1107 real time: 1109 gc time: 158
+cpu time: 1138 real time: 1141 gc time: 159
+cpu time: 1106 real time: 1109 gc time: 160
+gtp-checkup: Checking 'benchmarks/mbta/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1053 real time: 1057 gc time: 23
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1006 real time: 1009 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 976 real time: 978 gc time: 25
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1010 real time: 1013 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 970 real time: 972 gc time: 23
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 990 real time: 992 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 971 real time: 973 gc time: 26
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 971 real time: 973 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1041 real time: 1044 gc time: 25
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 984 real time: 986 gc time: 26
+gtp-checkup: Checking 'benchmarks/mbta/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1188 real time: 1190 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1138 real time: 1141 gc time: 31
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1129 real time: 1131 gc time: 28
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1112 real time: 1115 gc time: 27
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1121 real time: 1123 gc time: 24
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1120 real time: 1123 gc time: 23
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1142 real time: 1145 gc time: 27
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1135 real time: 1138 gc time: 22
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1125 real time: 1128 gc time: 25
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 1131 real time: 1134 gc time: 20
+gtp-checkup: Checking 'benchmarks/mbta/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 608 real time: 609 gc time: 7
+cpu time: 577 real time: 579 gc time: 7
+cpu time: 570 real time: 572 gc time: 6
+cpu time: 579 real time: 580 gc time: 7
+cpu time: 569 real time: 570 gc time: 7
+cpu time: 572 real time: 574 gc time: 9
+cpu time: 573 real time: 574 gc time: 7
+cpu time: 569 real time: 571 gc time: 7
+cpu time: 569 real time: 570 gc time: 7
+cpu time: 572 real time: 573 gc time: 7
+gtp-checkup: Checking 'benchmarks/morsecode/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1761 real time: 1763 gc time: 53
+cpu time: 1738 real time: 1740 gc time: 42
+cpu time: 1748 real time: 1749 gc time: 43
+cpu time: 1733 real time: 1734 gc time: 47
+cpu time: 1958 real time: 1961 gc time: 47
+cpu time: 1730 real time: 1732 gc time: 46
+cpu time: 1731 real time: 1734 gc time: 47
+cpu time: 1775 real time: 1778 gc time: 55
+cpu time: 1730 real time: 1732 gc time: 45
+cpu time: 1733 real time: 1736 gc time: 48
+gtp-checkup: Checking 'benchmarks/morsecode/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2906 real time: 2911 gc time: 5
+cpu time: 2810 real time: 2814 gc time: 7
+cpu time: 2851 real time: 2855 gc time: 11
+cpu time: 2830 real time: 2835 gc time: 8
+cpu time: 2833 real time: 2837 gc time: 10
+cpu time: 2816 real time: 2820 gc time: 7
+cpu time: 2817 real time: 2821 gc time: 5
+cpu time: 2899 real time: 2902 gc time: 5
+cpu time: 2832 real time: 2835 gc time: 12
+cpu time: 2845 real time: 2847 gc time: 7
+gtp-checkup: Checking 'benchmarks/morsecode/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1843 real time: 1846 gc time: 49
+cpu time: 1803 real time: 1805 gc time: 44
+cpu time: 1843 real time: 1845 gc time: 49
+cpu time: 1787 real time: 1789 gc time: 44
+cpu time: 1810 real time: 1812 gc time: 45
+cpu time: 1786 real time: 1788 gc time: 40
+cpu time: 1828 real time: 1830 gc time: 41
+cpu time: 1844 real time: 1847 gc time: 40
+cpu time: 1849 real time: 1851 gc time: 43
+cpu time: 1859 real time: 1861 gc time: 47
+gtp-checkup: Checking 'benchmarks/quadT/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2789 real time: 2793 gc time: 38
+cpu time: 2757 real time: 2762 gc time: 41
+cpu time: 2751 real time: 2755 gc time: 35
+cpu time: 2825 real time: 2831 gc time: 40
+cpu time: 2761 real time: 2766 gc time: 37
+cpu time: 2762 real time: 2767 gc time: 39
+cpu time: 2759 real time: 2764 gc time: 40
+cpu time: 2779 real time: 2783 gc time: 43
+cpu time: 2759 real time: 2764 gc time: 39
+cpu time: 2780 real time: 2784 gc time: 42
+gtp-checkup: Checking 'benchmarks/quadT/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4410 real time: 4418 gc time: 88
+cpu time: 4276 real time: 4284 gc time: 89
+cpu time: 4343 real time: 4352 gc time: 85
+cpu time: 4341 real time: 4349 gc time: 85
+cpu time: 4330 real time: 4339 gc time: 84
+cpu time: 4338 real time: 4347 gc time: 85
+cpu time: 4304 real time: 4313 gc time: 89
+cpu time: 4288 real time: 4297 gc time: 90
+cpu time: 4350 real time: 4359 gc time: 84
+cpu time: 4393 real time: 4402 gc time: 184
+gtp-checkup: Checking 'benchmarks/quadT/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1033 real time: 1036 gc time: 80
+cpu time: 994 real time: 998 gc time: 82
+cpu time: 990 real time: 992 gc time: 81
+cpu time: 1026 real time: 1029 gc time: 78
+cpu time: 1019 real time: 1022 gc time: 91
+cpu time: 996 real time: 998 gc time: 85
+cpu time: 990 real time: 992 gc time: 79
+cpu time: 993 real time: 995 gc time: 80
+cpu time: 989 real time: 991 gc time: 79
+cpu time: 989 real time: 990 gc time: 84
+gtp-checkup: Checking 'benchmarks/quadU/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1729 real time: 1733 gc time: 200
+cpu time: 1740 real time: 1743 gc time: 193
+cpu time: 1759 real time: 1763 gc time: 200
+cpu time: 1745 real time: 1749 gc time: 192
+cpu time: 1859 real time: 1864 gc time: 199
+cpu time: 1749 real time: 1752 gc time: 197
+cpu time: 1733 real time: 1737 gc time: 199
+cpu time: 1754 real time: 1758 gc time: 194
+cpu time: 1752 real time: 1757 gc time: 189
+cpu time: 1745 real time: 1749 gc time: 195
+gtp-checkup: Checking 'benchmarks/quadU/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5833 real time: 5845 gc time: 310
+cpu time: 5948 real time: 5960 gc time: 320
+cpu time: 5856 real time: 5867 gc time: 306
+cpu time: 5856 real time: 5867 gc time: 303
+cpu time: 5886 real time: 5898 gc time: 311
+cpu time: 5883 real time: 5894 gc time: 321
+cpu time: 5844 real time: 5855 gc time: 309
+cpu time: 5834 real time: 5846 gc time: 312
+cpu time: 5861 real time: 5872 gc time: 305
+cpu time: 5889 real time: 5902 gc time: 303
+gtp-checkup: Checking 'benchmarks/quadU/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1110 real time: 1112 gc time: 38
+cpu time: 1109 real time: 1111 gc time: 37
+cpu time: 1117 real time: 1120 gc time: 45
+cpu time: 1120 real time: 1122 gc time: 37
+cpu time: 1108 real time: 1110 gc time: 35
+cpu time: 1109 real time: 1111 gc time: 38
+cpu time: 1108 real time: 1110 gc time: 37
+cpu time: 1130 real time: 1133 gc time: 41
+cpu time: 1106 real time: 1107 gc time: 38
+cpu time: 1109 real time: 1111 gc time: 40
+gtp-checkup: Checking 'benchmarks/sieve/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2743 real time: 2746 gc time: 185
+cpu time: 2735 real time: 2738 gc time: 179
+cpu time: 2739 real time: 2742 gc time: 183
+cpu time: 2729 real time: 2732 gc time: 174
+cpu time: 2729 real time: 2732 gc time: 173
+cpu time: 2730 real time: 2733 gc time: 168
+cpu time: 2741 real time: 2744 gc time: 174
+cpu time: 2735 real time: 2739 gc time: 181
+cpu time: 2710 real time: 2714 gc time: 173
+cpu time: 2736 real time: 2739 gc time: 176
+gtp-checkup: Checking 'benchmarks/sieve/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 12911 real time: 12938 gc time: 1986
+cpu time: 12836 real time: 12858 gc time: 1994
+cpu time: 13062 real time: 13087 gc time: 2164
+cpu time: 13666 real time: 13691 gc time: 2104
+cpu time: 12969 real time: 12992 gc time: 2133
+cpu time: 12987 real time: 13012 gc time: 2043
+cpu time: 12868 real time: 12890 gc time: 1991
+cpu time: 12854 real time: 12876 gc time: 2010
+cpu time: 12916 real time: 12941 gc time: 2061
+cpu time: 13068 real time: 13091 gc time: 2132
+gtp-checkup: Checking 'benchmarks/sieve/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2774 real time: 2778 gc time: 182
+cpu time: 2782 real time: 2785 gc time: 175
+cpu time: 2768 real time: 2771 gc time: 191
+cpu time: 2770 real time: 2773 gc time: 186
+cpu time: 2797 real time: 2800 gc time: 164
+cpu time: 2775 real time: 2779 gc time: 184
+cpu time: 2801 real time: 2804 gc time: 184
+cpu time: 2765 real time: 2768 gc time: 190
+cpu time: 2788 real time: 2792 gc time: 181
+cpu time: 2765 real time: 2768 gc time: 200
+gtp-checkup: Checking 'benchmarks/snake/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 519 real time: 520 gc time: 7
+cpu time: 520 real time: 521 gc time: 6
+cpu time: 519 real time: 521 gc time: 8
+cpu time: 523 real time: 525 gc time: 6
+cpu time: 519 real time: 520 gc time: 6
+cpu time: 520 real time: 521 gc time: 8
+cpu time: 525 real time: 525 gc time: 8
+cpu time: 518 real time: 519 gc time: 6
+cpu time: 522 real time: 523 gc time: 7
+cpu time: 520 real time: 521 gc time: 7
+gtp-checkup: Checking 'benchmarks/snake/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 10133 real time: 10144 gc time: 31
+cpu time: 9208 real time: 9222 gc time: 23
+cpu time: 9299 real time: 9310 gc time: 13
+cpu time: 9605 real time: 9620 gc time: 27
+cpu time: 9736 real time: 9750 gc time: 28
+cpu time: 9311 real time: 9324 gc time: 34
+cpu time: 9222 real time: 9236 gc time: 26
+cpu time: 9423 real time: 9435 gc time: 33
+cpu time: 9069 real time: 9081 gc time: 23
+cpu time: 9490 real time: 9503 gc time: 26
+gtp-checkup: Checking 'benchmarks/snake/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 570 real time: 571 gc time: 9
+cpu time: 567 real time: 568 gc time: 5
+cpu time: 570 real time: 571 gc time: 10
+cpu time: 572 real time: 573 gc time: 8
+cpu time: 609 real time: 610 gc time: 8
+cpu time: 574 real time: 575 gc time: 9
+cpu time: 584 real time: 585 gc time: 9
+cpu time: 611 real time: 612 gc time: 8
+cpu time: 570 real time: 572 gc time: 9
+cpu time: 569 real time: 571 gc time: 5
+gtp-checkup: Checking 'benchmarks/suffixtree/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2023 real time: 2027 gc time: 49
+cpu time: 2064 real time: 2067 gc time: 57
+cpu time: 2040 real time: 2044 gc time: 51
+cpu time: 2027 real time: 2031 gc time: 51
+cpu time: 2115 real time: 2119 gc time: 46
+cpu time: 2042 real time: 2046 gc time: 53
+cpu time: 2020 real time: 2023 gc time: 51
+cpu time: 2048 real time: 2052 gc time: 51
+cpu time: 2158 real time: 2162 gc time: 55
+cpu time: 2022 real time: 2026 gc time: 50
+gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 80314 real time: 80460 gc time: 162
+cpu time: 79314 real time: 79450 gc time: 158
+cpu time: 79519 real time: 79656 gc time: 145
+cpu time: 79135 real time: 79280 gc time: 143
+cpu time: 79306 real time: 79431 gc time: 140
+cpu time: 84825 real time: 84967 gc time: 153
+cpu time: 79315 real time: 79457 gc time: 162
+cpu time: 79539 real time: 79670 gc time: 157
+cpu time: 79276 real time: 79400 gc time: 166
+cpu time: 79241 real time: 79374 gc time: 146
+gtp-checkup: Checking 'benchmarks/suffixtree/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2702 real time: 2707 gc time: 18
+cpu time: 2675 real time: 2680 gc time: 16
+cpu time: 2656 real time: 2661 gc time: 17
+cpu time: 2666 real time: 2671 gc time: 19
+cpu time: 2666 real time: 2671 gc time: 12
+cpu time: 2697 real time: 2702 gc time: 19
+cpu time: 2704 real time: 2709 gc time: 17
+cpu time: 2645 real time: 2650 gc time: 19
+cpu time: 2681 real time: 2686 gc time: 20
+cpu time: 2664 real time: 2670 gc time: 15
+gtp-checkup: Checking 'benchmarks/synth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 424 real time: 423 gc time: 87
+cpu time: 409 real time: 410 gc time: 74
+cpu time: 405 real time: 405 gc time: 72
+cpu time: 423 real time: 423 gc time: 85
+cpu time: 420 real time: 420 gc time: 85
+cpu time: 408 real time: 408 gc time: 76
+cpu time: 404 real time: 405 gc time: 72
+cpu time: 408 real time: 409 gc time: 75
+cpu time: 407 real time: 408 gc time: 75
+cpu time: 406 real time: 407 gc time: 75
+gtp-checkup: Checking 'benchmarks/synth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 23250 real time: 23291 gc time: 1723
+cpu time: 23377 real time: 23411 gc time: 1709
+cpu time: 23073 real time: 23113 gc time: 1719
+cpu time: 22744 real time: 22771 gc time: 1721
+cpu time: 23245 real time: 23275 gc time: 1695
+cpu time: 22766 real time: 22792 gc time: 1705
+cpu time: 23093 real time: 23120 gc time: 1697
+cpu time: 24579 real time: 24619 gc time: 1704
+cpu time: 22984 real time: 23020 gc time: 1707
+cpu time: 23020 real time: 23052 gc time: 1723
+gtp-checkup: Checking 'benchmarks/synth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 456 real time: 456 gc time: 77
+cpu time: 472 real time: 471 gc time: 84
+cpu time: 459 real time: 459 gc time: 81
+cpu time: 454 real time: 455 gc time: 80
+cpu time: 469 real time: 469 gc time: 85
+cpu time: 455 real time: 456 gc time: 77
+cpu time: 456 real time: 456 gc time: 78
+cpu time: 457 real time: 459 gc time: 80
+cpu time: 471 real time: 471 gc time: 87
+cpu time: 455 real time: 456 gc time: 77
+gtp-checkup: Checking 'benchmarks/take5/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1235 real time: 1238 gc time: 46
+cpu time: 1182 real time: 1185 gc time: 47
+cpu time: 1269 real time: 1272 gc time: 48
+cpu time: 1265 real time: 1268 gc time: 45
+cpu time: 1305 real time: 1308 gc time: 49
+cpu time: 1188 real time: 1191 gc time: 46
+cpu time: 1209 real time: 1211 gc time: 46
+cpu time: 1192 real time: 1194 gc time: 47
+cpu time: 1279 real time: 1283 gc time: 48
+cpu time: 1220 real time: 1223 gc time: 46
+gtp-checkup: Checking 'benchmarks/take5/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 19471 real time: 19524 gc time: 361
+cpu time: 18286 real time: 18341 gc time: 378
+cpu time: 18854 real time: 18910 gc time: 349
+cpu time: 18977 real time: 19027 gc time: 339
+cpu time: 18677 real time: 18729 gc time: 342
+cpu time: 19188 real time: 19241 gc time: 356
+cpu time: 17974 real time: 18021 gc time: 340
+cpu time: 19024 real time: 19072 gc time: 359
+cpu time: 18114 real time: 18166 gc time: 368
+cpu time: 18127 real time: 18174 gc time: 352
+gtp-checkup: Checking 'benchmarks/take5/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 560 real time: 562 gc time: 40
+cpu time: 534 real time: 535 gc time: 40
+cpu time: 531 real time: 532 gc time: 39
+cpu time: 537 real time: 539 gc time: 42
+cpu time: 538 real time: 539 gc time: 39
+cpu time: 563 real time: 565 gc time: 40
+cpu time: 529 real time: 530 gc time: 39
+cpu time: 537 real time: 538 gc time: 40
+cpu time: 542 real time: 543 gc time: 39
+cpu time: 531 real time: 532 gc time: 40
+gtp-checkup: Checking 'benchmarks/tetris/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 761 real time: 762 gc time: 41
+cpu time: 759 real time: 760 gc time: 42
+cpu time: 766 real time: 767 gc time: 42
+cpu time: 760 real time: 761 gc time: 42
+cpu time: 767 real time: 768 gc time: 41
+cpu time: 759 real time: 761 gc time: 43
+cpu time: 760 real time: 762 gc time: 42
+cpu time: 760 real time: 761 gc time: 42
+cpu time: 760 real time: 761 gc time: 42
+cpu time: 760 real time: 760 gc time: 41
+gtp-checkup: Checking 'benchmarks/tetris/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 8405 real time: 8418 gc time: 77
+cpu time: 8427 real time: 8438 gc time: 78
+cpu time: 8401 real time: 8414 gc time: 86
+cpu time: 8597 real time: 8608 gc time: 78
+cpu time: 8403 real time: 8413 gc time: 81
+cpu time: 8371 real time: 8380 gc time: 77
+cpu time: 8463 real time: 8475 gc time: 80
+cpu time: 8520 real time: 8530 gc time: 77
+cpu time: 8376 real time: 8388 gc time: 74
+cpu time: 8422 real time: 8433 gc time: 92
+gtp-checkup: Checking 'benchmarks/tetris/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 816 real time: 817 gc time: 6
+cpu time: 815 real time: 816 gc time: 7
+cpu time: 817 real time: 817 gc time: 6
+cpu time: 817 real time: 818 gc time: 8
+cpu time: 817 real time: 818 gc time: 7
+cpu time: 818 real time: 819 gc time: 10
+cpu time: 822 real time: 823 gc time: 8
+cpu time: 820 real time: 821 gc time: 6
+cpu time: 817 real time: 818 gc time: 7
+cpu time: 819 real time: 820 gc time: 8
+gtp-checkup: Checking 'benchmarks/zombie/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 213 real time: 213 gc time: 52
+cpu time: 221 real time: 221 gc time: 55
+cpu time: 221 real time: 222 gc time: 64
+cpu time: 211 real time: 211 gc time: 54
+cpu time: 215 real time: 215 gc time: 54
+cpu time: 211 real time: 212 gc time: 54
+cpu time: 224 real time: 225 gc time: 53
+cpu time: 215 real time: 215 gc time: 53
+cpu time: 222 real time: 223 gc time: 63
+cpu time: 214 real time: 214 gc time: 54
+gtp-checkup: Checking 'benchmarks/zombie/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1924 real time: 1928 gc time: 23
+cpu time: 1898 real time: 1902 gc time: 32
+cpu time: 1977 real time: 1982 gc time: 25
+cpu time: 1918 real time: 1924 gc time: 28
+cpu time: 1933 real time: 1938 gc time: 27
+cpu time: 1924 real time: 1929 gc time: 22
+cpu time: 1895 real time: 1900 gc time: 34
+cpu time: 1935 real time: 1940 gc time: 28
+cpu time: 1934 real time: 1939 gc time: 25
+cpu time: 1902 real time: 1907 gc time: 33
+gtp-checkup: Checking 'benchmarks/zombie/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 48 real time: 48 gc time: 10
+cpu time: 46 real time: 46 gc time: 7
+cpu time: 46 real time: 46 gc time: 9
+cpu time: 45 real time: 46 gc time: 8
+cpu time: 47 real time: 48 gc time: 8
+cpu time: 47 real time: 47 gc time: 8
+cpu time: 46 real time: 47 gc time: 8
+cpu time: 48 real time: 48 gc time: 8
+cpu time: 48 real time: 48 gc time: 9
+cpu time: 46 real time: 46 gc time: 7
+gtp-checkup: Checking 'benchmarks/zordoz/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 6526 real time: 6538 gc time: 22
+cpu time: 6534 real time: 6546 gc time: 22
+cpu time: 6406 real time: 6418 gc time: 21
+cpu time: 6446 real time: 6457 gc time: 24
+cpu time: 6434 real time: 6445 gc time: 27
+cpu time: 6392 real time: 6403 gc time: 29
+cpu time: 6472 real time: 6484 gc time: 21
+cpu time: 6451 real time: 6464 gc time: 23
+cpu time: 6572 real time: 6586 gc time: 26
+cpu time: 6396 real time: 6406 gc time: 28
+gtp-checkup: Checking 'benchmarks/zordoz/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 7607 real time: 7622 gc time: 30
+cpu time: 7673 real time: 7691 gc time: 34
+cpu time: 7753 real time: 7770 gc time: 32
+cpu time: 7543 real time: 7559 gc time: 32
+cpu time: 7741 real time: 7758 gc time: 33
+cpu time: 7788 real time: 7805 gc time: 23
+cpu time: 7577 real time: 7595 gc time: 26
+cpu time: 7663 real time: 7679 gc time: 38
+cpu time: 7676 real time: 7694 gc time: 27
+cpu time: 7662 real time: 7680 gc time: 34
+gtp-checkup: Checking 'benchmarks/zordoz/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 843 real time: 844 gc time: 65
+cpu time: 866 real time: 868 gc time: 56
+cpu time: 843 real time: 844 gc time: 69
+cpu time: 848 real time: 849 gc time: 58
+cpu time: 841 real time: 843 gc time: 55
+cpu time: 832 real time: 833 gc time: 59
+cpu time: 835 real time: 836 gc time: 56
+cpu time: 846 real time: 846 gc time: 56
+cpu time: 835 real time: 835 gc time: 56
+cpu time: 838 real time: 839 gc time: 55
+gtp-checkup: === FINISHED ===
+gtp-checkup: Error running the following files:
+gtp-checkup: - benchmarks/dungeon/typed-worst-case/main.rkt
