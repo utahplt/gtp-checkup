@@ -15,6 +15,7 @@
 
 (require
   file/glob
+  gtp-checkup/private/logger
   (only-in racket/file
     make-temporary-file
     delete-directory/files
@@ -31,8 +32,6 @@
   racket/runtime-path)
 
 ;; =============================================================================
-
-(define-logger gtp-checkup)
 
 (define-runtime-path PWD ".")
 

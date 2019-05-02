@@ -29,15 +29,18 @@
   file/glob
   gtp-checkup/data/definition
   gtp-checkup/data/parse
+  (only-in gtp-checkup/private/logger log-gtp-checkup-error)
   pict-abbrevs
   racket/generator
+  (only-in racket/file file->value)
   racket/runtime-path
   racket/sequence
+  racket/set
   pict
   (only-in plot/utils ->pen-color)
   plot/no-gui)
 
-(module+ test (require rackunit racket/set))
+(module+ test (require rackunit))
 
 ;; =============================================================================
 
@@ -72,6 +75,9 @@
 
 (define-runtime-path data-dir "../data/")
 
+(define bad-commit-whitelist
+  (file->value (build-path data-dir "bad-commit-whitelist.rktd")))
+
 ;; -----------------------------------------------------------------------------
 
 (define (make-all-machine-data-pict*)
@@ -102,98 +108,106 @@
 (define (make-machine-data-pict* md)
   (define m-id (machine-data-id md))
   (define benchmark-name* (machine-data->benchmark-name* md))
-  (parameterize (;; TODO possible to (1) set defaults (2) let users override (3) don't define new parameters like gtp-plot does?
-                 [plot-x-ticks (date-ticks #:number 3 #:formats '("~Y"))]
-                 [plot-width (*wide-plot-width*)]
-                 [point-alpha 0.8]
-                 [plot-font-size 18]
-                 [plot-font-family 'default])
-    (for/list ([b-id (in-list benchmark-name*)])
-      (define-values [max-cpu-time min-time max-time]
-        (for*/fold ((t-cpu #f)
-                    (t-min #f)
-                    (t-max #f))
-                   ((cd (in-list (machine-data-commit* md))))
-          (define ctime (commit-id->time (commit-data-id cd)))
-          (define n* (filter
-                       values
-                       (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
-                         (result->natural v #f))))
-          (values (if (null? n*) t-cpu (max* (cons (or t-cpu 0) n*)))
-                  (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
-                  (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
-      (define y-max (* 1.1 max-cpu-time))
-      (define timeout-y (* 1.08 max-cpu-time))
-      (define renderer*
-        (for/list ((cfg (in-list configuration-name*)))
-          ;; cfg = a dataset ... one group of points
-          (define cfg-color (configuration-name->color cfg))
-          (define p* ;; collect all, find max/min statistics
-            (for/list ((cd (in-list (machine-data-commit* md))))
-              (define commit-seconds
-                (->posix (commit-id->time (commit-data-id cd))))
-              (define r-val
-                (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
-              (cons commit-seconds r-val)))
-          (define (point->plot-point p)
-            (vector (car p) (result->natural (cdr p) timeout-y)))
-          (define point-renderer*
-            (filter
-              values
-              (for/list ((r-kind (in-list '(ok error timeout))))
-                (define p*/kind
-                  (for/list ((p (in-list p*))
-                             #:when (eq? r-kind (result->kind (cdr p))))
-                    (point->plot-point p)))
-                (and (not (null? p*/kind))
-                     (points p*/kind
-                             #:color (*point-outline-color*)
-                             #:fill-color cfg-color
-                             #:size (kind->point-size r-kind)
-                             #:sym (kind->symbol r-kind))))))
-          (define line-renderer*
-            (for/list ((dt (in-list change-type*)))
-              (define plot-line-seg? (change-type->predicate dt))
-              (define width (change-type->width dt))
-              (define alpha (change-type->alpha dt))
-              (for/list ((pp (in-pairs p*))
-                         #:when (plot-line-seg? pp))
-                (lines
-                  (vector (point->plot-point (car pp))
-                          (point->plot-point (cdr pp)))
-                  #:color cfg-color
-                  #:width width
-                  #:alpha alpha))))
-          (define commit-renderer*
-            (let ((new-fail? (change-type->predicate 'new-fail)))
-              (for/list ((pp (in-pairs p*))
-                         (c-id (in-list (map commit-data-id (cdr (machine-data-commit* md)))))
-                         #:when (new-fail? pp))
-                (point-pict (midpoint (point->plot-point (car pp))
-                                      (point->plot-point (cdr pp)))
-                            (commit-id->pict c-id)
-                            #:anchor 'bottom-right
-                            #:point-color 0
-                            #:point-fill-color 0))))
-          (list line-renderer* point-renderer* commit-renderer*)))
-      (define time-padding day-seconds)
-      (define the-plot
-        (plot-pict
-          (list (make-year-renderer* min-time max-time)
-                (make-release-renderer* min-time max-time)
-                renderer*)
-          #:x-min (- (->posix min-time) time-padding)
-          #:x-max (+ (->posix max-time) time-padding)
-          #:y-min 0
-          #:y-max y-max
-          #:width (plot-width)
-          #:height (* 3/4 (plot-width))
-          #:title (format "~a : ~a" m-id b-id)
-          #:x-label "commit date"
-          #:y-label "runtime (seconds)"))
-      (cons
-        b-id
-        (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
+  (define new-bad-commit* (mutable-set))
+  (define pict*
+    (parameterize (;; TODO possible to (1) set defaults (2) let users override (3) don't define new parameters like gtp-plot does?
+                   [plot-x-ticks (date-ticks #:number 3 #:formats '("~Y"))]
+                   [plot-width (*wide-plot-width*)]
+                   [point-alpha 0.8]
+                   [plot-font-size 18]
+                   [plot-font-family 'default])
+      (for/list ([b-id (in-list benchmark-name*)])
+        (define-values [max-cpu-time min-time max-time]
+          (for*/fold ((t-cpu #f)
+                      (t-min #f)
+                      (t-max #f))
+                     ((cd (in-list (machine-data-commit* md))))
+            (define ctime (commit-id->time (commit-data-id cd)))
+            (define n* (filter
+                         values
+                         (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
+                           (result->natural v #f))))
+            (values (if (null? n*) t-cpu (max* (cons (or t-cpu 0) n*)))
+                    (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
+                    (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
+        (define y-max (* 1.1 max-cpu-time))
+        (define timeout-y (* 1.08 max-cpu-time))
+        (define renderer*
+          (for/list ((cfg (in-list configuration-name*)))
+            ;; cfg = a dataset ... one group of points
+            (define cfg-color (configuration-name->color cfg))
+            (define p* ;; collect all, find max/min statistics
+              (for/list ((cd (in-list (machine-data-commit* md))))
+                (define commit-seconds
+                  (->posix (commit-id->time (commit-data-id cd))))
+                (define r-val
+                  (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
+                (cons commit-seconds r-val)))
+            (define (point->plot-point p)
+              (vector (car p) (result->natural (cdr p) timeout-y)))
+            (define point-renderer*
+              (filter
+                values
+                (for/list ((r-kind (in-list '(ok error timeout))))
+                  (define p*/kind
+                    (for/list ((p (in-list p*))
+                               #:when (eq? r-kind (result->kind (cdr p))))
+                      (point->plot-point p)))
+                  (and (not (null? p*/kind))
+                       (points p*/kind
+                               #:color (*point-outline-color*)
+                               #:fill-color cfg-color
+                               #:size (kind->point-size r-kind)
+                               #:sym (kind->symbol r-kind))))))
+            (define line-renderer*
+              (for/list ((dt (in-list change-type*)))
+                (define plot-line-seg? (change-type->predicate dt))
+                (define width (change-type->width dt))
+                (define alpha (change-type->alpha dt))
+                (for/list ((pp (in-pairs p*))
+                           #:when (plot-line-seg? pp))
+                  (lines
+                    (vector (point->plot-point (car pp))
+                            (point->plot-point (cdr pp)))
+                    #:color cfg-color
+                    #:width width
+                    #:alpha alpha))))
+            (define commit-renderer*
+              (let ((new-fail? (change-type->predicate 'new-fail)))
+                (for/list ((pp (in-pairs p*))
+                           (c-hash (in-list (map (compose1 commit-id->hash commit-data-id)
+                                                 (cdr (machine-data-commit* md)))))
+                           #:when (and (new-fail? pp)
+                                       (not (member c-hash bad-commit-whitelist string=?))))
+                  (set-add! new-bad-commit* c-hash)
+                  (point-pict (midpoint (point->plot-point (car pp))
+                                        (point->plot-point (cdr pp)))
+                              (commit-id->pict c-hash)
+                              #:anchor 'bottom-right
+                              #:point-color 0
+                              #:point-fill-color 0))))
+            (list line-renderer* point-renderer* commit-renderer*)))
+        (define time-padding day-seconds)
+        (define the-plot
+          (plot-pict
+            (list (make-year-renderer* min-time max-time)
+                  (make-release-renderer* min-time max-time)
+                  renderer*)
+            #:x-min (- (->posix min-time) time-padding)
+            #:x-max (+ (->posix max-time) time-padding)
+            #:y-min 0
+            #:y-max y-max
+            #:width (plot-width)
+            #:height (* 3/4 (plot-width))
+            #:title (format "~a : ~a" m-id b-id)
+            #:x-label "commit date"
+            #:y-label "runtime (seconds)"))
+        (cons
+          b-id
+          (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
+  (for ((c-hash (in-set new-bad-commit*)))
+    (log-gtp-checkup-error "new regression in commit ~s" c-hash))
+  pict*)
 
 (define (midpoint p0 p1)
   (for/vector #:length 2
@@ -208,9 +222,14 @@
     (check-equal? (midpoint (vector 4 -4) (vector 0 4))
                   (vector 2 0))))
 
-(define (commit-id->pict c-id)
-  (define commit-hash (cadr (string-split c-id "_")))
-  (define short-hash (substring commit-hash 0 7))
+(define (commit-id->hash c-id)
+  (cadr (string-split c-id "_")))
+
+(define (commit-hash->short-hash c-hash)
+  (substring c-hash 0 7))
+
+(define (commit-id->pict c-hash)
+  (define short-hash (commit-hash->short-hash c-hash))
   (parameterize ((plot-font-size (max 10 (- (plot-font-size) 1))))
     (make-label-pict short-hash)))
 
