@@ -7,7 +7,6 @@
 ;; - find where dungeon started to fail, run more commits
 ;; - add summary plot?
 ;; - clean up the docs, add explaination
-;; - how to run other commits, continuously?
 ;; - 
 
 (require racket/contract)
@@ -24,8 +23,8 @@
   (only-in racket/string string-split)
   (only-in racket/path shrink-path-wrt)
   (only-in gtp-util path-string->string)
-  (only-in gregor ->posix parse-datetime ->year datetime datetime<?)
-  (rename-in gregor [datetime<=? datetime<=?2])
+  (only-in gregor ->posix parse-datetime ->year ->month ->day datetime datetime<? date)
+  (rename-in (only-in gregor datetime<=? date<=?) [datetime<=? datetime<=?2] [date<=? date<=?2])
   file/glob
   gtp-checkup/data/definition
   gtp-checkup/data/parse
@@ -59,17 +58,17 @@
 
 (define result-kind* '(ok error timeout))
 
-(define racket-release-time*
-  `(("6.7" ,(datetime 2016 10 26))
-    ("6.8" ,(datetime 2017 01 24))
-    ("6.9" ,(datetime 2017 04 27))
-    ("6.10" ,(datetime 2017 07 31))
-    ("6.10.1" ,(datetime 2017 09 12))
-    ("6.11" ,(datetime 2017 10 30))
-    ("6.12" ,(datetime 2018 01 26))
-    ("7.0" ,(datetime 2018 07 27))
-    ("7.1" ,(datetime 2018 10 26))
-    ("7.2" ,(datetime 2019 01 30))))
+(define racket-release-date*
+  `(("6.7" ,(date 2016 10 26))
+    ("6.8" ,(date 2017 01 24))
+    ("6.9" ,(date 2017 04 27))
+    ("6.10" ,(date 2017 07 31))
+    ("6.10.1" ,(date 2017 09 12))
+    ("6.11" ,(date 2017 10 30))
+    ("6.12" ,(date 2018 01 26))
+    ("7.0" ,(date 2018 07 27))
+    ("7.1" ,(date 2018 10 26))
+    ("7.2" ,(date 2019 01 30))))
 
 (define change-type* '(slower faster new-fail new-fix still-fail))
 
@@ -297,15 +296,24 @@
            #:width (*year-rule-width*)
            #:alpha (*year-rule-alpha*))))
 
-(define (datetime<=? . t*)
-  (let loop ((t* t*))
-    (if (or (null? t*) (null? (cdr t*)))
-      #true
-      (and (datetime<=?2 (car t*) (cadr t*)) (loop (cdr t*))))))
+(define (reduce< leq)
+  (lambda t*
+    (let loop ((t* t*))
+      (if (or (null? t*) (null? (cdr t*)))
+        #true
+        (and (leq (car t*) (cadr t*)) (loop (cdr t*)))))))
 
-(define (make-release-renderer* min-time max-time)
-  (for/list ((rt (in-list racket-release-time*))
-             #:when (datetime<=? min-time (cadr rt) max-time))
+(define datetime<=?
+  (reduce< datetime<=?2))
+
+(define date<=?
+  (reduce< date<=?2))
+
+(define (make-release-renderer* min-datetime max-datetime)
+  (define min-date (datetime->date min-datetime))
+  (define max-date (datetime->date max-datetime))
+  (for/list ((rt (in-list racket-release-date*))
+             #:when (date<=? min-date (cadr rt) max-date))
     (define x (->posix (cadr rt)))
     (define r-lbl
       (point-pict (vector x 0)
@@ -319,6 +327,11 @@
              #:width (*release-rule-width*)
              #:alpha (*release-rule-alpha*)))
     (list r-bar r-lbl)))
+
+(define (datetime->date dt)
+  (date (->year dt)
+        (->month dt)
+        (->day dt)))
 
 (define (make-release-pict str)
   (parameterize ((plot-font-size (max 10 (- (plot-font-size) 8))))
