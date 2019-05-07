@@ -279,7 +279,7 @@
               (plot-pict
                 (points '#(#(0 0))
                         #:sym (kind->symbol rk)
-                        #:size 8
+                        #:size (- (kind->point-size rk) 2)
                         #:color "black"
                         #:fill-color "black")
                 #:width 10
@@ -415,7 +415,7 @@
     ((ok)
      'fullcircle)
     ((timeout)
-     'fulldiamond)
+     'fulltriangle)
     ((error)
      'full8star)
     (else
@@ -423,10 +423,10 @@
 
 (define (kind->point-size x)
   (case x
-    ((ok)
+    ((ok timeout)
      10)
-    ((error timeout)
-     14)
+    ((error)
+     15)
     (else
      (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'timeout)" x))))
 
