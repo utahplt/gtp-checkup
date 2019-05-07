@@ -103,8 +103,8 @@ Run @exec{racket main.rkt --help} for more information.
 
 @(define (format-machine-spec dir)
    (list
-     (exec "uname -a")
-     (nested #:style 'inset (tt (directory->machine-uname dir)))))
+     "Machine info: "
+     (url (format "https://github.com/bennn/gtp-checkup/tree/master/data/~a/README.md" (directory->machine-name dir)))))
 
 @(define (format-machine-dataset dir)
    (list

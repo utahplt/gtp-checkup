@@ -10,6 +10,8 @@ albany
   440 Huntington Avenue
   Boston, MA, 02115
 
+This is a single-user machine.
+
 
 uname -a
 ---
