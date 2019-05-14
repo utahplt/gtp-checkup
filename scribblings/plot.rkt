@@ -18,7 +18,7 @@
                        (flat-hash/c symbol? pict?))))))
 
 (require
-  (only-in racket/math order-of-magnitude exact-floor)
+  (only-in racket/math order-of-magnitude exact-ceiling exact-floor)
   (only-in math/statistics mean)
   (only-in racket/string string-split)
   (only-in racket/path shrink-path-wrt)
@@ -139,10 +139,7 @@
                     (if (null? to*) t-to (min* to*))
                     (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
                     (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
-        (define y-max (* 1.5 max-cpu-time))
-        ;; TODO add minimum offset as fallback
-        (define error-y (exact-floor y-max))
-        (define timeout-y (exact-floor (* 1.3 max-cpu-time)))
+        (define-values [y-max error-y timeout-y] (make-extra-y-values max-cpu-time))
         (define renderer*
           (for/list ((cfg (in-list configuration-name*)))
             ;; cfg = a dataset ... one group of points
@@ -208,6 +205,7 @@
             (plot-pict
               (list (make-year-renderer* min-time max-time)
                     (make-release-renderer* min-time max-time)
+                    (make-y-discontinuity (mean (list max-cpu-time timeout-y)))
                     renderer*)
               #:x-min (- (->posix min-time) time-padding)
               #:x-max (+ (->posix max-time) time-padding)
@@ -224,6 +222,18 @@
   (for ((c-hash (in-set new-bad-commit*)))
     (log-gtp-checkup-error "new regression in commit ~s" c-hash))
   pict*)
+
+(define (make-extra-y-values max-cpu-time)
+  (define mt (exact-ceiling max-cpu-time))
+  (case (order-of-magnitude mt)
+    ((0)
+     (values (+ 5 mt) (+ 4 mt) (+ 2 mt)))
+    (else
+     (define y-max (* 1.5 max-cpu-time))
+     (values
+        y-max
+        (exact-floor y-max)
+        (exact-floor (* 1.3 max-cpu-time))))))
 
 (define (make-labeled-ticks t* lbl#)
   (define ticks-layout (real*->ticks-layout t*))
@@ -276,10 +286,7 @@
     #:y-margin 4))
 
 (define (make-machine-data-legend)
-  (vl-append
-    10
-    (make-cfg-color-legend)
-    (make-point-sym-legend)))
+  (make-cfg-color-legend))
 
 (define (make-cfg-color-legend)
   (make-legend-table
@@ -359,6 +366,13 @@
              #:width (*release-rule-width*)
              #:alpha (*release-rule-alpha*)))
     (list r-bar r-lbl)))
+
+(define (make-y-discontinuity y-val)
+  (hrule y-val
+         #:color 0
+         #:width 1
+         #:alpha 0.9
+         #:style 'dot-dash))
 
 (define (datetime->date dt)
   (date (->year dt)
