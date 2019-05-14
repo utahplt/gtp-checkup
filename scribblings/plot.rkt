@@ -18,7 +18,7 @@
                        (flat-hash/c symbol? pict?))))))
 
 (require
-  (only-in racket/math order-of-magnitude)
+  (only-in racket/math order-of-magnitude exact-floor)
   (only-in math/statistics mean)
   (only-in racket/string string-split)
   (only-in racket/path shrink-path-wrt)
@@ -35,8 +35,9 @@
   racket/runtime-path
   racket/sequence
   racket/set
+  racket/format
   pict
-  (only-in plot/utils ->pen-color)
+  (only-in plot/utils ->pen-color linear-seq)
   plot/no-gui)
 
 (module+ test (require rackunit))
@@ -116,21 +117,32 @@
                    [plot-font-size 18]
                    [plot-font-family 'default])
       (for/list ([b-id (in-list benchmark-name*)])
-        (define-values [max-cpu-time min-time max-time]
+        (define-values [max-cpu-time min-timeout min-time max-time]
           (for*/fold ((t-cpu #f)
+                      (t-to  #f)
                       (t-min #f)
                       (t-max #f))
                      ((cd (in-list (machine-data-commit* md))))
             (define ctime (commit-id->time (commit-data-id cd)))
-            (define n* (filter
-                         values
-                         (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
-                           (result->natural v #f))))
-            (values (if (null? n*) t-cpu (max* (cons (or t-cpu 0) n*)))
+            (define n*
+              (filter values
+                (cons t-cpu
+                  (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
+                    (result->natural v #:timeout #f #:error #f)))))
+            (define to*
+              (filter values
+                (cons t-to
+                  (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id)))
+                             #:when (timeout? v))
+                    (timeout->time-limit v)))))
+            (values (if (null? n*) t-cpu (max* n*))
+                    (if (null? to*) t-to (min* to*))
                     (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
                     (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
-        (define y-max (* 1.1 max-cpu-time))
-        (define timeout-y (* 1.08 max-cpu-time))
+        (define y-max (* 1.5 max-cpu-time))
+        ;; TODO add minimum offset as fallback
+        (define error-y (exact-floor y-max))
+        (define timeout-y (exact-floor (* 1.3 max-cpu-time)))
         (define renderer*
           (for/list ((cfg (in-list configuration-name*)))
             ;; cfg = a dataset ... one group of points
@@ -143,7 +155,7 @@
                   (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
                 (cons commit-seconds r-val)))
             (define (point->plot-point p)
-              (vector (car p) (result->natural (cdr p) timeout-y)))
+              (vector (car p) (result->natural (cdr p) #:timeout timeout-y #:error error-y)))
             (define point-renderer*
               (filter
                 values
@@ -188,25 +200,45 @@
             (list line-renderer* point-renderer* commit-renderer*)))
         (define time-padding day-seconds)
         (define the-plot
-          (plot-pict
-            (list (make-year-renderer* min-time max-time)
-                  (make-release-renderer* min-time max-time)
-                  renderer*)
-            #:x-min (- (->posix min-time) time-padding)
-            #:x-max (+ (->posix max-time) time-padding)
-            #:y-min 0
-            #:y-max y-max
-            #:width (plot-width)
-            #:height (* 3/4 (plot-width))
-            #:title (format "~a : ~a" m-id b-id)
-            #:x-label "commit date"
-            #:y-label "runtime (seconds)"))
+          (parameterize ((plot-y-ticks (make-labeled-ticks (list* timeout-y error-y (linear-seq 0 max-cpu-time 4))
+                                                           (hash timeout-y (if min-timeout
+                                                                             (format "timeout (~a min)" (exact-floor (seconds->minutes min-timeout)))
+                                                                             "timeout")
+                                                                 error-y "Error"))))
+            (plot-pict
+              (list (make-year-renderer* min-time max-time)
+                    (make-release-renderer* min-time max-time)
+                    renderer*)
+              #:x-min (- (->posix min-time) time-padding)
+              #:x-max (+ (->posix max-time) time-padding)
+              #:y-min 0
+              #:y-max y-max
+              #:width (plot-width)
+              #:height (* 3/4 (plot-width))
+              #:title (format "~a : ~a" m-id b-id)
+              #:x-label "commit date"
+              #:y-label "runtime (seconds)")))
         (cons
           b-id
           (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
   (for ((c-hash (in-set new-bad-commit*)))
     (log-gtp-checkup-error "new regression in commit ~s" c-hash))
   pict*)
+
+(define (make-labeled-ticks t* lbl#)
+  (define ticks-layout (real*->ticks-layout t*))
+  (define ticks-format (real#->ticks-format lbl#))
+  (ticks ticks-layout ticks-format))
+
+(define ((real#->ticks-format r#) ax-min ax-max pre-ticks)
+  (for/list ((pt (in-list pre-ticks)))
+    (define v (pre-tick-value pt))
+    (or (hash-ref r# v #f)
+        (~r v #:precision 1))))
+
+(define ((real*->ticks-layout x*) ax-min ax-max)
+  (for/list ([x (in-list x*)])
+    (pre-tick x #t)))
 
 (define (midpoint p0 p1)
   (for/vector #:length 2
@@ -447,14 +479,14 @@
     [else
       'error]))
 
-(define (result->natural x n-timeout)
+(define (result->natural x #:timeout n-timeout #:error n-error)
   (cond
     [(cpu-time*? x)
      (/ (mean x) 1000)]
     [(timeout? x)
      n-timeout]
     [else
-     n-timeout]))
+     n-error]))
 
 (define (in-pairs orig-x*)
   (define *x* (box orig-x*))
@@ -484,11 +516,12 @@
     (values (cdr (car pp))
             (cdr (cdr pp))))
   (define (make-cpu-time-pred cmp)
+    (define (r->n r) (result->natural r #:timeout #f #:error #f))
     (lambda (pp)
       (define-values [fst snd] (points->results pp))
       (and (eq? 'ok (result->kind fst))
            (eq? 'ok (result->kind snd))
-           (cmp (result->natural fst #f) (result->natural snd #f)))))
+           (cmp (r->n fst) (r->n snd)))))
   (case dt
     ((slower)
      (make-cpu-time-pred <))
@@ -545,6 +578,9 @@
     (else
       (raise-argument-error 'change-type->alpha "change-type?" dt))))
 
+(define (seconds->minutes s)
+  (/ s 60))
+
 ;; =============================================================================
 
 (module+ main
@@ -570,6 +606,6 @@
           #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546" #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
           )))
   #;(save-pict "acquire.png"
-             (car (make-machine-data-pict* aquire-data)))
+             (cdr (car (make-machine-data-pict* aquire-data))))
 )
 
