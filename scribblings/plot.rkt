@@ -461,7 +461,7 @@
     ((ok)
      'fullcircle)
     ((timeout)
-     'fulltriangle)
+     'fulltriangledown)
     ((error)
      'full8star)
     (else
@@ -472,7 +472,7 @@
     ((ok timeout)
      10)
     ((error)
-     15)
+     13)
     (else
      (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'timeout)" x))))
 
