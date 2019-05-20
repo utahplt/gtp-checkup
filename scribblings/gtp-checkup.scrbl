@@ -155,6 +155,8 @@ The points labeled @bm{typed-worst-case} are for a configuration where:
  (1) every module is typed and (2) every import is guarded with contracts
  via @racket[require/typed].
 
+The benchmarks come from @hyperlink["https://github.com/bennn/gtp-benchmarks/releases/tag/v1.0"]{GTP benchmarks v1.0}.
+
 @(let ((v0 (for/first ((v (in-hash-values dir-pict#))) v)))
    (for/list ((bm (in-list (sort (hash-keys v0) symbol<?))))
      (cons
