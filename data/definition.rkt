@@ -14,8 +14,18 @@
       (-> any/c boolean?))
     (timeout?
       (-> any/c boolean?))
+    (compile-timeout?
+      (-> any/c boolean?))
+    (run-timeout?
+      (-> any/c boolean?))
+    (make-compile-timeout
+      (-> exact-nonnegative-integer? timeout?))
+    (make-run-timeout
+      (-> exact-nonnegative-integer? timeout?))
     (timeout->time-limit
       (-> timeout? exact-nonnegative-integer?))
+    (timeout-kind
+      (-> timeout? symbol?))
     (configuration-data?
       (-> any/c boolean?))
     (configuration-name?
@@ -47,9 +57,24 @@
 
 (define cpu-time*? (listof cpu-time?))
 
-(define timeout? (cons/c 'timeout exact-nonnegative-integer?))
+(struct timeout [kind ms] #:prefab)
 
-(define timeout->time-limit cdr)
+(define (make-compile-timeout ms)
+  (timeout 'compile ms))
+
+(define (make-run-timeout ms)
+  (timeout 'run ms))
+
+(define (compile-timeout? x)
+  (and (timeout? x)
+       (eq? 'compile (timeout-kind x))))
+
+(define (run-timeout? x)
+  (and (timeout? x)
+       (eq? 'run (timeout-kind x))))
+
+(define (timeout->time-limit t)
+  (timeout-ms t))
 
 (define configuration-data? (or/c 'error cpu-time*? timeout?))
 

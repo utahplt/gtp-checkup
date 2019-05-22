@@ -136,13 +136,35 @@
       (time-string->cpu-time ln)))
   (or
     (and (not (null? cpu*)) cpu*)
-    (for/or ((ln (in-list cfg-ln*))
-             #:when (string-prefix? ln "gtp-checkup: exceeded time limit"))
-      (define s (string->number (cadr (regexp-match #rx"\\(([0-9]*)s\\)" ln))))
-      (unless (exact-nonnegative-integer? s)
-        (raise-argument-error 'load-data "invalid timeout in line" ln))
-      (cons 'timeout s))
+    (parse-compile-timeout cfg-ln*)
+    (parse-run-timeout cfg-ln*)
     'error))
+
+(define ((make-parse-timeout before-str make-t) cfg-ln*)
+  (define p-str (string-append "gtp-checkup: " before-str))
+  (let loop ((cfg-ln* cfg-ln*))
+    (cond
+     [(null? cfg-ln*)
+      #false]
+     [(string-prefix? (car cfg-ln*) p-str)
+      (if (null? (cdr cfg-ln*))
+        (raise-arguments-error 'parse-timeout "file ended unexpectedly" "context" cfg-ln*)
+        (let ((t-val (gtp-checkup-str->timeout (cadr cfg-ln*))))
+          (and t-val (make-t t-val))))]
+     [else
+      (loop (cdr cfg-ln*))])))
+
+(define parse-compile-timeout (make-parse-timeout "compiling" make-compile-timeout))
+(define parse-run-timeout (make-parse-timeout "running" make-run-timeout))
+
+(define (gtp-checkup-str->timeout str)
+  (define m (regexp-match #rx"\\(([0-9]*)s\\)" str))
+  (and m
+    (let ()
+      (define s (string->number (cadr m)))
+      (unless (exact-nonnegative-integer? s)
+        (raise-argument-error 'load-data "invalid timeout in line" str))
+      s)))
 
 (define (hash->immutable-hash H)
   (for/hash (((k v) (in-hash H)))
@@ -167,24 +189,25 @@
      (load-file "nsa/2017-01-24T12:30:46Z-0600_9078bc9efb081231f80dce6ab1939d8ba3cf112f.txt")
      '#hash((acquire .  #hasheq((typed . (934)) (typed-worst-case . (5731)) (untyped . (426))))
             (dungeon .  #hasheq((typed . (110)) (typed-worst-case . (71818)) (untyped . (257))))
-            (forth .  #hasheq((typed . (15)) (typed-worst-case . (timeout . 300)) (untyped . (13))))
+            (forth .  #hasheq((typed . (15)) (typed-worst-case . #s(timeout run 300)) (untyped . (13))))
             (fsm .  #hasheq((typed . (104)) (typed-worst-case . (130341)) (untyped . (199))))
-            (fsmoo .  #hasheq((typed . (316)) (typed-worst-case . (timeout . 300)) (untyped . (261))))
+            (fsmoo .  #hasheq((typed . (316)) (typed-worst-case . #s(timeout run 300)) (untyped . (261))))
             (gregor .  #hasheq((typed . (289)) (typed-worst-case . (437)) (untyped . (269))))
             (jpeg .  #hasheq((typed . error) (typed-worst-case . error) (untyped . error)))
             (kcfa .  #hasheq((typed . (1046)) (typed-worst-case . (6169)) (untyped . (1023))))
             (lnm .  #hasheq((typed . (4863)) (typed-worst-case . (4810)) (untyped . (900))))
             (mbta .  #hasheq((typed . error) (typed-worst-case . (1068)) (untyped . (601))))
             (morsecode .  #hasheq((typed . (1654)) (typed-worst-case . (2698)) (untyped . (1714))))
-            (quadT .  #hasheq((typed . (timeout . 60)) (typed-worst-case . error) (untyped . error)))
+
+            (quadT .  #hasheq((typed . #s(timeout compile 60)) (typed-worst-case . error) (untyped . error)))
             (quadU .  #hasheq((typed . error) (typed-worst-case . (6151)) (untyped . (1159))))
             (sieve .  #hasheq((typed . (2739)) (typed-worst-case . (15889)) (untyped . (2827))))
             (snake .  #hasheq((typed . (557)) (typed-worst-case . (9104)) (untyped . (579))))
             (suffixtree .  #hasheq((typed . (1950)) (typed-worst-case . (77660)) (untyped . (2601))))
-            (synth .  #hasheq((typed . (timeout . 60)) (typed-worst-case . (25813)) (untyped . (428))))
+            (synth .  #hasheq((typed . #s(timeout compile 60)) (typed-worst-case . (25813)) (untyped . (428))))
             (take5 .  #hasheq((typed . (4019)) (typed-worst-case . (105367)) (untyped . (478))))
             (tetris .  #hasheq((typed . (727)) (typed-worst-case . (8332)) (untyped . (826))))
-            (zombie .  #hasheq((typed . (214)) (typed-worst-case . (timeout . 300)) (untyped . (43))))
+            (zombie .  #hasheq((typed . (214)) (typed-worst-case . #s(timeout run 300)) (untyped . (43))))
             (zordoz .  #hasheq((typed . error) (typed-worst-case . (7472)) (untyped . (815)))))))
 
   (test-case "load-directory"

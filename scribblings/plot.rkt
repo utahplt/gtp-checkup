@@ -57,7 +57,7 @@
 
 (define day-seconds (* 60 60 60 24))
 
-(define result-kind* '(ok error timeout))
+(define result-kind* '(ok error compile-timeout run-timeout))
 
 (define racket-release-date*
   `(("6.7" ,(date 2016 10 26))
@@ -117,9 +117,10 @@
                    [plot-font-size 18]
                    [plot-font-family 'default])
       (for/list ([b-id (in-list benchmark-name*)])
-        (define-values [max-cpu-time min-timeout min-time max-time]
+        (define-values [max-cpu-time min-compile-timeout min-run-timeout min-time max-time]
           (for*/fold ((t-cpu #f)
-                      (t-to  #f)
+                      (t-cto #f)
+                      (t-rto #f)
                       (t-min #f)
                       (t-max #f))
                      ((cd (in-list (machine-data-commit* md))))
@@ -128,18 +129,25 @@
               (filter values
                 (cons t-cpu
                   (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id))))
-                    (result->natural v #:timeout #f #:error #f)))))
-            (define to*
+                    (result->natural v #:compile-timeout #f #:run-timeout #f #:error #f)))))
+            (define cto*
               (filter values
-                (cons t-to
+                (cons t-cto
                   (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id)))
-                             #:when (timeout? v))
+                             #:when (compile-timeout? v))
+                    (timeout->time-limit v)))))
+            (define rto*
+              (filter values
+                (cons t-rto
+                  (for/list ((v (in-hash-values (hash-ref (commit-data-benchmark# cd) b-id)))
+                             #:when (run-timeout? v))
                     (timeout->time-limit v)))))
             (values (if (null? n*) t-cpu (max* n*))
-                    (if (null? to*) t-to (min* to*))
+                    (if (null? cto*) t-cto (min* cto*))
+                    (if (null? rto*) t-rto (min* rto*))
                     (if (or (not t-min) (datetime<? ctime t-min)) ctime t-min)
                     (if (or (not t-max) (datetime<? t-max ctime)) ctime t-max))))
-        (define-values [y-max error-y timeout-y] (make-extra-y-values max-cpu-time))
+        (define-values [y-max error-y compile-timeout-y run-timeout-y] (make-extra-y-values max-cpu-time))
         (define renderer*
           (for/list ((cfg (in-list configuration-name*)))
             ;; cfg = a dataset ... one group of points
@@ -152,11 +160,11 @@
                   (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
                 (cons commit-seconds r-val)))
             (define (point->plot-point p)
-              (vector (car p) (result->natural (cdr p) #:timeout timeout-y #:error error-y)))
+              (vector (car p) (result->natural (cdr p) #:compile-timeout compile-timeout-y #:run-timeout run-timeout-y #:error error-y)))
             (define point-renderer*
               (filter
                 values
-                (for/list ((r-kind (in-list '(ok error timeout))))
+                (for/list ((r-kind (in-list '(ok error compile-timeout run-timeout))))
                   (define p*/kind
                     (for/list ((p (in-list p*))
                                #:when (eq? r-kind (result->kind (cdr p))))
@@ -197,15 +205,18 @@
             (list line-renderer* point-renderer* commit-renderer*)))
         (define time-padding day-seconds)
         (define the-plot
-          (parameterize ((plot-y-ticks (make-labeled-ticks (list* timeout-y error-y (linear-seq 0 max-cpu-time 4))
-                                                           (hash timeout-y (if min-timeout
-                                                                             (format "timeout (~a min)" (exact-floor (seconds->minutes min-timeout)))
-                                                                             "timeout")
+          (parameterize ((plot-y-ticks (make-labeled-ticks (list* run-timeout-y compile-timeout-y error-y (linear-seq 0 max-cpu-time 4))
+                                                           (hash run-timeout-y (if min-run-timeout
+                                                                                 (format "run timeout (~a min)" (exact-floor (seconds->minutes min-run-timeout)))
+                                                                                 "run timeout")
+                                                                 compile-timeout-y (if min-compile-timeout
+                                                                                     (format "compile timeout (~a min)" (exact-floor (seconds->minutes min-compile-timeout)))
+                                                                                     "compile timeout")
                                                                  error-y "Error"))))
             (plot-pict
               (list (make-year-renderer* min-time max-time)
                     (make-release-renderer* min-time max-time)
-                    (make-y-discontinuity (mean (list max-cpu-time timeout-y)))
+                    (make-y-discontinuity (mean (list max-cpu-time run-timeout-y)))
                     renderer*)
               #:x-min (- (->posix min-time) time-padding)
               #:x-max (+ (->posix max-time) time-padding)
@@ -435,9 +446,9 @@
         (make-commit-data
           "2018-10-26T14:51:55Z-0500_3475e86862a6fd5389ff5f22c456107c74fd05c5"
           '#hasheq(
-            (synth . #hasheq((typed . (timeout . 60)) (untyped . (428))))
+            (synth . #hasheq((typed . #s(timeout run 60)) (untyped . (428))))
             (take5 . #hasheq((typed . (4019))
-                             (typed-worst-case . (timeout . 103))
+                             (typed-worst-case . #s(timeout compile 103))
                              (untyped . (478)))))))))
   (test-case "machine-data->timeout*"
     (check set=?
@@ -460,21 +471,21 @@
   (case x
     ((ok)
      'fullcircle)
-    ((timeout)
+    ((compile-timeout run-timeout)
      'fulltriangledown)
     ((error)
      'full8star)
     (else
-      (raise-argument-error 'kind->symbol "(or/c 'ok 'timeout 'error)" x))))
+      (raise-argument-error 'kind->symbol "(or/c 'ok 'compile-timeout 'run-timeout 'error)" x))))
 
 (define (kind->point-size x)
   (case x
-    ((ok timeout)
+    ((ok run-timeout)
      10)
-    ((error)
+    ((compile-timeout error)
      13)
     (else
-     (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'timeout)" x))))
+     (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'compile-timeoun 'run-timeout)" x))))
 
 (define configuration-name->color
   (let ((H #hasheq((typed . "Gold")
@@ -488,17 +499,21 @@
   (cond
     [(cpu-time*? x)
      'ok]
-    [(timeout? x)
-     'timeout]
+    [(compile-timeout? x)
+     'compile-timeout]
+    [(run-timeout? x)
+     'run-timeout]
     [else
       'error]))
 
-(define (result->natural x #:timeout n-timeout #:error n-error)
+(define (result->natural x #:compile-timeout c-timeout #:run-timeout r-timeout #:error n-error)
   (cond
     [(cpu-time*? x)
      (/ (mean x) 1000)]
-    [(timeout? x)
-     n-timeout]
+    [(compile-timeout? x)
+     c-timeout]
+    [(run-timeout? x)
+     r-timeout]
     [else
      n-error]))
 
@@ -530,7 +545,7 @@
     (values (cdr (car pp))
             (cdr (cdr pp))))
   (define (make-cpu-time-pred cmp)
-    (define (r->n r) (result->natural r #:timeout #f #:error #f))
+    (define (r->n r) (result->natural r #:compile-timeout #f #:run-timeout #f #:error #f))
     (lambda (pp)
       (define-values [fst snd] (points->results pp))
       (and (eq? 'ok (result->kind fst))
@@ -615,7 +630,7 @@
           #s(commit-data "2019-02-25T13:10:08Z-0700_84837f4330cef3df9271b778f2fbfba09d34fc3b" #hasheq((acquire . #hasheq((typed . (854 843 857 875 852 861 873 854 837 847)) (typed-worst-case . (1901 1895 1864 1887 1859 1878 1923 1877 1873 1892)) (untyped . (469 462 460 453 462 466 464 464 477 462))))))
           #s(commit-data "2019-03-15T22:13:10Z-0500_ce324be9f8b8ad8b88bc3a39e7b1de438b462c87" #hasheq((acquire . #hasheq((typed . (865 866 869 854 848 852 864 847 847 838)) (typed-worst-case . (1889 1898 1923 1852 1876 1893 1917 1869 1863 1886)) (untyped . (486 457 467 466 469 462 470 476 464 467))))))
           #s(commit-data "2019-03-16T17:11:55Z-0400_a2d87c353eb3ae6431a91a2e924c2216756ff079" #hasheq((acquire . #hasheq((typed . (840 860 847 860 858 868 840 865 841 840)) (typed-worst-case . (1876 1952 1893 1895 1905 1869 1963 1883 1882 1937)) (untyped . (470 469 471 473 482 468 480 462 465 470))))))
-          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475" #hasheq((acquire . #hasheq((typed . (timeout . 5500)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
+          #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475" #hasheq((acquire . #hasheq((typed . #s(timeout run 5500)) (typed-worst-case . (1902 1923 1884 1944 1892 1884 1922 1886 1901 1899)) (untyped . (467 461 470 462 473 466 468 466 474 475))))))
           #s(commit-data "2019-03-28T17:08:25Z-0500_7a9b1d065e168d882ac8800e3fed4340c940e3ae" #hasheq((acquire . #hasheq((typed . (858 834 842 859 848 848 848 845 851 847)) (typed-worst-case . (1924 1940 1743 1927 1862 1883 1888 1918 1915 1902)) (untyped . (470 475 473 468 478 461 467 473 464 461))))))
           #s(commit-data "2019-03-28T17:08:25Z-0500_e1835074f5c44581cb9645f11f7ca8096e61a546" #hasheq((acquire . #hasheq((typed . (853 863 847 845 861 848 862 851 869 846)) (typed-worst-case . (1907 1911 1910 1883 1934 1916 1886 1941 1867 1905)) (untyped . (472 470 455 470 469 454 478 470 461 465))))))
           )))
