@@ -35,7 +35,7 @@
 
 (define-runtime-path PWD ".")
 
-(define COMPILE-TIME-LIMIT 60) ; seconds
+(define COMPILE-TIME-LIMIT (* 60 10)) ; seconds
 (define RUN-TIME-LIMIT     (* 60 5)) ; seconds
 
 (define (contains-racket? d)
