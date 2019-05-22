@@ -45,7 +45,7 @@
 ;; =============================================================================
 
 (define *point-outline-color* (make-parameter "DimGray"))
-(define *wide-plot-width* (make-parameter 800))
+(define *wide-plot-width* (make-parameter 1100))
 
 (define *year-rule-color* (make-parameter (->pen-color 0)))
 (define *year-rule-width* (make-parameter 1))
@@ -238,13 +238,13 @@
   (define mt (exact-ceiling max-cpu-time))
   (case (order-of-magnitude mt)
     ((0)
-     (values (+ 5 mt) (+ 4 mt) (+ 2 mt)))
+     (values (+ 6 mt) (+ 5 mt) (+ 4 mt) (+ 2 mt)))
     (else
-     (define y-max (* 1.5 max-cpu-time))
      (values
-        y-max
-        (exact-floor y-max)
-        (exact-floor (* 1.3 max-cpu-time))))))
+        (exact-ceiling (* 1.8 max-cpu-time))
+        (exact-ceiling (* 1.6 max-cpu-time))
+        (exact-ceiling (* 1.4 max-cpu-time))
+        (exact-ceiling (* 1.2 max-cpu-time))))))
 
 (define (make-labeled-ticks t* lbl#)
   (define ticks-layout (real*->ticks-layout t*))
