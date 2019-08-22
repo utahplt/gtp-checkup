@@ -70,7 +70,9 @@
     ("7.0" ,(date 2018 07 27))
     ("7.1" ,(date 2018 10 26))
     ("7.2" ,(date 2019 01 30))
-    ("7.3" ,(date 2019 05 13))))
+    ("7.3" ,(date 2019 05 13))
+    ("7.4" ,(date 2019 08 03))
+    ))
 
 (define change-type* '(slower faster new-fail new-fix still-fail))
 
