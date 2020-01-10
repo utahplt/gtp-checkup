@@ -1,0 +1,1069 @@
+find . -type d -name "compiled" | xargs rm -rf
+PLTSTDERR="error info@gtp-checkup" /usr/local/bin/racket nightly.rkt
+Cloning into '/home/ben/.local/share/gtp-checkup/2020-01-10'...
+#hash(("2d" . #s(pkg-info (catalog "2d" "git://github.com/racket/2d?path=2d") "3f319d170269e8d60483c22eaf9c5eb262bde30b" #t)) ("2d-doc" . #s((sc-pkg-info pkg-info 3) (catalog "2d-doc" "git://github.com/racket/2d?path=2d-doc") "3f319d170269e8d60483c22eaf9c5eb262bde30b" #t "2d")) ("2d-lib" . #s((sc-pkg-info pkg-info 3) (catalog "2d-lib" "git://github.com/racket/2d?path=2d-lib") "3f319d170269e8d60483c22eaf9c5eb262bde30b" #t "2d")) ("2d-test" . #s((sc-pkg-info pkg-info 3) (catalog "2d-test" "git://github.com/racket/2d?path=2d-test") "3f319d170269e8d60483c22eaf9c5eb262bde30b" #t "2d")) ("algol60" . #s((sc-pkg-info pkg-info 3) (catalog "algol60" "git://github.com/racket/algol60") "8d74727f176ba6cc8db77e9e716e2f11c40e5c9b" #t "algol60")) ("at-exp-lib" . #s(pkg-info (static-link "../../../pkgs/at-exp-lib") "" #t)) ("base" . #s(pkg-info (static-link "../../../pkgs/base") "" #t)) ("basedir" . #s((sc-pkg-info pkg-info 3) (catalog "basedir" "git://github.com/willghatch/racket-basedir.git") "722c06fb943f0a6e263cad057cedd80ea50e888d" #t "basedir")) ("cext-lib" . #s(pkg-info (catalog "cext-lib" "git://github.com/racket/cext-lib?path=cext-lib") "822f75898e810c4747dacdd743ff4a3004d5a290" #t)) ("class-iop-lib" . #s(pkg-info (catalog "class-iop-lib" "git://github.com/racket/class-iop?path=class-iop-lib") "f5105b5cfdc7b72d9c7ffc053f884fc66677f861" #t)) ("cldr-bcp47" . #s(pkg-info (catalog "cldr-bcp47" "git://github.com/97jaz/cldr-bcp47") "823fc1a530f1a0ec4de59f5454c1a17f20c5a5d6" #t)) ("cldr-core" . #s(pkg-info (catalog "cldr-core" "git://github.com/97jaz/cldr-core") "8a4d6de47ea572bfcee8d4df498be893906f52de" #t)) ("cldr-dates-modern" . #s(pkg-info (catalog "cldr-dates-modern" "git://github.com/97jaz/cldr-dates-modern") "c36282917247f6a069e553535f4619007cd7b6e5" #t)) ("cldr-localenames-modern" . #s(pkg-info (catalog "cldr-localenames-modern" "git://github.com/97jaz/cldr-localenames-modern") "f9f3e8d9245764a309542816acf40fe147b473a3" #t)) ("cldr-numbers-modern" . #s(pkg-info (catalog "cldr-numbers-modern" "git://github.com/97jaz/cldr-numbers-modern") "625428099b3f8cd264955a283dddc176a6080ba1" #t)) ("compatibility" . #s(pkg-info (catalog "compatibility" "git://github.com/racket/compatibility/?path=compatibility") "a02608068c16ee8cd6899ee73f981fe4c71ba3e0" #t)) ("compatibility-doc" . #s(pkg-info (catalog "compatibility-doc" "git://github.com/racket/compatibility/?path=compatibility-doc") "a02608068c16ee8cd6899ee73f981fe4c71ba3e0" #t)) ("compatibility-lib" . #s(pkg-info (catalog "compatibility-lib" "git://github.com/racket/compatibility/?path=compatibility-lib") "a02608068c16ee8cd6899ee73f981fe4c71ba3e0" #t)) ("compatibility-test" . #s(pkg-info (catalog "compatibility-test" "git://github.com/racket/compatibility/?path=compatibility-test") "a02608068c16ee8cd6899ee73f981fe4c71ba3e0" #t)) ("compiler" . #s(pkg-info (static-link "../../../pkgs/compiler") "" #t)) ("compiler-lib" . #s(pkg-info (static-link "../../../pkgs/compiler-lib") "" #t)) ("compiler-test" . #s(pkg-info (static-link "../../../pkgs/compiler-test") "" #t)) ("contract-profile" . #s((sc-pkg-info pkg-info 3) (catalog "contract-profile" "git://github.com/racket/contract-profile") "8469bec20b096be090d03615498c6fb316d8ecea" #t "contract-profile")) ("data" . #s(pkg-info (catalog "data" "git://github.com/racket/data/?path=data") "82f0fdd18eb6c9af1aa04859263abb0104207f52" #t)) ("data-doc" . #s(pkg-info (catalog "data-doc" "git://github.com/racket/data/?path=data-doc") "82f0fdd18eb6c9af1aa04859263abb0104207f52" #t)) ("data-enumerate-lib" . #s(pkg-info (catalog "data-enumerate-lib" "git://github.com/racket/data/?path=data-enumerate-lib") "82f0fdd18eb6c9af1aa04859263abb0104207f52" #t)) ("data-lib" . #s(pkg-info (catalog "data-lib" "git://github.com/racket/data/?path=data-lib") "82f0fdd18eb6c9af1aa04859263abb0104207f52" #t)) ("data-test" . #s(pkg-info (catalog "data-test" "git://github.com/racket/data/?path=data-test") "82f0fdd18eb6c9af1aa04859263abb0104207f52" #t)) ("datalog" . #s((sc-pkg-info pkg-info 3) (catalog "datalog" "git://github.com/racket/datalog") "057771889eff193e5442a0c95b8c837bac4c241c" #t "datalog")) ("db" . #s(pkg-info (catalog "db" "git://github.com/racket/db/?path=db") "7b5e16e1f43a84e037fdbe4d0e1a6f754363830d" #t)) ("db-doc" . #s(pkg-info (catalog "db-doc" "git://github.com/racket/db/?path=db-doc") "7b5e16e1f43a84e037fdbe4d0e1a6f754363830d" #t)) ("db-lib" . #s(pkg-info (catalog "db-lib" "git://github.com/racket/db/?path=db-lib") "7b5e16e1f43a84e037fdbe4d0e1a6f754363830d" #t)) ("db-test" . #s(pkg-info (catalog "db-test" "git://github.com/racket/db/?path=db-test") "7b5e16e1f43a84e037fdbe4d0e1a6f754363830d" #t)) ("deinprogramm" . #s(pkg-info (catalog "deinprogramm" "git://github.com/racket/deinprogramm?path=deinprogramm") "5b43421b1fff4d18b37892f316ee10bf740cd365" #t)) ("deinprogramm-signature" . #s(pkg-info (catalog "deinprogramm-signature" "git://github.com/racket/deinprogramm?path=deinprogramm-signature") "5b43421b1fff4d18b37892f316ee10bf740cd365" #t)) ("distributed-places" . #s(pkg-info (catalog "distributed-places" "git://github.com/racket/distributed-places/?path=distributed-places") "3f4a1f43430216871e8cc7a6ecbd2a03530a9bfb" #t)) ("distributed-places-doc" . #s(pkg-info (catalog "distributed-places-doc" "git://github.com/racket/distributed-places/?path=distributed-places-doc") "3f4a1f43430216871e8cc7a6ecbd2a03530a9bfb" #t)) ("distributed-places-lib" . #s(pkg-info (catalog "distributed-places-lib" "git://github.com/racket/distributed-places/?path=distributed-places-lib") "3f4a1f43430216871e8cc7a6ecbd2a03530a9bfb" #t)) ("draw" . #s(pkg-info (catalog "draw" "git://github.com/racket/draw/?path=draw") "2db295d8f3564430d3f5b88a4dc51a7b85c73de5" #t)) ("draw-doc" . #s(pkg-info (catalog "draw-doc" "git://github.com/racket/draw/?path=draw-doc") "2db295d8f3564430d3f5b88a4dc51a7b85c73de5" #t)) ("draw-lib" . #s(pkg-info (catalog "draw-lib" "git://github.com/racket/draw/?path=draw-lib") "2db295d8f3564430d3f5b88a4dc51a7b85c73de5" #t)) ("draw-test" . #s(pkg-info (catalog "draw-test" "git://github.com/racket/draw/?path=draw-test") "2db295d8f3564430d3f5b88a4dc51a7b85c73de5" #t)) ("drracket" . #s(pkg-info (catalog "drracket" "git://github.com/racket/drracket/?path=drracket") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-plugin-lib" . #s(pkg-info (catalog "drracket-plugin-lib" "git://github.com/racket/drracket/?path=drracket-plugin-lib") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-test" . #s(pkg-info (catalog "drracket-test" "git://github.com/racket/drracket/?path=drracket-test") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-tool" . #s(pkg-info (catalog "drracket-tool" "git://github.com/racket/drracket/?path=drracket-tool") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-tool-doc" . #s(pkg-info (catalog "drracket-tool-doc" "git://github.com/racket/drracket/?path=drracket-tool-doc") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-tool-lib" . #s(pkg-info (catalog "drracket-tool-lib" "git://github.com/racket/drracket/?path=drracket-tool-lib") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("drracket-tool-test" . #s(pkg-info (catalog "drracket-tool-test" "git://github.com/racket/drracket/?path=drracket-tool-test") "9dd6978ca449735a50a0be1cd28655e86a74a3b0" #t)) ("ds-store" . #s((sc-pkg-info pkg-info 3) (catalog "ds-store" "git://github.com/racket/ds-store/?path=ds-store") "bb352d6c57a101aa0455db905e87bef7f121e9fc" #t "ds-store")) ("ds-store-doc" . #s((sc-pkg-info pkg-info 3) (catalog "ds-store-doc" "git://github.com/racket/ds-store/?path=ds-store-doc") "bb352d6c57a101aa0455db905e87bef7f121e9fc" #t "ds-store")) ("ds-store-lib" . #s((sc-pkg-info pkg-info 3) (catalog "ds-store-lib" "git://github.com/racket/ds-store/?path=ds-store-lib") "bb352d6c57a101aa0455db905e87bef7f121e9fc" #t "ds-store")) ("dynext-lib" . #s(pkg-info (catalog "dynext-lib" "git://github.com/racket/cext-lib?path=dynext-lib") "822f75898e810c4747dacdd743ff4a3004d5a290" #t)) ("eli-tester" . #s(pkg-info (catalog "eli-tester" "git://github.com/racket/eli-tester") "2d7d78118b9fc36c37096be8908e63ac9572fe10" #t)) ("eopl" . #s((sc-pkg-info pkg-info 3) (catalog "eopl" "git://github.com/racket/eopl") "43575d6e95dc34ca6e49b305180f696565e16e0f" #t "eopl")) ("errortrace" . #s(pkg-info (catalog "errortrace" "git://github.com/racket/errortrace/?path=errortrace") "2839dffc9c8c47722a78bff34c0912fc59dc087b" #t)) ("errortrace-doc" . #s(pkg-info (catalog "errortrace-doc" "git://github.com/racket/errortrace/?path=errortrace-doc") "2839dffc9c8c47722a78bff34c0912fc59dc087b" #t)) ("errortrace-lib" . #s(pkg-info (catalog "errortrace-lib" "git://github.com/racket/errortrace/?path=errortrace-lib") "2839dffc9c8c47722a78bff34c0912fc59dc087b" #t)) ("errortrace-test" . #s(pkg-info (catalog "errortrace-test" "git://github.com/racket/errortrace/?path=errortrace-test") "2839dffc9c8c47722a78bff34c0912fc59dc087b" #t)) ("frtime" . #s((sc-pkg-info pkg-info 3) (catalog "frtime" "git://github.com/racket/frtime") "24d2efa197479660177112362c95f55b883106c0" #t "frtime")) ("future-visualizer" . #s(pkg-info (catalog "future-visualizer" "git://github.com/racket/future-visualizer/?path=future-visualizer") "075f5f519e3bab58102894c6250f7ee6cf3588d4" #t)) ("future-visualizer-typed" . #s(pkg-info (catalog "future-visualizer-typed" "git://github.com/racket/future-visualizer/?path=future-visualizer-typed") "075f5f519e3bab58102894c6250f7ee6cf3588d4" #t)) ("games" . #s((sc-pkg-info pkg-info 3) (catalog "games" "git://github.com/racket/games/") "e93aa3694d427be5125793f20eba1c8aa8c40721" #t "games")) ("gregor" . #s(pkg-info (catalog "gregor" "https://github.com/97jaz/gregor.git?path=gregor") "76f1c593f475e9847d25f9d014d41289f16d3393" #t)) ("gregor-doc" . #s(pkg-info (catalog "gregor-doc" "https://github.com/97jaz/gregor.git?path=gregor-doc") "76f1c593f475e9847d25f9d014d41289f16d3393" #t)) ("gregor-lib" . #s(pkg-info (catalog "gregor-lib" "https://github.com/97jaz/gregor.git?path=gregor-lib") "76f1c593f475e9847d25f9d014d41289f16d3393" #t)) ("gtp-checkup" . #s((sc-pkg-info pkg-info 3) (link "../../../../../../../code/racket/fork/extra-pkgs/gtp-checkup") #f #f "gtp-checkup")) ("gtp-util" . #s((sc-pkg-info pkg-info 3) (catalog "gtp-util" "https://github.com/bennn/gtp-util.git") "42009ee50d3f601739fb57ac3873f9b55ea04a8a" #t "gtp-util")) ("gui" . #s(pkg-info (catalog "gui" "git://github.com/racket/gui/?path=gui") "1397251db8d3f7aa0d009249604d79154df8d1f4" #t)) ("gui-doc" . #s(pkg-info (catalog "gui-doc" "git://github.com/racket/gui/?path=gui-doc") "1397251db8d3f7aa0d009249604d79154df8d1f4" #t)) ("gui-lib" . #s(pkg-info (catalog "gui-lib" "git://github.com/racket/gui/?path=gui-lib") "1397251db8d3f7aa0d009249604d79154df8d1f4" #t)) ("gui-pkg-manager-lib" . #s(pkg-info (catalog "gui-pkg-manager-lib" "git://github.com/racket/gui-pkg-manager/?path=gui-pkg-manager-lib") "54d8ebd8c58a0974334e96e257db3b038cb20135" #t)) ("gui-test" . #s(pkg-info (catalog "gui-test" "git://github.com/racket/gui/?path=gui-test") "1397251db8d3f7aa0d009249604d79154df8d1f4" #t)) ("htdp" . #s(pkg-info (catalog "htdp" "git://github.com/racket/htdp/?path=htdp") "b37782ccb5fd83dd5879b4e9ce045627ad7a0878" #t)) ("htdp-doc" . #s(pkg-info (catalog "htdp-doc" "git://github.com/racket/htdp/?path=htdp-doc") "b37782ccb5fd83dd5879b4e9ce045627ad7a0878" #t)) ("htdp-lib" . #s(pkg-info (catalog "htdp-lib" "git://github.com/racket/htdp/?path=htdp-lib") "b37782ccb5fd83dd5879b4e9ce045627ad7a0878" #t)) ("htdp-test" . #s(pkg-info (catalog "htdp-test" "git://github.com/racket/htdp/?path=htdp-test") "b37782ccb5fd83dd5879b4e9ce045627ad7a0878" #t)) ("html" . #s(pkg-info (catalog "html" "git://github.com/racket/html/?path=html") "537e635fda6138c13475926355c2fd40fe69cabd" #t)) ("html-doc" . #s(pkg-info (catalog "html-doc" "git://github.com/racket/html/?path=html-doc") "537e635fda6138c13475926355c2fd40fe69cabd" #t)) ("html-lib" . #s(pkg-info (catalog "html-lib" "git://github.com/racket/html/?path=html-lib") "537e635fda6138c13475926355c2fd40fe69cabd" #t)) ("html-test" . #s(pkg-info (catalog "html-test" "git://github.com/racket/html/?path=html-test") "537e635fda6138c13475926355c2fd40fe69cabd" #t)) ("icons" . #s((sc-pkg-info pkg-info 3) (catalog "icons" "git://github.com/racket/icons") "aa359e8e25644b9f3290d873ea2fba1bd8159def" #t "icons")) ("images" . #s(pkg-info (catalog "images" "git://github.com/racket/images/?path=images") "975f011d41aea2f1d83885cefe333d271b788a62" #t)) ("images-doc" . #s(pkg-info (catalog "images-doc" "git://github.com/racket/images/?path=images-doc") "975f011d41aea2f1d83885cefe333d271b788a62" #t)) ("images-gui-lib" . #s(pkg-info (catalog "images-gui-lib" "git://github.com/racket/images/?path=images-gui-lib") "975f011d41aea2f1d83885cefe333d271b788a62" #t)) ("images-lib" . #s(pkg-info (catalog "images-lib" "git://github.com/racket/images/?path=images-lib") "975f011d41aea2f1d83885cefe333d271b788a62" #t)) ("images-test" . #s(pkg-info (catalog "images-test" "git://github.com/racket/images/?path=images-test") "975f011d41aea2f1d83885cefe333d271b788a62" #t)) ("lang-file" . #s(pkg-info (catalog "lang-file" "git://github.com/AlexKnauth/lang-file?path=lang-file") "435925c4abcf4835c6ea2afdbbf6d051272cba66" #t)) ("lang-file-lib" . #s(pkg-info (catalog "lang-file-lib" "git://github.com/AlexKnauth/lang-file?path=lang-file-lib") "435925c4abcf4835c6ea2afdbbf6d051272cba66" #t)) ("lazy" . #s((sc-pkg-info pkg-info 3) (catalog "lazy" "git://github.com/racket/lazy") "2cc3a2434341a1a3a22a36a3fa1d1356086da274" #t "lazy")) ("macro-debugger" . #s(pkg-info (catalog "macro-debugger" "git://github.com/racket/macro-debugger/?path=macro-debugger") "62e80e6b48f7330cb89ff51db5ce5325f25e70e8" #t)) ("macro-debugger-text-lib" . #s(pkg-info (catalog "macro-debugger-text-lib" "git://github.com/racket/macro-debugger/?path=macro-debugger-text-lib") "62e80e6b48f7330cb89ff51db5ce5325f25e70e8" #t)) ("main-distribution" . #s(pkg-info (catalog "main-distribution" "git://github.com/racket/main-distribution") "b7d1f1de4ca24b84a040bffade35fdc46227788d" #f)) ("main-distribution-test" . #s(pkg-info (catalog "main-distribution-test" "git://github.com/racket/main-distribution-test") "e0043326ba39fdaa583e74378a9ee67df8fd7d0b" #f)) ("make" . #s((sc-pkg-info pkg-info 3) (catalog "make" "git://github.com/racket/make") "50496f2033320d7f35f2770d5aee4c3ba67c44da" #t "make")) ("math" . #s(pkg-info (catalog "math" "git://github.com/racket/math/?path=math") "a82f83e22fd94e6af69d41d804b6a7b66f894438" #t)) ("math-doc" . #s(pkg-info (catalog "math-doc" "git://github.com/racket/math/?path=math-doc") "a82f83e22fd94e6af69d41d804b6a7b66f894438" #t)) ("math-lib" . #s(pkg-info (catalog "math-lib" "git://github.com/racket/math/?path=math-lib") "a82f83e22fd94e6af69d41d804b6a7b66f894438" #t)) ("math-test" . #s(pkg-info (catalog "math-test" "git://github.com/racket/math/?path=math-test") "a82f83e22fd94e6af69d41d804b6a7b66f894438" #t)) ("memoize" . #s(pkg-info (catalog "memoize" "github://github.com/jbclements/memoize/master") "9cdbf7512b8a531b1b26ffc02160aa9e8125f2ed" #t)) ("mysterx" . #s((sc-pkg-info pkg-info 3) (catalog "mysterx" "git://github.com/racket/mysterx") "5a80a3fe569c9d2a859b810c1c3ba56eeb181307" #t "mysterx")) ("mzcom" . #s((sc-pkg-info pkg-info 3) (catalog "mzcom" "git://github.com/racket/mzcom") "5b83833786eca719f6b73b391520272d1ec3dbd9" #t "mzcom")) ("mzscheme" . #s(pkg-info (catalog "mzscheme" "git://github.com/racket/mzscheme/?path=mzscheme") "39f323980a452aff1c3dd53003cdd661190ef698" #t)) ("mzscheme-doc" . #s(pkg-info (catalog "mzscheme-doc" "git://github.com/racket/mzscheme/?path=mzscheme-doc") "39f323980a452aff1c3dd53003cdd661190ef698" #t)) ("mzscheme-lib" . #s(pkg-info (catalog "mzscheme-lib" "git://github.com/racket/mzscheme/?path=mzscheme-lib") "39f323980a452aff1c3dd53003cdd661190ef698" #t)) ("net" . #s(pkg-info (static-link "../../../pkgs/net") "" #t)) ("net-cookies" . #s(pkg-info (catalog "net-cookies" "git://github.com/RenaissanceBug/racket-cookies?path=net-cookies") "f6b1a4ab18d09fae70f903663304ecaeb5f1041b" #t)) ("net-cookies-doc" . #s(pkg-info (catalog "net-cookies-doc" "git://github.com/RenaissanceBug/racket-cookies?path=net-cookies-doc") "f6b1a4ab18d09fae70f903663304ecaeb5f1041b" #t)) ("net-cookies-lib" . #s(pkg-info (catalog "net-cookies-lib" "git://github.com/RenaissanceBug/racket-cookies?path=net-cookies-lib") "f6b1a4ab18d09fae70f903663304ecaeb5f1041b" #t)) ("net-cookies-test" . #s(pkg-info (catalog "net-cookies-test" "git://github.com/RenaissanceBug/racket-cookies?path=net-cookies-test") "f6b1a4ab18d09fae70f903663304ecaeb5f1041b" #t)) ("net-doc" . #s(pkg-info (static-link "../../../pkgs/net-doc") "" #t)) ("net-lib" . #s(pkg-info (static-link "../../../pkgs/net-lib") "" #t)) ("net-test" . #s(pkg-info (static-link "../../../pkgs/net-test") "" #t)) ("optimization-coach" . #s(pkg-info (catalog "optimization-coach" "github://github.com/stamourv/optimization-coach/master") "8697352656d07d7319e0b2eddfd73988343548ef" #t)) ("option-contract" . #s(pkg-info (catalog "option-contract" "git://github.com/racket/option-contract?path=option-contract") "399ad3351df83dee3dd2e8c4bec14ad5bcd2be8e" #t)) ("option-contract-doc" . #s(pkg-info (catalog "option-contract-doc" "git://github.com/racket/option-contract?path=option-contract-doc") "399ad3351df83dee3dd2e8c4bec14ad5bcd2be8e" #t)) ("option-contract-lib" . #s(pkg-info (catalog "option-contract-lib" "git://github.com/racket/option-contract?path=option-contract-lib") "399ad3351df83dee3dd2e8c4bec14ad5bcd2be8e" #t)) ("option-contract-test" . #s(pkg-info (catalog "option-contract-test" "git://github.com/racket/option-contract?path=option-contract-test") "399ad3351df83dee3dd2e8c4bec14ad5bcd2be8e" #t)) ("parser-tools" . #s(pkg-info (catalog "parser-tools" "git://github.com/racket/parser-tools/?path=parser-tools") "ea861899556b7fa578d30ebbc188808f37d5b84e" #t)) ("parser-tools-doc" . #s(pkg-info (catalog "parser-tools-doc" "git://github.com/racket/parser-tools/?path=parser-tools-doc") "ea861899556b7fa578d30ebbc188808f37d5b84e" #t)) ("parser-tools-lib" . #s(pkg-info (catalog "parser-tools-lib" "git://github.com/racket/parser-tools/?path=parser-tools-lib") "ea861899556b7fa578d30ebbc188808f37d5b84e" #t)) ("pconvert-lib" . #s(pkg-info (catalog "pconvert-lib" "git://github.com/racket/pconvert?path=pconvert-lib") "c61fb3771251db295e1ef14f55f28f70d7e2982f" #t)) ("pconvert-test" . #s(pkg-info (catalog "pconvert-test" "git://github.com/racket/pconvert?path=pconvert-test") "c61fb3771251db295e1ef14f55f28f70d7e2982f" #t)) ("pict" . #s(pkg-info (catalog "pict" "git://github.com/racket/pict/?path=pict") "1b6960c29b9bcea037b1aa2db9f5d5c93697f3d9" #t)) ("pict-abbrevs" . #s((sc-pkg-info pkg-info 3) (catalog "pict-abbrevs" "https://gitlab.com/bengreenman/pict-abbrevs.git") "30c0903d13498b698d09d775f5257898a9c48b17" #t "pict-abbrevs")) ("pict-doc" . #s(pkg-info (catalog "pict-doc" "git://github.com/racket/pict/?path=pict-doc") "1b6960c29b9bcea037b1aa2db9f5d5c93697f3d9" #t)) ("pict-lib" . #s(pkg-info (catalog "pict-lib" "git://github.com/racket/pict/?path=pict-lib") "1b6960c29b9bcea037b1aa2db9f5d5c93697f3d9" #t)) ("pict-snip" . #s(pkg-info (catalog "pict-snip" "git://github.com/racket/pict-snip/?path=pict-snip") "baffbc28b0b8931242d63a125f5ac790bf349bf4" #t)) ("pict-snip-doc" . #s(pkg-info (catalog "pict-snip-doc" "git://github.com/racket/pict-snip/?path=pict-snip-doc") "baffbc28b0b8931242d63a125f5ac790bf349bf4" #t)) ("pict-snip-lib" . #s(pkg-info (catalog "pict-snip-lib" "git://github.com/racket/pict-snip/?path=pict-snip-lib") "baffbc28b0b8931242d63a125f5ac790bf349bf4" #t)) ("pict-snip-test" . #s(pkg-info (catalog "pict-snip-test" "git://github.com/racket/pict-snip/?path=pict-snip-test") "baffbc28b0b8931242d63a125f5ac790bf349bf4" #t)) ("pict-test" . #s(pkg-info (catalog "pict-test" "git://github.com/racket/pict/?path=pict-test") "1b6960c29b9bcea037b1aa2db9f5d5c93697f3d9" #t)) ("picturing-programs" . #s(pkg-info (catalog "picturing-programs" "git://github.com/racket/picturing-programs") "ebfc1fcfd94f8ec4fbd332e6c345ac63ab4fb6f6" #t)) ("plai" . #s(pkg-info (catalog "plai" "git://github.com/racket/plai?path=plai") "123e490a23b06968130e6bec0213a5ddb2587452" #t)) ("plai-doc" . #s((sc-pkg-info pkg-info 3) (catalog "plai-doc" "git://github.com/racket/plai?path=plai-doc") "123e490a23b06968130e6bec0213a5ddb2587452" #t "plai")) ("plai-lib" . #s((sc-pkg-info pkg-info 3) (catalog "plai-lib" "git://github.com/racket/plai?path=plai-lib") "123e490a23b06968130e6bec0213a5ddb2587452" #t "plai")) ("planet" . #s(pkg-info (catalog "planet" "git://github.com/racket/planet/?path=planet") "134fbf6dc312c46eb9f4790c2611d1cf5b34d6ec" #t)) ("planet-doc" . #s(pkg-info (catalog "planet-doc" "git://github.com/racket/planet/?path=planet-doc") "134fbf6dc312c46eb9f4790c2611d1cf5b34d6ec" #t)) ("planet-lib" . #s(pkg-info (catalog "planet-lib" "git://github.com/racket/planet/?path=planet-lib") "134fbf6dc312c46eb9f4790c2611d1cf5b34d6ec" #t)) ("planet-test" . #s(pkg-info (catalog "planet-test" "git://github.com/racket/planet/?path=planet-test") "134fbf6dc312c46eb9f4790c2611d1cf5b34d6ec" #t)) ("plot" . #s(pkg-info (catalog "plot" "git://github.com/racket/plot/?path=plot") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("plot-compat" . #s(pkg-info (catalog "plot-compat" "git://github.com/racket/plot/?path=plot-compat") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("plot-doc" . #s(pkg-info (catalog "plot-doc" "git://github.com/racket/plot/?path=plot-doc") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("plot-gui-lib" . #s(pkg-info (catalog "plot-gui-lib" "git://github.com/racket/plot/?path=plot-gui-lib") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("plot-lib" . #s(pkg-info (catalog "plot-lib" "git://github.com/racket/plot/?path=plot-lib") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("plot-test" . #s(pkg-info (catalog "plot-test" "git://github.com/racket/plot/?path=plot-test") "aacfb3739cf9f5246944b612e17e8c9b7db91929" #t)) ("ppict" . #s((sc-pkg-info pkg-info 3) (catalog "ppict" "git://github.com/rmculpepper/ppict") "5d2d5f9d0a10f0988c7ed1f1986a0a6a15dcdb77" #t "ppict")) ("preprocessor" . #s((sc-pkg-info pkg-info 3) (catalog "preprocessor" "git://github.com/racket/preprocessor") "2739013da77cb4438aa194cf730fa498f272dc66" #t "preprocessor")) ("profile" . #s(pkg-info (catalog "profile" "git://github.com/racket/profile/?path=profile") "3e7dbceb19d8a52b3808a739160aa9a2bc4174af" #t)) ("profile-doc" . #s(pkg-info (catalog "profile-doc" "git://github.com/racket/profile/?path=profile-doc") "3e7dbceb19d8a52b3808a739160aa9a2bc4174af" #t)) ("profile-lib" . #s((sc-pkg-info pkg-info 3) (catalog "profile-lib" "git://github.com/racket/profile/?path=profile-lib") "3e7dbceb19d8a52b3808a739160aa9a2bc4174af" #t "profile")) ("profile-test" . #s(pkg-info (catalog "profile-test" "git://github.com/racket/profile/?path=profile-test") "3e7dbceb19d8a52b3808a739160aa9a2bc4174af" #t)) ("quickscript" . #s((sc-pkg-info pkg-info 3) (catalog "quickscript" "https://github.com/Metaxal/quickscript.git") "2902cc18ce9d48f8f892deec30586b256900ee34" #t "quickscript")) ("r5rs" . #s(pkg-info (catalog "r5rs" "git://github.com/racket/r5rs/?path=r5rs") "905eb5dd53765eae8ed9a3ad3b6d3d4a859654e1" #t)) ("r5rs-doc" . #s(pkg-info (catalog "r5rs-doc" "git://github.com/racket/r5rs/?path=r5rs-doc") "905eb5dd53765eae8ed9a3ad3b6d3d4a859654e1" #t)) ("r5rs-lib" . #s(pkg-info (catalog "r5rs-lib" "git://github.com/racket/r5rs/?path=r5rs-lib") "905eb5dd53765eae8ed9a3ad3b6d3d4a859654e1" #t)) ("r6rs" . #s(pkg-info (catalog "r6rs" "git://github.com/racket/r6rs/?path=r6rs") "f27fb987f6e9268ce28892d269eb21b5a66677f8" #t)) ("r6rs-doc" . #s(pkg-info (catalog "r6rs-doc" "git://github.com/racket/r6rs/?path=r6rs-doc") "f27fb987f6e9268ce28892d269eb21b5a66677f8" #t)) ("r6rs-lib" . #s(pkg-info (catalog "r6rs-lib" "git://github.com/racket/r6rs/?path=r6rs-lib") "f27fb987f6e9268ce28892d269eb21b5a66677f8" #t)) ("r6rs-test" . #s(pkg-info (catalog "r6rs-test" "git://github.com/racket/r6rs/?path=r6rs-test") "f27fb987f6e9268ce28892d269eb21b5a66677f8" #t)) ("racket-benchmarks" . #s(pkg-info (static-link "../../../pkgs/racket-benchmarks") "" #t)) ("racket-cheat" . #s((sc-pkg-info pkg-info 3) (catalog "racket-cheat" "git://github.com/jeapostrophe/racket-cheat") "129fbb808cac7b9d761e92a44e8f7877bf05e282" #t "racket-cheat")) ("racket-doc" . #s(pkg-info (static-link "../../../pkgs/racket-doc") "" #t)) ("racket-index" . #s(pkg-info (static-link "../../../pkgs/racket-index") "" #t)) ("racket-lib" . #s(pkg-info (static-link "../../../pkgs/racket-lib") "" #f)) ("racket-test" . #s(pkg-info (static-link "../../../pkgs/racket-test") "" #t)) ("racket-test-core" . #s(pkg-info (static-link "../../../pkgs/racket-test-core") "" #t)) ("racket-test-extra" . #s(pkg-info (static-link "../../../pkgs/racket-test-extra") "" #t)) ("racklog" . #s((sc-pkg-info pkg-info 3) (catalog "racklog" "git://github.com/racket/racklog") "6db63a419c28a30066b7fcfbf53fc6435e07cc0a" #t "racklog")) ("rackunit" . #s(pkg-info (catalog "rackunit" "git://github.com/racket/rackunit/?path=rackunit") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-abbrevs" . #s((sc-pkg-info pkg-info 3) (catalog "rackunit-abbrevs" "git://github.com/bennn/rackunit-abbrevs") "5456cf1a17cf1c1b0206921e79e206f358e9b5a0" #t "rackunit-abbrevs")) ("rackunit-doc" . #s(pkg-info (catalog "rackunit-doc" "git://github.com/racket/rackunit/?path=rackunit-doc") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-gui" . #s(pkg-info (catalog "rackunit-gui" "git://github.com/racket/rackunit/?path=rackunit-gui") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-lib" . #s(pkg-info (catalog "rackunit-lib" "git://github.com/racket/rackunit/?path=rackunit-lib") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-plugin-lib" . #s(pkg-info (catalog "rackunit-plugin-lib" "git://github.com/racket/rackunit/?path=rackunit-plugin-lib") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-test" . #s(pkg-info (catalog "rackunit-test" "git://github.com/racket/rackunit/?path=rackunit-test") "8164357723e24b5f090462bace193530cdad061b" #t)) ("rackunit-typed" . #s((sc-pkg-info pkg-info 3) (catalog "rackunit-typed" "https://github.com/racket/rackunit.git?path=rackunit-typed") "8164357723e24b5f090462bace193530cdad061b" #t "typed")) ("readline" . #s(pkg-info (catalog "readline" "git://github.com/racket/readline/?path=readline") "811cfde46459a76102f8c804ab5b5f17b3b71354" #t)) ("readline-doc" . #s(pkg-info (catalog "readline-doc" "git://github.com/racket/readline/?path=readline-doc") "811cfde46459a76102f8c804ab5b5f17b3b71354" #t)) ("readline-lib" . #s(pkg-info (catalog "readline-lib" "git://github.com/racket/readline/?path=readline-lib") "811cfde46459a76102f8c804ab5b5f17b3b71354" #t)) ("realm" . #s((sc-pkg-info pkg-info 3) (catalog "realm" "git://github.com/racket/realm") "973041cb6a5c696b99b79a49cfe5d356a5ddd7d6" #t "realm")) ("redex" . #s(pkg-info (catalog "redex" "git://github.com/racket/redex/?path=redex") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-benchmark" . #s(pkg-info (catalog "redex-benchmark" "git://github.com/racket/redex/?path=redex-benchmark") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-doc" . #s(pkg-info (catalog "redex-doc" "git://github.com/racket/redex/?path=redex-doc") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-examples" . #s(pkg-info (catalog "redex-examples" "git://github.com/racket/redex/?path=redex-examples") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-gui-lib" . #s(pkg-info (catalog "redex-gui-lib" "git://github.com/racket/redex/?path=redex-gui-lib") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-lib" . #s(pkg-info (catalog "redex-lib" "git://github.com/racket/redex/?path=redex-lib") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-pict-lib" . #s(pkg-info (catalog "redex-pict-lib" "git://github.com/racket/redex/?path=redex-pict-lib") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("redex-test" . #s(pkg-info (catalog "redex-test" "git://github.com/racket/redex/?path=redex-test") "75fafa33a46a0ce6d873d954eb2a2f7db84c7df6" #t)) ("require-typed-check" . #s((sc-pkg-info pkg-info 3) (catalog "require-typed-check" "git://github.com/bennn/require-typed-check") "bd23755c0a4f7df377f312c8cc9b1bfd15e0366d" #t "require-typed-check")) ("sandbox-lib" . #s(pkg-info (catalog "sandbox-lib" "git://github.com/racket/sandbox-lib") "592ed7d8c2f33db3d991336a7432100451f14a29" #t)) ("sasl" . #s((sc-pkg-info pkg-info 3) (catalog "sasl" "https://github.com/racket/sasl.git?path=sasl") "60e291202027f1a023295bc0219c43f738187923" #t "sasl")) ("sasl-doc" . #s((sc-pkg-info pkg-info 3) (catalog "sasl-doc" "https://github.com/racket/sasl.git?path=sasl-doc") "60e291202027f1a023295bc0219c43f738187923" #t "sasl")) ("sasl-lib" . #s((sc-pkg-info pkg-info 3) (catalog "sasl-lib" "https://github.com/racket/sasl.git?path=sasl-lib") "60e291202027f1a023295bc0219c43f738187923" #t "sasl")) ("sasl-test" . #s((sc-pkg-info pkg-info 3) (catalog "sasl-test" "https://github.com/racket/sasl.git?path=sasl-test") "60e291202027f1a023295bc0219c43f738187923" #t "sasl")) ("scheme-lib" . #s(pkg-info (catalog "scheme-lib" "git://github.com/racket/scheme-lib") "a36e729680818712820ee5269f5208c3c0715a6a" #t)) ("schemeunit" . #s((sc-pkg-info pkg-info 3) (catalog "schemeunit" "git://github.com/racket/rackunit/?path=schemeunit") "8164357723e24b5f090462bace193530cdad061b" #t "schemeunit")) ("scribble" . #s(pkg-info (catalog "scribble" "git://github.com/racket/scribble/?path=scribble") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("scribble-doc" . #s(pkg-info (catalog "scribble-doc" "git://github.com/racket/scribble/?path=scribble-doc") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("scribble-html-lib" . #s(pkg-info (catalog "scribble-html-lib" "git://github.com/racket/scribble/?path=scribble-html-lib") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("scribble-lib" . #s(pkg-info (catalog "scribble-lib" "git://github.com/racket/scribble/?path=scribble-lib") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("scribble-test" . #s(pkg-info (catalog "scribble-test" "git://github.com/racket/scribble/?path=scribble-test") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("scribble-text-lib" . #s(pkg-info (catalog "scribble-text-lib" "git://github.com/racket/scribble/?path=scribble-text-lib") "ed02550d1a8a43873892bc8f4b63f33a0faaac0b" #t)) ("serialize-cstruct-lib" . #s(pkg-info (catalog "serialize-cstruct-lib" "git://github.com/racket/serialize-cstruct-lib") "1c2815c82a1ba89d618e5a8f81ad729b4cd024ee" #t)) ("sgl" . #s((sc-pkg-info pkg-info 3) (catalog "sgl" "git://github.com/racket/sgl") "7999abdf79058cc709da0e49dee4ec0569249085" #t "sgl")) ("shell-completion" . #s((sc-pkg-info pkg-info 3) (catalog "shell-completion" "git://github.com/racket/shell-completion") "ee2b748e39504ea61296e7d747880e39b6a7e832" #t "shell-completion")) ("slatex" . #s((sc-pkg-info pkg-info 3) (catalog "slatex" "git://github.com/racket/slatex") "eb812b59e3b460ceabaf027fad8091866232b149" #t "slatex")) ("slideshow" . #s(pkg-info (catalog "slideshow" "git://github.com/racket/slideshow/?path=slideshow") "1f7507950bf8d0c86980ebc06ee8be8f2027d429" #t)) ("slideshow-doc" . #s(pkg-info (catalog "slideshow-doc" "git://github.com/racket/slideshow/?path=slideshow-doc") "1f7507950bf8d0c86980ebc06ee8be8f2027d429" #t)) ("slideshow-exe" . #s(pkg-info (catalog "slideshow-exe" "git://github.com/racket/slideshow/?path=slideshow-exe") "1f7507950bf8d0c86980ebc06ee8be8f2027d429" #t)) ("slideshow-lib" . #s(pkg-info (catalog "slideshow-lib" "git://github.com/racket/slideshow/?path=slideshow-lib") "1f7507950bf8d0c86980ebc06ee8be8f2027d429" #t)) ("slideshow-plugin" . #s(pkg-info (catalog "slideshow-plugin" "git://github.com/racket/slideshow/?path=slideshow-plugin") "1f7507950bf8d0c86980ebc06ee8be8f2027d429" #t)) ("snip" . #s(pkg-info (catalog "snip" "git://github.com/racket/snip/?path=snip") "033a61226aa66a4dbf2982a3a1e3cc4866e37312" #t)) ("snip-lib" . #s(pkg-info (catalog "snip-lib" "git://github.com/racket/snip/?path=snip-lib") "033a61226aa66a4dbf2982a3a1e3cc4866e37312" #t)) ("source-syntax" . #s((sc-pkg-info pkg-info 3) (catalog "source-syntax" "git://github.com/racket/typed-racket/?path=source-syntax") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t "syntax")) ("srfi" . #s(pkg-info (catalog "srfi" "git://github.com/racket/srfi/?path=srfi") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("srfi-doc" . #s(pkg-info (catalog "srfi-doc" "git://github.com/racket/srfi/?path=srfi-doc") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("srfi-doc-nonfree" . #s(pkg-info (catalog "srfi-doc-nonfree" "git://github.com/racket/srfi/?path=srfi-doc-nonfree") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("srfi-lib" . #s(pkg-info (catalog "srfi-lib" "git://github.com/racket/srfi/?path=srfi-lib") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("srfi-lite-lib" . #s(pkg-info (catalog "srfi-lite-lib" "git://github.com/racket/srfi/?path=srfi-lite-lib") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("srfi-test" . #s(pkg-info (catalog "srfi-test" "git://github.com/racket/srfi/?path=srfi-test") "bc905ddcbeaa84502a015f140ddecd0d2772d576" #t)) ("string-constants" . #s(pkg-info (catalog "string-constants" "git://github.com/racket/string-constants/?path=string-constants") "0f162a3f9e9cbd03cadbab3b1de098c7c2096bde" #t)) ("string-constants-doc" . #s(pkg-info (catalog "string-constants-doc" "git://github.com/racket/string-constants/?path=string-constants-doc") "0f162a3f9e9cbd03cadbab3b1de098c7c2096bde" #t)) ("string-constants-lib" . #s(pkg-info (catalog "string-constants-lib" "git://github.com/racket/string-constants/?path=string-constants-lib") "0f162a3f9e9cbd03cadbab3b1de098c7c2096bde" #t)) ("swindle" . #s((sc-pkg-info pkg-info 3) (catalog "swindle" "git://github.com/racket/swindle") "122e38efb9842394ef6462053991efb4bd0edf3b" #t "swindle")) ("syntax-color" . #s(pkg-info (catalog "syntax-color" "git://github.com/racket/syntax-color/?path=syntax-color") "19e755ec03a78eb94e5a1327610f6e7b6678cb79" #t)) ("syntax-color-doc" . #s(pkg-info (catalog "syntax-color-doc" "git://github.com/racket/syntax-color/?path=syntax-color-doc") "19e755ec03a78eb94e5a1327610f6e7b6678cb79" #t)) ("syntax-color-lib" . #s(pkg-info (catalog "syntax-color-lib" "git://github.com/racket/syntax-color/?path=syntax-color-lib") "19e755ec03a78eb94e5a1327610f6e7b6678cb79" #t)) ("syntax-color-test" . #s(pkg-info (catalog "syntax-color-test" "git://github.com/racket/syntax-color/?path=syntax-color-test") "19e755ec03a78eb94e5a1327610f6e7b6678cb79" #t)) ("testing-util-lib" . #s(pkg-info (catalog "testing-util-lib" "git://github.com/racket/rackunit/?path=testing-util-lib") "8164357723e24b5f090462bace193530cdad061b" #t)) ("tex-table" . #s((sc-pkg-info pkg-info 3) (catalog "tex-table" "git://github.com/racket/gui/?path=tex-table") "1397251db8d3f7aa0d009249604d79154df8d1f4" #t "mrlib")) ("trace" . #s((sc-pkg-info pkg-info 3) (catalog "trace" "git://github.com/racket/trace") "aa6f18f2479aca4d36549fed2f9731c5149a85c4" #t "trace")) ("typed-racket" . #s(pkg-info (catalog "typed-racket" "git://github.com/racket/typed-racket/?path=typed-racket") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t)) ("typed-racket-compatibility" . #s(pkg-info (catalog "typed-racket-compatibility" "git://github.com/racket/typed-racket/?path=typed-racket-compatibility") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t)) ("typed-racket-doc" . #s(pkg-info (catalog "typed-racket-doc" "git://github.com/racket/typed-racket/?path=typed-racket-doc") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t)) ("typed-racket-lib" . #s(pkg-info (catalog "typed-racket-lib" "git://github.com/racket/typed-racket/?path=typed-racket-lib") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t)) ("typed-racket-more" . #s(pkg-info (catalog "typed-racket-more" "git://github.com/racket/typed-racket/?path=typed-racket-more") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t)) ("typed-racket-test" . #s((sc-pkg-info pkg-info 3) (catalog "typed-racket-test" "git://github.com/racket/typed-racket/?path=typed-racket-test") "7facce4bd7902ab46df284183c8d0d723f64a4b1" #t "typed-racket-test")) ("tzinfo" . #s(pkg-info (catalog "tzinfo" "https://github.com/97jaz/tzinfo.git") "09f4d80c1871031ba359736807125cd3e7c15207" #t)) ("unix-socket" . #s(pkg-info (catalog "unix-socket" "git://github.com/racket/unix-socket?path=unix-socket") "705656937e1af92afe9caeb16263b23f0f57d0f2" #t)) ("unix-socket-doc" . #s(pkg-info (catalog "unix-socket-doc" "git://github.com/racket/unix-socket?path=unix-socket-doc") "705656937e1af92afe9caeb16263b23f0f57d0f2" #t)) ("unix-socket-lib" . #s(pkg-info (catalog "unix-socket-lib" "git://github.com/racket/unix-socket?path=unix-socket-lib") "705656937e1af92afe9caeb16263b23f0f57d0f2" #t)) ("unix-socket-test" . #s(pkg-info (catalog "unix-socket-test" "git://github.com/racket/unix-socket?path=unix-socket-test") "705656937e1af92afe9caeb16263b23f0f57d0f2" #t)) ("web-server" . #s(pkg-info (catalog "web-server" "git://github.com/racket/web-server/?path=web-server") "a5bd21a385f86a425a22092e5297b5382b6ba7a4" #t)) ("web-server-doc" . #s(pkg-info (catalog "web-server-doc" "git://github.com/racket/web-server/?path=web-server-doc") "a5bd21a385f86a425a22092e5297b5382b6ba7a4" #t)) ("web-server-lib" . #s(pkg-info (catalog "web-server-lib" "git://github.com/racket/web-server/?path=web-server-lib") "a5bd21a385f86a425a22092e5297b5382b6ba7a4" #t)) ("web-server-test" . #s(pkg-info (catalog "web-server-test" "git://github.com/racket/web-server/?path=web-server-test") "a5bd21a385f86a425a22092e5297b5382b6ba7a4" #t)) ("wxme" . #s(pkg-info (catalog "wxme" "git://github.com/racket/wxme/?path=wxme") "2263ad6382cc9da87af33e4d03bdf08d51d55114" #t)) ("wxme-lib" . #s(pkg-info (catalog "wxme-lib" "git://github.com/racket/wxme/?path=wxme-lib") "2263ad6382cc9da87af33e4d03bdf08d51d55114" #t)) ("wxme-test" . #s(pkg-info (catalog "wxme-test" "git://github.com/racket/wxme?path=wxme-test") "2263ad6382cc9da87af33e4d03bdf08d51d55114" #t)) ("xrepl" . #s(pkg-info (catalog "xrepl" "git://github.com/racket/xrepl/?path=xrepl") "cc71bb8f0ad16e00cc6204023ba66a3b4e300c71" #t)) ("xrepl-doc" . #s(pkg-info (catalog "xrepl-doc" "git://github.com/racket/xrepl/?path=xrepl-doc") "cc71bb8f0ad16e00cc6204023ba66a3b4e300c71" #t)) ("xrepl-lib" . #s(pkg-info (catalog "xrepl-lib" "git://github.com/racket/xrepl/?path=xrepl-lib") "cc71bb8f0ad16e00cc6204023ba66a3b4e300c71" #t)) ("xrepl-test" . #s(pkg-info (catalog "xrepl-test" "git://github.com/racket/xrepl/?path=xrepl-test") "cc71bb8f0ad16e00cc6204023ba66a3b4e300c71" #t)) ("zo-lib" . #s(pkg-info (static-link "../../../pkgs/zo-lib") "" #t)))
+gtp-checkup: Checking 'benchmarks/acquire/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1640 real time: 1638 gc time: 220
+cpu time: 1644 real time: 1642 gc time: 216
+cpu time: 1648 real time: 1650 gc time: 220
+cpu time: 1608 real time: 1612 gc time: 200
+cpu time: 1640 real time: 1640 gc time: 216
+cpu time: 1640 real time: 1640 gc time: 224
+cpu time: 1588 real time: 1583 gc time: 164
+cpu time: 1624 real time: 1620 gc time: 220
+cpu time: 1644 real time: 1644 gc time: 220
+cpu time: 1640 real time: 1639 gc time: 212
+gtp-checkup: Checking 'benchmarks/acquire/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4364 real time: 4363 gc time: 296
+cpu time: 4204 real time: 4206 gc time: 300
+cpu time: 4304 real time: 4299 gc time: 284
+cpu time: 4328 real time: 4325 gc time: 308
+cpu time: 4196 real time: 4196 gc time: 312
+cpu time: 4180 real time: 4181 gc time: 324
+cpu time: 4380 real time: 4382 gc time: 300
+cpu time: 4312 real time: 4309 gc time: 304
+cpu time: 4220 real time: 4217 gc time: 324
+cpu time: 4340 real time: 4340 gc time: 332
+gtp-checkup: Checking 'benchmarks/acquire/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 876 real time: 877 gc time: 112
+cpu time: 872 real time: 873 gc time: 112
+cpu time: 872 real time: 868 gc time: 108
+cpu time: 876 real time: 874 gc time: 112
+cpu time: 880 real time: 876 gc time: 116
+cpu time: 856 real time: 857 gc time: 100
+cpu time: 868 real time: 868 gc time: 120
+cpu time: 868 real time: 871 gc time: 120
+cpu time: 844 real time: 843 gc time: 104
+cpu time: 872 real time: 875 gc time: 112
+gtp-checkup: Checking 'benchmarks/dungeon/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 388 real time: 389 gc time: 120
+cpu time: 400 real time: 399 gc time: 120
+cpu time: 392 real time: 394 gc time: 116
+cpu time: 396 real time: 397 gc time: 120
+cpu time: 396 real time: 396 gc time: 124
+cpu time: 400 real time: 399 gc time: 116
+cpu time: 396 real time: 394 gc time: 116
+cpu time: 380 real time: 383 gc time: 120
+cpu time: 392 real time: 392 gc time: 120
+cpu time: 392 real time: 392 gc time: 120
+gtp-checkup: Checking 'benchmarks/dungeon/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/dungeon/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 728 real time: 725 gc time: 100
+cpu time: 728 real time: 725 gc time: 100
+cpu time: 756 real time: 755 gc time: 100
+cpu time: 756 real time: 754 gc time: 96
+cpu time: 736 real time: 733 gc time: 100
+cpu time: 760 real time: 760 gc time: 96
+cpu time: 732 real time: 733 gc time: 96
+cpu time: 748 real time: 748 gc time: 92
+cpu time: 740 real time: 735 gc time: 100
+cpu time: 764 real time: 762 gc time: 100
+gtp-checkup: Checking 'benchmarks/forth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 52 real time: 55 gc time: 0
+cpu time: 56 real time: 55 gc time: 0
+cpu time: 56 real time: 57 gc time: 0
+cpu time: 56 real time: 56 gc time: 0
+cpu time: 56 real time: 56 gc time: 0
+cpu time: 60 real time: 57 gc time: 0
+cpu time: 56 real time: 54 gc time: 0
+cpu time: 56 real time: 55 gc time: 0
+cpu time: 56 real time: 55 gc time: 0
+cpu time: 56 real time: 56 gc time: 0
+gtp-checkup: Checking 'benchmarks/forth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/forth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 56 real time: 57 gc time: 12
+cpu time: 60 real time: 56 gc time: 16
+cpu time: 56 real time: 57 gc time: 12
+cpu time: 60 real time: 56 gc time: 16
+cpu time: 56 real time: 57 gc time: 12
+cpu time: 60 real time: 56 gc time: 16
+cpu time: 56 real time: 56 gc time: 12
+cpu time: 56 real time: 55 gc time: 12
+cpu time: 56 real time: 56 gc time: 12
+cpu time: 60 real time: 56 gc time: 16
+gtp-checkup: Checking 'benchmarks/fsm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 308 real time: 309 gc time: 116
+cpu time: 308 real time: 308 gc time: 116
+cpu time: 308 real time: 308 gc time: 116
+cpu time: 312 real time: 309 gc time: 120
+cpu time: 308 real time: 308 gc time: 116
+cpu time: 312 real time: 308 gc time: 120
+cpu time: 312 real time: 307 gc time: 120
+cpu time: 308 real time: 308 gc time: 116
+cpu time: 308 real time: 308 gc time: 116
+cpu time: 308 real time: 308 gc time: 116
+gtp-checkup: Checking 'benchmarks/fsm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1024 real time: 1022 gc time: 144
+cpu time: 1044 real time: 1043 gc time: 144
+cpu time: 1052 real time: 1049 gc time: 140
+cpu time: 1020 real time: 1021 gc time: 144
+cpu time: 1056 real time: 1053 gc time: 144
+cpu time: 1072 real time: 1070 gc time: 148
+cpu time: 1056 real time: 1054 gc time: 148
+cpu time: 1012 real time: 1010 gc time: 144
+cpu time: 1032 real time: 1034 gc time: 144
+cpu time: 1032 real time: 1032 gc time: 144
+gtp-checkup: Checking 'benchmarks/fsm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 548 real time: 544 gc time: 120
+cpu time: 548 real time: 546 gc time: 120
+cpu time: 548 real time: 547 gc time: 116
+cpu time: 540 real time: 541 gc time: 116
+cpu time: 544 real time: 544 gc time: 116
+cpu time: 540 real time: 542 gc time: 116
+cpu time: 544 real time: 544 gc time: 120
+cpu time: 540 real time: 543 gc time: 116
+cpu time: 548 real time: 550 gc time: 116
+cpu time: 544 real time: 544 gc time: 120
+gtp-checkup: Checking 'benchmarks/fsmoo/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 808 real time: 810 gc time: 120
+cpu time: 792 real time: 791 gc time: 116
+cpu time: 812 real time: 811 gc time: 124
+cpu time: 796 real time: 796 gc time: 116
+cpu time: 808 real time: 808 gc time: 120
+cpu time: 804 real time: 802 gc time: 124
+cpu time: 808 real time: 809 gc time: 120
+cpu time: 812 real time: 811 gc time: 116
+cpu time: 820 real time: 821 gc time: 124
+cpu time: 788 real time: 787 gc time: 120
+gtp-checkup: Checking 'benchmarks/fsmoo/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 269828 real time: 269677 gc time: 32820
+cpu time: 283088 real time: 282730 gc time: 37456
+cpu time: 278064 real time: 277732 gc time: 37024
+cpu time: 275940 real time: 275779 gc time: 32840
+cpu time: 266976 real time: 266676 gc time: 36484
+cpu time: 274256 real time: 274094 gc time: 32976
+cpu time: 271756 real time: 271524 gc time: 34764
+cpu time: 283176 real time: 282812 gc time: 37704
+cpu time: 276076 real time: 275915 gc time: 32776
+cpu time: 287840 real time: 287489 gc time: 39460
+gtp-checkup: Checking 'benchmarks/fsmoo/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 688 real time: 685 gc time: 8
+cpu time: 688 real time: 686 gc time: 8
+cpu time: 692 real time: 694 gc time: 8
+cpu time: 688 real time: 685 gc time: 8
+cpu time: 680 real time: 681 gc time: 12
+cpu time: 680 real time: 679 gc time: 12
+cpu time: 684 real time: 680 gc time: 8
+cpu time: 672 real time: 671 gc time: 12
+cpu time: 684 real time: 682 gc time: 8
+cpu time: 704 real time: 702 gc time: 8
+gtp-checkup: Checking 'benchmarks/gregor/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 676 real time: 674 gc time: 88
+cpu time: 668 real time: 667 gc time: 92
+cpu time: 672 real time: 669 gc time: 88
+cpu time: 672 real time: 668 gc time: 92
+cpu time: 632 real time: 632 gc time: 88
+cpu time: 676 real time: 673 gc time: 88
+cpu time: 632 real time: 633 gc time: 92
+cpu time: 644 real time: 642 gc time: 92
+cpu time: 672 real time: 674 gc time: 92
+cpu time: 680 real time: 676 gc time: 96
+gtp-checkup: Checking 'benchmarks/gregor/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1220 real time: 1218 gc time: 88
+cpu time: 1204 real time: 1205 gc time: 88
+cpu time: 1196 real time: 1195 gc time: 84
+cpu time: 1128 real time: 1129 gc time: 92
+cpu time: 1120 real time: 1118 gc time: 84
+cpu time: 1204 real time: 1205 gc time: 84
+cpu time: 1212 real time: 1211 gc time: 96
+cpu time: 1120 real time: 1118 gc time: 84
+cpu time: 1124 real time: 1123 gc time: 88
+cpu time: 1200 real time: 1199 gc time: 96
+gtp-checkup: Checking 'benchmarks/gregor/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 648 real time: 645 gc time: 88
+cpu time: 608 real time: 610 gc time: 84
+cpu time: 612 real time: 615 gc time: 88
+cpu time: 664 real time: 661 gc time: 88
+cpu time: 648 real time: 645 gc time: 80
+cpu time: 652 real time: 650 gc time: 80
+cpu time: 648 real time: 648 gc time: 84
+cpu time: 644 real time: 645 gc time: 80
+cpu time: 652 real time: 646 gc time: 80
+cpu time: 648 real time: 650 gc time: 84
+gtp-checkup: Checking 'benchmarks/jpeg/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 232 real time: 229 gc time: 92
+cpu time: 228 real time: 229 gc time: 88
+cpu time: 228 real time: 229 gc time: 92
+cpu time: 232 real time: 228 gc time: 92
+cpu time: 228 real time: 228 gc time: 92
+cpu time: 228 real time: 227 gc time: 92
+cpu time: 232 real time: 232 gc time: 92
+cpu time: 232 real time: 229 gc time: 92
+cpu time: 224 real time: 226 gc time: 92
+cpu time: 232 real time: 227 gc time: 92
+gtp-checkup: Checking 'benchmarks/jpeg/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 16096 real time: 16090 gc time: 116
+cpu time: 16276 real time: 16273 gc time: 140
+cpu time: 16092 real time: 16088 gc time: 132
+cpu time: 15456 real time: 15453 gc time: 120
+cpu time: 15936 real time: 15931 gc time: 132
+cpu time: 16260 real time: 16257 gc time: 124
+cpu time: 16060 real time: 16052 gc time: 140
+cpu time: 15328 real time: 15325 gc time: 148
+cpu time: 16020 real time: 16016 gc time: 156
+cpu time: 15496 real time: 15489 gc time: 128
+gtp-checkup: Checking 'benchmarks/jpeg/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 796 real time: 794 gc time: 100
+cpu time: 840 real time: 838 gc time: 112
+cpu time: 832 real time: 831 gc time: 108
+cpu time: 832 real time: 832 gc time: 112
+cpu time: 836 real time: 835 gc time: 108
+cpu time: 836 real time: 834 gc time: 96
+cpu time: 836 real time: 834 gc time: 112
+cpu time: 824 real time: 826 gc time: 104
+cpu time: 836 real time: 835 gc time: 108
+cpu time: 812 real time: 814 gc time: 100
+gtp-checkup: Checking 'benchmarks/kcfa/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2908 real time: 2908 gc time: 92
+cpu time: 2716 real time: 2716 gc time: 88
+cpu time: 2884 real time: 2884 gc time: 88
+cpu time: 3004 real time: 3002 gc time: 104
+cpu time: 2884 real time: 2882 gc time: 84
+cpu time: 3080 real time: 3081 gc time: 104
+cpu time: 2928 real time: 2925 gc time: 96
+cpu time: 2876 real time: 2874 gc time: 88
+cpu time: 3036 real time: 3037 gc time: 92
+cpu time: 2880 real time: 2878 gc time: 88
+gtp-checkup: Checking 'benchmarks/kcfa/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 11512 real time: 11504 gc time: 112
+cpu time: 11388 real time: 11385 gc time: 96
+cpu time: 11052 real time: 11047 gc time: 96
+cpu time: 11480 real time: 11479 gc time: 104
+cpu time: 11260 real time: 11259 gc time: 96
+cpu time: 11988 real time: 11985 gc time: 84
+cpu time: 10960 real time: 10956 gc time: 96
+cpu time: 11928 real time: 11924 gc time: 100
+cpu time: 11248 real time: 11246 gc time: 104
+cpu time: 11380 real time: 11379 gc time: 88
+gtp-checkup: Checking 'benchmarks/kcfa/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2824 real time: 2821 gc time: 120
+cpu time: 2824 real time: 2820 gc time: 124
+cpu time: 2712 real time: 2711 gc time: 120
+cpu time: 2816 real time: 2812 gc time: 132
+cpu time: 2912 real time: 2914 gc time: 136
+cpu time: 2880 real time: 2875 gc time: 140
+cpu time: 2892 real time: 2893 gc time: 124
+cpu time: 2828 real time: 2830 gc time: 136
+cpu time: 2896 real time: 2894 gc time: 156
+cpu time: 2788 real time: 2785 gc time: 132
+gtp-checkup: Checking 'benchmarks/lnm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 14964 real time: 14956 gc time: 1344
+cpu time: 14600 real time: 14595 gc time: 1328
+cpu time: 14608 real time: 14599 gc time: 1324
+cpu time: 14996 real time: 14989 gc time: 1292
+cpu time: 15096 real time: 15091 gc time: 1332
+cpu time: 15012 real time: 15003 gc time: 1308
+cpu time: 14720 real time: 14714 gc time: 1308
+cpu time: 14432 real time: 14424 gc time: 1328
+cpu time: 14808 real time: 14800 gc time: 1360
+cpu time: 14848 real time: 14838 gc time: 1340
+gtp-checkup: Checking 'benchmarks/lnm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 14840 real time: 14830 gc time: 1324
+cpu time: 15292 real time: 15285 gc time: 1312
+cpu time: 14828 real time: 14822 gc time: 1332
+cpu time: 14988 real time: 14982 gc time: 1276
+cpu time: 14936 real time: 14929 gc time: 1320
+cpu time: 15152 real time: 15146 gc time: 1300
+cpu time: 15368 real time: 15359 gc time: 1340
+cpu time: 14744 real time: 14737 gc time: 1332
+cpu time: 15304 real time: 15298 gc time: 1308
+cpu time: 14736 real time: 14726 gc time: 1300
+gtp-checkup: Checking 'benchmarks/lnm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2352 real time: 2350 gc time: 32
+cpu time: 2404 real time: 2400 gc time: 20
+cpu time: 2396 real time: 2394 gc time: 52
+cpu time: 2480 real time: 2482 gc time: 24
+cpu time: 2524 real time: 2522 gc time: 32
+cpu time: 2516 real time: 2518 gc time: 60
+cpu time: 2384 real time: 2385 gc time: 48
+cpu time: 2448 real time: 2448 gc time: 44
+cpu time: 2532 real time: 2531 gc time: 48
+cpu time: 2472 real time: 2469 gc time: 24
+gtp-checkup: Checking 'benchmarks/mbta/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2904 real time: 2904 gc time: 28
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2848 real time: 2848 gc time: 40
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2912 real time: 2909 gc time: 8
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2828 real time: 2823 gc time: 12
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2876 real time: 2874 gc time: 28
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2800 real time: 2799 gc time: 8
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2904 real time: 2901 gc time: 8
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2904 real time: 2903 gc time: 32
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2792 real time: 2790 gc time: 12
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 2804 real time: 2800 gc time: 12
+gtp-checkup: Checking 'benchmarks/mbta/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3436 real time: 3434 gc time: 112
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3456 real time: 3454 gc time: 148
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3460 real time: 3457 gc time: 132
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3432 real time: 3431 gc time: 136
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3292 real time: 3290 gc time: 116
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3336 real time: 3336 gc time: 132
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3436 real time: 3437 gc time: 144
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3436 real time: 3437 gc time: 144
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3416 real time: 3416 gc time: 136
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:20.56
+cpu time: 3424 real time: 3424 gc time: 136
+gtp-checkup: Checking 'benchmarks/mbta/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1540 real time: 1537 gc time: 104
+cpu time: 1604 real time: 1600 gc time: 108
+cpu time: 1560 real time: 1558 gc time: 112
+cpu time: 1548 real time: 1546 gc time: 104
+cpu time: 1556 real time: 1557 gc time: 108
+cpu time: 1508 real time: 1506 gc time: 108
+cpu time: 1596 real time: 1594 gc time: 104
+cpu time: 1560 real time: 1558 gc time: 108
+cpu time: 1556 real time: 1556 gc time: 104
+cpu time: 1524 real time: 1525 gc time: 104
+gtp-checkup: Checking 'benchmarks/morsecode/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 3952 real time: 3947 gc time: 120
+cpu time: 3892 real time: 3891 gc time: 124
+cpu time: 3844 real time: 3842 gc time: 124
+cpu time: 3896 real time: 3895 gc time: 132
+cpu time: 3948 real time: 3948 gc time: 124
+cpu time: 3928 real time: 3926 gc time: 124
+cpu time: 3864 real time: 3865 gc time: 116
+cpu time: 3980 real time: 3978 gc time: 120
+cpu time: 4016 real time: 4015 gc time: 124
+cpu time: 4036 real time: 4036 gc time: 120
+gtp-checkup: Checking 'benchmarks/morsecode/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 7028 real time: 7024 gc time: 8
+cpu time: 6748 real time: 6745 gc time: 12
+cpu time: 6868 real time: 6866 gc time: 16
+cpu time: 6840 real time: 6837 gc time: 12
+cpu time: 6812 real time: 6810 gc time: 16
+cpu time: 6924 real time: 6922 gc time: 20
+cpu time: 6896 real time: 6894 gc time: 12
+cpu time: 6800 real time: 6796 gc time: 28
+cpu time: 6468 real time: 6465 gc time: 8
+cpu time: 6740 real time: 6736 gc time: 8
+gtp-checkup: Checking 'benchmarks/morsecode/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4076 real time: 4072 gc time: 80
+cpu time: 4148 real time: 4149 gc time: 76
+cpu time: 4092 real time: 4091 gc time: 80
+cpu time: 4076 real time: 4073 gc time: 76
+cpu time: 4052 real time: 4051 gc time: 80
+cpu time: 4188 real time: 4188 gc time: 76
+cpu time: 4068 real time: 4066 gc time: 80
+cpu time: 4044 real time: 4045 gc time: 76
+cpu time: 4372 real time: 4370 gc time: 80
+cpu time: 4152 real time: 4150 gc time: 76
+gtp-checkup: Checking 'benchmarks/quadT/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 6672 real time: 6671 gc time: 72
+cpu time: 6724 real time: 6722 gc time: 76
+cpu time: 6836 real time: 6832 gc time: 48
+cpu time: 6648 real time: 6647 gc time: 76
+cpu time: 6732 real time: 6731 gc time: 76
+cpu time: 6820 real time: 6818 gc time: 76
+cpu time: 6528 real time: 6529 gc time: 76
+cpu time: 6500 real time: 6498 gc time: 60
+cpu time: 6544 real time: 6543 gc time: 84
+cpu time: 6692 real time: 6688 gc time: 80
+gtp-checkup: Checking 'benchmarks/quadT/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 11332 real time: 11330 gc time: 424
+cpu time: 11264 real time: 11260 gc time: 452
+cpu time: 11492 real time: 11490 gc time: 412
+cpu time: 11116 real time: 11112 gc time: 420
+cpu time: 11492 real time: 11488 gc time: 408
+cpu time: 11624 real time: 11623 gc time: 400
+cpu time: 11052 real time: 11053 gc time: 416
+cpu time: 11552 real time: 11547 gc time: 412
+cpu time: 11340 real time: 11334 gc time: 428
+cpu time: 11288 real time: 11284 gc time: 428
+gtp-checkup: Checking 'benchmarks/quadT/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2124 real time: 2122 gc time: 172
+cpu time: 2108 real time: 2109 gc time: 176
+cpu time: 2108 real time: 2107 gc time: 176
+cpu time: 2124 real time: 2122 gc time: 176
+cpu time: 2156 real time: 2152 gc time: 168
+cpu time: 2132 real time: 2130 gc time: 168
+cpu time: 2140 real time: 2140 gc time: 172
+cpu time: 2148 real time: 2146 gc time: 168
+cpu time: 2164 real time: 2162 gc time: 168
+cpu time: 2136 real time: 2134 gc time: 168
+gtp-checkup: Checking 'benchmarks/quadU/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 7152 real time: 7149 gc time: 448
+cpu time: 7080 real time: 7074 gc time: 460
+cpu time: 6984 real time: 6984 gc time: 456
+cpu time: 6764 real time: 6762 gc time: 436
+cpu time: 7032 real time: 7031 gc time: 444
+cpu time: 7060 real time: 7058 gc time: 452
+cpu time: 7088 real time: 7086 gc time: 436
+cpu time: 7372 real time: 7371 gc time: 428
+cpu time: 7100 real time: 7099 gc time: 424
+cpu time: 7380 real time: 7379 gc time: 432
+gtp-checkup: Checking 'benchmarks/quadU/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 34564 real time: 34555 gc time: 1040
+cpu time: 33208 real time: 33198 gc time: 1012
+cpu time: 35888 real time: 35878 gc time: 1012
+cpu time: 32352 real time: 32343 gc time: 996
+cpu time: 34160 real time: 34152 gc time: 980
+cpu time: 35672 real time: 35658 gc time: 984
+cpu time: 34012 real time: 34002 gc time: 1004
+cpu time: 33760 real time: 33751 gc time: 1024
+cpu time: 35464 real time: 35454 gc time: 1004
+cpu time: 35332 real time: 35322 gc time: 976
+gtp-checkup: Checking 'benchmarks/quadU/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4272 real time: 4273 gc time: 156
+cpu time: 4644 real time: 4645 gc time: 152
+cpu time: 4440 real time: 4442 gc time: 148
+cpu time: 4276 real time: 4275 gc time: 148
+cpu time: 4528 real time: 4526 gc time: 152
+cpu time: 4252 real time: 4248 gc time: 140
+cpu time: 4292 real time: 4290 gc time: 156
+cpu time: 4700 real time: 4693 gc time: 144
+cpu time: 4548 real time: 4546 gc time: 148
+cpu time: 4528 real time: 4526 gc time: 148
+gtp-checkup: Checking 'benchmarks/sieve/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5484 real time: 5482 gc time: 348
+cpu time: 5496 real time: 5491 gc time: 300
+cpu time: 5504 real time: 5503 gc time: 292
+cpu time: 5440 real time: 5436 gc time: 260
+cpu time: 5456 real time: 5455 gc time: 276
+cpu time: 5488 real time: 5488 gc time: 428
+cpu time: 5492 real time: 5489 gc time: 308
+cpu time: 5464 real time: 5464 gc time: 308
+cpu time: 5492 real time: 5491 gc time: 416
+cpu time: 5464 real time: 5463 gc time: 336
+gtp-checkup: Checking 'benchmarks/sieve/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 28740 real time: 28725 gc time: 4584
+cpu time: 28644 real time: 28635 gc time: 4664
+cpu time: 28852 real time: 28836 gc time: 4496
+cpu time: 28956 real time: 28946 gc time: 4740
+cpu time: 28748 real time: 28737 gc time: 4736
+cpu time: 28708 real time: 28695 gc time: 4640
+cpu time: 29672 real time: 29659 gc time: 4372
+cpu time: 28728 real time: 28714 gc time: 4444
+cpu time: 28728 real time: 28716 gc time: 4412
+cpu time: 28540 real time: 28527 gc time: 4236
+gtp-checkup: Checking 'benchmarks/sieve/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5664 real time: 5662 gc time: 452
+cpu time: 5664 real time: 5660 gc time: 240
+cpu time: 5660 real time: 5660 gc time: 184
+cpu time: 5656 real time: 5655 gc time: 420
+cpu time: 5636 real time: 5634 gc time: 312
+cpu time: 5656 real time: 5655 gc time: 252
+cpu time: 5660 real time: 5660 gc time: 184
+cpu time: 5640 real time: 5641 gc time: 428
+cpu time: 5660 real time: 5657 gc time: 436
+cpu time: 5656 real time: 5655 gc time: 368
+gtp-checkup: Checking 'benchmarks/snake/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1220 real time: 1220 gc time: 96
+cpu time: 1276 real time: 1274 gc time: 92
+cpu time: 1432 real time: 1428 gc time: 96
+cpu time: 1428 real time: 1428 gc time: 100
+cpu time: 1256 real time: 1254 gc time: 92
+cpu time: 1312 real time: 1308 gc time: 88
+cpu time: 1196 real time: 1197 gc time: 92
+cpu time: 1260 real time: 1261 gc time: 92
+cpu time: 1188 real time: 1189 gc time: 92
+cpu time: 1212 real time: 1208 gc time: 92
+gtp-checkup: Checking 'benchmarks/snake/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 25052 real time: 25048 gc time: 112
+cpu time: 25536 real time: 25530 gc time: 108
+cpu time: 25400 real time: 25395 gc time: 144
+cpu time: 25236 real time: 25229 gc time: 132
+cpu time: 25504 real time: 25495 gc time: 132
+cpu time: 25072 real time: 25069 gc time: 148
+cpu time: 24864 real time: 24857 gc time: 128
+cpu time: 26940 real time: 26933 gc time: 136
+cpu time: 25480 real time: 25473 gc time: 136
+cpu time: 25596 real time: 25589 gc time: 132
+gtp-checkup: Checking 'benchmarks/snake/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1216 real time: 1217 gc time: 20
+cpu time: 1212 real time: 1213 gc time: 24
+cpu time: 1220 real time: 1221 gc time: 16
+cpu time: 1216 real time: 1217 gc time: 20
+cpu time: 1212 real time: 1212 gc time: 20
+cpu time: 1244 real time: 1244 gc time: 16
+cpu time: 1356 real time: 1354 gc time: 24
+cpu time: 1248 real time: 1249 gc time: 12
+cpu time: 1216 real time: 1213 gc time: 12
+cpu time: 1220 real time: 1221 gc time: 16
+gtp-checkup: Checking 'benchmarks/suffixtree/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4732 real time: 4731 gc time: 144
+cpu time: 4536 real time: 4538 gc time: 124
+cpu time: 4652 real time: 4647 gc time: 120
+cpu time: 4744 real time: 4743 gc time: 120
+cpu time: 4780 real time: 4779 gc time: 124
+cpu time: 4672 real time: 4671 gc time: 124
+cpu time: 4684 real time: 4681 gc time: 128
+cpu time: 4732 real time: 4732 gc time: 128
+cpu time: 4752 real time: 4752 gc time: 132
+cpu time: 4540 real time: 4535 gc time: 120
+gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 275616 real time: 275549 gc time: 380
+cpu time: 272980 real time: 272907 gc time: 408
+cpu time: 274272 real time: 274206 gc time: 404
+cpu time: 266000 real time: 265932 gc time: 468
+cpu time: 276184 real time: 276117 gc time: 480
+cpu time: 282596 real time: 282526 gc time: 404
+cpu time: 270376 real time: 270291 gc time: 476
+cpu time: 274316 real time: 274234 gc time: 468
+cpu time: 269384 real time: 269296 gc time: 316
+cpu time: 274340 real time: 274276 gc time: 408
+gtp-checkup: Checking 'benchmarks/suffixtree/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 6480 real time: 6474 gc time: 12
+cpu time: 6592 real time: 6589 gc time: 24
+cpu time: 6500 real time: 6496 gc time: 24
+cpu time: 6224 real time: 6223 gc time: 44
+cpu time: 6504 real time: 6508 gc time: 44
+cpu time: 6544 real time: 6544 gc time: 8
+cpu time: 6272 real time: 6275 gc time: 52
+cpu time: 6420 real time: 6417 gc time: 16
+cpu time: 6268 real time: 6269 gc time: 4
+cpu time: 6228 real time: 6223 gc time: 12
+gtp-checkup: Checking 'benchmarks/synth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1016 real time: 1016 gc time: 208
+cpu time: 1040 real time: 1042 gc time: 204
+cpu time: 1052 real time: 1051 gc time: 204
+cpu time: 1048 real time: 1048 gc time: 204
+cpu time: 1028 real time: 1026 gc time: 208
+cpu time: 1024 real time: 1022 gc time: 216
+cpu time: 1020 real time: 1018 gc time: 212
+cpu time: 1044 real time: 1043 gc time: 212
+cpu time: 1012 real time: 1009 gc time: 208
+cpu time: 1072 real time: 1069 gc time: 208
+gtp-checkup: Checking 'benchmarks/synth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 61608 real time: 61587 gc time: 5000
+cpu time: 65752 real time: 65730 gc time: 4968
+cpu time: 62492 real time: 62475 gc time: 4992
+cpu time: 66228 real time: 66195 gc time: 5056
+cpu time: 62900 real time: 62880 gc time: 5056
+cpu time: 62300 real time: 62285 gc time: 4984
+cpu time: 66564 real time: 66544 gc time: 4976
+cpu time: 63880 real time: 63860 gc time: 4980
+cpu time: 66072 real time: 66044 gc time: 5068
+cpu time: 64764 real time: 64740 gc time: 4996
+gtp-checkup: Checking 'benchmarks/synth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1164 real time: 1163 gc time: 184
+cpu time: 1028 real time: 1029 gc time: 192
+cpu time: 1140 real time: 1139 gc time: 192
+cpu time: 1172 real time: 1174 gc time: 184
+cpu time: 1120 real time: 1118 gc time: 192
+cpu time: 1040 real time: 1037 gc time: 196
+cpu time: 1160 real time: 1159 gc time: 196
+cpu time: 1144 real time: 1140 gc time: 200
+cpu time: 1052 real time: 1049 gc time: 192
+cpu time: 1164 real time: 1161 gc time: 192
+gtp-checkup: Checking 'benchmarks/take5/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 4100 real time: 4101 gc time: 148
+cpu time: 4096 real time: 4095 gc time: 136
+cpu time: 4128 real time: 4128 gc time: 120
+cpu time: 4272 real time: 4273 gc time: 132
+cpu time: 4152 real time: 4148 gc time: 128
+cpu time: 4140 real time: 4138 gc time: 128
+cpu time: 4152 real time: 4150 gc time: 124
+cpu time: 4156 real time: 4154 gc time: 128
+cpu time: 4056 real time: 4053 gc time: 124
+cpu time: 4132 real time: 4129 gc time: 132
+gtp-checkup: Checking 'benchmarks/take5/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 51628 real time: 51615 gc time: 616
+cpu time: 52532 real time: 52522 gc time: 748
+cpu time: 51640 real time: 51625 gc time: 572
+cpu time: 51736 real time: 51724 gc time: 636
+cpu time: 51464 real time: 51450 gc time: 680
+cpu time: 52012 real time: 52000 gc time: 560
+cpu time: 49184 real time: 49172 gc time: 732
+cpu time: 49876 real time: 49866 gc time: 532
+cpu time: 48688 real time: 48676 gc time: 628
+cpu time: 51648 real time: 51635 gc time: 684
+gtp-checkup: Checking 'benchmarks/take5/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1332 real time: 1330 gc time: 76
+cpu time: 1452 real time: 1453 gc time: 80
+cpu time: 1472 real time: 1468 gc time: 80
+cpu time: 1428 real time: 1427 gc time: 76
+cpu time: 1316 real time: 1314 gc time: 84
+cpu time: 1432 real time: 1430 gc time: 80
+cpu time: 1444 real time: 1444 gc time: 76
+cpu time: 1424 real time: 1423 gc time: 76
+cpu time: 1456 real time: 1459 gc time: 76
+cpu time: 1320 real time: 1318 gc time: 76
+gtp-checkup: Checking 'benchmarks/tetris/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1604 real time: 1599 gc time: 116
+cpu time: 1596 real time: 1595 gc time: 112
+cpu time: 1596 real time: 1595 gc time: 116
+cpu time: 1596 real time: 1595 gc time: 120
+cpu time: 1596 real time: 1595 gc time: 116
+cpu time: 1608 real time: 1606 gc time: 120
+cpu time: 1600 real time: 1599 gc time: 116
+cpu time: 1620 real time: 1619 gc time: 116
+cpu time: 1600 real time: 1599 gc time: 120
+cpu time: 1604 real time: 1601 gc time: 116
+gtp-checkup: Checking 'benchmarks/tetris/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 18996 real time: 18989 gc time: 184
+cpu time: 19140 real time: 19136 gc time: 196
+cpu time: 19040 real time: 19036 gc time: 132
+cpu time: 19276 real time: 19271 gc time: 184
+cpu time: 19360 real time: 19354 gc time: 184
+cpu time: 18768 real time: 18760 gc time: 220
+cpu time: 18952 real time: 18946 gc time: 172
+cpu time: 18960 real time: 18954 gc time: 156
+cpu time: 19388 real time: 19383 gc time: 204
+cpu time: 19032 real time: 19028 gc time: 192
+gtp-checkup: Checking 'benchmarks/tetris/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1680 real time: 1679 gc time: 4
+cpu time: 1684 real time: 1683 gc time: 8
+cpu time: 1684 real time: 1682 gc time: 8
+cpu time: 1688 real time: 1687 gc time: 8
+cpu time: 1684 real time: 1681 gc time: 4
+cpu time: 1692 real time: 1689 gc time: 4
+cpu time: 1688 real time: 1681 gc time: 12
+cpu time: 1684 real time: 1685 gc time: 8
+cpu time: 1684 real time: 1680 gc time: 12
+cpu time: 1772 real time: 1771 gc time: 12
+gtp-checkup: Checking 'benchmarks/zombie/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 580 real time: 577 gc time: 144
+cpu time: 584 real time: 582 gc time: 144
+cpu time: 572 real time: 572 gc time: 136
+cpu time: 576 real time: 575 gc time: 144
+cpu time: 580 real time: 578 gc time: 140
+cpu time: 580 real time: 579 gc time: 140
+cpu time: 576 real time: 575 gc time: 144
+cpu time: 560 real time: 559 gc time: 132
+cpu time: 568 real time: 570 gc time: 136
+cpu time: 572 real time: 574 gc time: 136
+gtp-checkup: Checking 'benchmarks/zombie/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5236 real time: 5235 gc time: 24
+cpu time: 5424 real time: 5420 gc time: 20
+cpu time: 5324 real time: 5324 gc time: 68
+cpu time: 5340 real time: 5339 gc time: 40
+cpu time: 5368 real time: 5366 gc time: 52
+cpu time: 5344 real time: 5343 gc time: 48
+cpu time: 5440 real time: 5442 gc time: 24
+cpu time: 5288 real time: 5286 gc time: 24
+cpu time: 5208 real time: 5210 gc time: 52
+cpu time: 5384 real time: 5384 gc time: 36
+gtp-checkup: Checking 'benchmarks/zombie/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 108 real time: 105 gc time: 4
+cpu time: 108 real time: 104 gc time: 0
+cpu time: 108 real time: 105 gc time: 0
+cpu time: 108 real time: 103 gc time: 0
+cpu time: 108 real time: 103 gc time: 4
+cpu time: 104 real time: 102 gc time: 4
+cpu time: 108 real time: 105 gc time: 4
+cpu time: 108 real time: 105 gc time: 8
+cpu time: 108 real time: 104 gc time: 0
+cpu time: 116 real time: 111 gc time: 0
+gtp-checkup: Checking 'benchmarks/zordoz/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 15844 real time: 15839 gc time: 132
+cpu time: 16004 real time: 16000 gc time: 156
+cpu time: 15900 real time: 15894 gc time: 140
+cpu time: 16144 real time: 16141 gc time: 132
+cpu time: 15816 real time: 15812 gc time: 128
+cpu time: 16172 real time: 16168 gc time: 124
+cpu time: 16264 real time: 16261 gc time: 144
+cpu time: 15824 real time: 15817 gc time: 148
+cpu time: 15892 real time: 15890 gc time: 132
+cpu time: 16168 real time: 16163 gc time: 124
+gtp-checkup: Checking 'benchmarks/zordoz/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 19180 real time: 19176 gc time: 152
+cpu time: 18808 real time: 18806 gc time: 144
+cpu time: 19100 real time: 19097 gc time: 156
+cpu time: 19112 real time: 19108 gc time: 164
+cpu time: 19148 real time: 19141 gc time: 168
+cpu time: 19164 real time: 19162 gc time: 128
+cpu time: 19092 real time: 19085 gc time: 136
+cpu time: 19320 real time: 19313 gc time: 144
+cpu time: 18804 real time: 18795 gc time: 152
+cpu time: 19340 real time: 19331 gc time: 144
+gtp-checkup: Checking 'benchmarks/zordoz/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1536 real time: 1535 gc time: 96
+cpu time: 1536 real time: 1531 gc time: 92
+cpu time: 1516 real time: 1514 gc time: 96
+cpu time: 1536 real time: 1538 gc time: 96
+cpu time: 1452 real time: 1452 gc time: 92
+cpu time: 1520 real time: 1518 gc time: 100
+cpu time: 1528 real time: 1527 gc time: 104
+cpu time: 1524 real time: 1524 gc time: 100
+cpu time: 1536 real time: 1535 gc time: 96
+cpu time: 1536 real time: 1533 gc time: 92
+gtp-checkup: === FINISHED ===
+gtp-checkup: Error running the following files:
+gtp-checkup: - benchmarks/dungeon/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/forth/typed-worst-case/main.rkt
