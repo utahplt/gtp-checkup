@@ -112,7 +112,7 @@ Run @exec{racket main.rkt --help} for more information.
      (url (format "https://github.com/bennn/gtp-checkup/tree/master/data/~a/" (directory->machine-name dir)))))
 
 @(define dir-pict#
-   (parameterize ((*wide-plot-width* 550))
+   (parameterize ((*wide-plot-width* 800))
      (make-all-machine-data-pict*)))
 
 

@@ -120,7 +120,7 @@
                    [plot-x-ticks (date-ticks #:number 3 #:formats '("~Y"))]
                    [plot-width (*wide-plot-width*)]
                    [point-alpha 0.8]
-                   [plot-font-size 18]
+                   [plot-font-size 14]
                    [plot-font-family 'default])
       (for/list ([b-id (in-list benchmark-name*)])
         (define-values [max-cpu-time min-compile-timeout min-run-timeout min-time max-time]
