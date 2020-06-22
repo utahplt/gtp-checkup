@@ -240,6 +240,7 @@
     (log-gtp-checkup-error "new regression in commit ~s" c-hash))
   pict*)
 
+;; real -> [values y-max error-y compile-timeout-y run-timeout-y]
 (define (make-extra-y-values max-cpu-time)
   (define mt (exact-ceiling max-cpu-time))
   (case (order-of-magnitude mt)
@@ -615,6 +616,26 @@
 
 (define (seconds->minutes s)
   (/ s 60))
+
+(define (release-date? dt)
+  (for/or ((rr (in-list racket-release-date*)))
+    (equal? dt (cadr rr))))
+
+(module+ test
+  (test-case "release-date?"
+    (check-true (release-date? (date 2016 10 26)))
+    (check-true (release-date? (date 2017 07 31)))
+    (check-true (release-date? (date 2019 05 13)))
+
+    (check-false (release-date? (date 2016 10 27)))))
+
+(define (commit-data->date cd)
+  (datetime->date (commit-id->time (commit-data-id cd))))
+
+(module+ test
+  (test-case "commit-data->date"
+    (check-equal? (commit-data->date #s(commit-data "2019-03-17T07:04:23Z-0500_ed2381ee595fa8ac06dded9aacaa4c34f5d73475" #hasheq((acquire . #hasheq((typed . #s(timeout run 5500)) (typed-worst-case . (1902 1923 1884)) (untyped . (467 461 470)))))))
+                  (date 2019 03 17))))
 
 ;; =============================================================================
 
