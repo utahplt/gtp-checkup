@@ -114,7 +114,7 @@
 (define (make-machine-data-pict* md)
   (define m-id (machine-data-id md))
   (define benchmark-name* (machine-data->benchmark-name* md))
-  (define new-bad-commit* (mutable-set))
+  (define new-bad-commit* (make-hash))
   (define pict*
     (parameterize (;; TODO possible to (1) set defaults (2) let users override (3) don't define new parameters like gtp-plot does?
                    [plot-x-ticks (date-ticks #:number 3 #:formats '("~Y"))]
@@ -201,7 +201,10 @@
                                                  (cdr (machine-data-commit* md)))))
                            #:when (and (new-fail? pp)
                                        (not (member c-hash bad-commit-whitelist string=?))))
-                  (set-add! new-bad-commit* c-hash)
+                  (hash-update! new-bad-commit*
+                                c-hash
+                                (lambda (bm*) (snoc-new bm* b-id))
+                                (lambda () '()))
                   (point-pict (midpoint (point->plot-point (car pp))
                                         (point->plot-point (cdr pp)))
                               (commit-id->pict c-hash)
@@ -236,9 +239,19 @@
         (cons
           b-id
           (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
-  (for ((c-hash (in-set new-bad-commit*)))
-    (log-gtp-checkup-error "new regression in commit ~s" c-hash))
+  (for (((c-hash bm*) (in-hash new-bad-commit*)))
+    (log-gtp-checkup-error "new regression in commit ~s ~s" c-hash bm*))
   pict*)
+
+(define (snoc-new sym* sym)
+  (let loop ((s* sym*))
+    (cond
+      [(null? s*)
+       (list sym)]
+      [(eq? (car s*) sym)
+       s*]
+      [else
+       (cons (car s*) (loop (cdr s*)))])))
 
 ;; real -> [values y-max error-y compile-timeout-y run-timeout-y]
 (define (make-extra-y-values max-cpu-time)
