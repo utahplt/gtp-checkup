@@ -1,7 +1,6 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require  )
 (require/typed "data.rkt"
                      [posn=? (-> Posn Posn Boolean)])
 

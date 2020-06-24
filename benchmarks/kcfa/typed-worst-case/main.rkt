@@ -3,7 +3,6 @@
 ;; Create a few examples and run abstract interpretation
 
 (require
-   
   "structs-adapted.rkt"
 )
 (require/typed "ui.rkt"

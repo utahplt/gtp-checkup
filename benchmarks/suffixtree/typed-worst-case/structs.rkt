@@ -1,5 +1,5 @@
 #lang typed/racket/base
-(require  
+(require
          (except-in "typed-data.rkt" make-label)
          racket/list)
 

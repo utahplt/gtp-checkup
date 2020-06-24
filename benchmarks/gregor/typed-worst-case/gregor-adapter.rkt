@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "core-adapter.rkt")
 
 (require/typed "gregor-structs.rkt"

@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "summary-adapted.rkt"
 )
 (require/typed "spreadsheet.rkt"

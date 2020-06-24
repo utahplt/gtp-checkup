@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "structs-adapted.rkt"
   "benv-adapted.rkt"
 )

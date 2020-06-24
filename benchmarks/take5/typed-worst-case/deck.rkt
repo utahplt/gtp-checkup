@@ -16,7 +16,6 @@
   "deck-types.rkt"
   "stack-types.rkt"
   racket/list
-   
 )
 
 (require/typed "basics.rkt"

@@ -5,8 +5,7 @@
  build-random-population
 )
 (require
-  "automata-adapted.rkt"
-   )
+  "automata-adapted.rkt")
 
 (require/typed "population.rkt"
  (build-random-population

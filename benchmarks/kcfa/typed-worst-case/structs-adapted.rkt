@@ -1,9 +1,5 @@
 #lang typed/racket/base
 
-(require
-   
-)
-
 (require/typed "structs.rkt"
   [#:struct Stx ([label : Label])]
   [#:struct (exp Stx) ()]

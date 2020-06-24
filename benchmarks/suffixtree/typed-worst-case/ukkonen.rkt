@@ -6,7 +6,6 @@
 
 (require
  (except-in "typed-data.rkt" make-label)
-  
 )
 (require/typed "label.rkt"
   [label-length (-> Label Index)]
@@ -243,7 +242,6 @@
                  matched-in-node
                  mismatched-at-node
                  mismatched-in-node))
-    ;(when (void? res) (error "foo"))
     res)
   (: add-rest-suffixes! (-> Label Node Index Void))
   (define (add-rest-suffixes! label starting-node starting-offset)

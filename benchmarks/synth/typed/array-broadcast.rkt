@@ -40,9 +40,9 @@
   (define old-f (unsafe-array-proc arr))
   (unsafe-build-array
    new-ds
-   (λ: ([new-js : Indexes])
+   (lambda ([new-js : Indexes])
      (let ([old-js  (old-js)])
-       (let: loop : Float ([k : Integer  0])
+       (let loop : Float ([k : Integer  0])
          (cond [(k . < . old-dims)
                 (define new-jk (vector-ref new-js (+ k shift)))
                 (define old-dk (vector-ref old-ds k))
@@ -57,7 +57,8 @@
         [else  (define new-arr (shift-stretch-axes arr ds))
                (if (or (array-strict? arr) ((array-size new-arr) . fx<= . (array-size arr)))
                    new-arr
-                   (begin (array-default-strict! new-arr) new-arr))]))
+                   (begin (array-default-strict! new-arr)
+                          new-arr))]))
 
 (: shape-insert-axes (Indexes Integer -> Indexes))
 (define (shape-insert-axes ds n)
@@ -65,7 +66,7 @@
 
 (: shape-permissive-broadcast (Indexes Indexes Integer (-> Nothing) -> Indexes))
 (define (shape-permissive-broadcast ds1 ds2 dims fail)
-  (define: new-ds : Indexes (make-vector dims 0))
+  (define new-ds : Indexes (make-vector dims 0))
   (let loop ([#{k : Integer} 0])
     (cond [(k . < . dims)
            (define dk1 (vector-ref ds1 k))
@@ -79,7 +80,7 @@
 
 (: shape-normal-broadcast (Indexes Indexes Integer (-> Nothing) -> Indexes))
 (define (shape-normal-broadcast ds1 ds2 dims fail)
-  (define: new-ds : Indexes (make-vector dims 0))
+  (define new-ds : Indexes (make-vector dims 0))
   (let loop ([#{k : Integer} 0])
     (cond [(k . < . dims)
            (define dk1 (vector-ref ds1 k))

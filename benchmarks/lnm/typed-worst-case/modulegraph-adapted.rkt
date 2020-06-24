@@ -1,8 +1,5 @@
 #lang typed/racket/base
 
-(require
-   )
-
 (require/typed "modulegraph.rkt"
   [#:struct modulegraph (
     [project-name : String]

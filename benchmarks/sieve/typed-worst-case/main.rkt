@@ -1,6 +1,5 @@
 #lang typed/racket/base
 
-(require  )
 
 (require/typed "streams.rkt"
   [#:struct stream ([first : Natural]

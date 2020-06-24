@@ -1,6 +1,6 @@
 #lang typed/racket/base
 
-(require  
+(require
  (only-in racket/file file->lines file->string))
 
 (require/typed "lcs.rkt"

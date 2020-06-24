@@ -5,7 +5,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   "../base/core-types.rkt")
 
 (require/typed "penalty-struct.rkt"

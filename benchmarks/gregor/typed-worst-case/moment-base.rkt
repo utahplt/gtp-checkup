@@ -12,7 +12,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   racket/match
   "gregor-adapter.rkt"
   (only-in racket/format ~r)

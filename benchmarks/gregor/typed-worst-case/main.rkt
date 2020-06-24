@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "../base/types.rkt"
   "gregor-adapter.rkt"
   "tzinfo-adapter.rkt"

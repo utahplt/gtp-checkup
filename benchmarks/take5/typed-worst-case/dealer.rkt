@@ -16,7 +16,6 @@
   "deck-types.rkt"
   "player-types.rkt"
   racket/list
-   
   typed/racket/class)
 
 (require/typed "basics.rkt"

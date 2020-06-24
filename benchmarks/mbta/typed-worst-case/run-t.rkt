@@ -15,7 +15,6 @@
  run-t)
 
 ;; ===================================================================================================
-(require  )
 (require/typed "t-view.rkt" [manage% Manage])
 (require "../base/t-view-types.rkt")
 

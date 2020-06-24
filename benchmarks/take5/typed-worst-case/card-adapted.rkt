@@ -9,7 +9,6 @@
   --face)
 
 (require
-   
   "basics-types.rkt")
 (require/typed "card.rkt"
  (#:struct card (

@@ -11,7 +11,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   racket/match
   "core-adapter.rkt"
   "gregor-adapter.rkt"

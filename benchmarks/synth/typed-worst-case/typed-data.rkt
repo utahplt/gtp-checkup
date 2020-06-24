@@ -10,8 +10,6 @@
   (struct-out Settable-Array)
   (struct-out Mutable-Array))
 
-(require  )
-
 (require/typed "data.rkt"
   [#:struct Array ([shape : Indexes]
                    [size : Integer]

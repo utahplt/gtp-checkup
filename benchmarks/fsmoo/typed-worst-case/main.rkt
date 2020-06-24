@@ -8,11 +8,14 @@
 (require
   "automata-adapted.rkt"
   "population-adapted.rkt"
-   
 )
 (require/typed "utilities.rkt"
  (relative-average (-> [Listof Real] Real Real))
 )
+
+(: payoff? (-> Any Boolean : #:+ Payoff))
+(define (payoff? x)
+  (and (real? x) (<= 0 x)))
 
 ;; effect: run timed simulation, create and display plot of average payoffs
 ;; effect: measure time needed for the simulation
@@ -41,7 +44,7 @@
           (send p death-birth s)
           ;; Note: s same as r
           ({inst cons Payoff [Listof Payoff]}
-           (cast (relative-average pp r) Payoff)
+           (assert (relative-average pp r) payoff?)
            ;; Note: evolve is assigned (-> ... [Listof Probability])
            ;; even though it is explicitly typed ... [Listof Payoff]
            (evolve (- c 1) s r))])))

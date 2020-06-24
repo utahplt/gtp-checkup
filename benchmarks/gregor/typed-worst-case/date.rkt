@@ -21,7 +21,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   (only-in racket/math exact-round)
   (only-in racket/format ~r)
   "core-adapter.rkt"

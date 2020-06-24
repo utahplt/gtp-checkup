@@ -7,7 +7,6 @@
  make-random-automaton
 )
 
-(require  )
 (require/typed "automata.rkt"
  (make-random-automaton
   (-> Natural oAutomaton)))

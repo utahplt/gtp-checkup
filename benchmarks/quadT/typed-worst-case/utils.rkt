@@ -24,7 +24,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   "../base/core-types.rkt"
   "../base/quad-types.rkt"
   (only-in racket/list append-map empty? empty split-at-right first splitf-at)
@@ -270,10 +269,6 @@
 (define (compute-line-height line)
   (quad-attr-set line world:height-key
     (quad-attr-ref line world:leading-key (world:leading-key-default))))
-
-;(define/typed (fixed-height? q)
-;  (Quad -> Boolean)
-;  (quad-has-attr? q world:height-key))
 
 (: quad-height (-> (U GroupQuad Quad) Float))
 (define (quad-height q)

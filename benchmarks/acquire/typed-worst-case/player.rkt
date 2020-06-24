@@ -13,7 +13,6 @@
 ;; IMPLEMENTATION 
 
 (require
-  
  "../base/types.rkt"
  "state-adapted.rkt"
 )

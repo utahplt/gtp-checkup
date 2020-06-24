@@ -11,7 +11,6 @@
   tree-next
 )
 (require
-   
   "../base/types.rkt"
   "board-adapted.rkt"
   "state-adapted.rkt"

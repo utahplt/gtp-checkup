@@ -20,10 +20,6 @@
 
 ;; -----------------------------------------------------------------------------
 
-(require
-   
-)
-
 (require/typed "ocm-struct.rkt"
   [set-$ocm-tentative! (-> $ocm Index-Type Void)]
   [set-$ocm-min-entrys! (-> $ocm (Vectorof Entry-Type) Void)]

@@ -10,7 +10,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-  
  (only-in racket/string string-replace string-join)
  (only-in racket/list partition drop-right drop make-list filter-not take splitf-at))
 
@@ -5126,9 +5125,9 @@
 ;; Find hyphenation points in a word. This is not quite synonymous with syllables.
 (: word->hyphenation-points (->* (String) (Index Index Index) (Listof String)))
 (define (word->hyphenation-points word
-                                  [min-l : Index default-min-length]
-                                  [min-ll : Index default-min-left-length]
-                                  [min-rl : Index default-min-right-length])
+                                  [min-l default-min-length]
+                                  [min-ll default-min-left-length]
+                                  [min-rl default-min-right-length])
   (: add-no-hyphen-zone (-> (Listof Index) (Listof Integer)))
   (define (add-no-hyphen-zone points)
     ; points is a list corresponding to the letters of the word.

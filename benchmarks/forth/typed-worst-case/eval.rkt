@@ -5,7 +5,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   racket/match
   typed/racket/class
   "../base/command-types.rkt"

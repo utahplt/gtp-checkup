@@ -6,7 +6,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   racket/list
   typed/racket/class
   "board-adapted.rkt"

@@ -22,7 +22,6 @@
 ;;; Code:
 
 (require
-   
   "../base/typedefs.rkt"
   (only-in "../base/math/array.rkt" Array)
   (only-in racket/file file->bytes))

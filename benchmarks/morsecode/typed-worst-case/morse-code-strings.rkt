@@ -11,8 +11,6 @@
 
 (provide string->morse)
 
-(require  )
-
 (require/typed "morse-code-table.rkt"
   [char-table (HashTable Char String)])
 

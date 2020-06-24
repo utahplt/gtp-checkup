@@ -46,7 +46,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-  
  (only-in racket/string string-append*)
  racket/list
  "../base/quad-types.rkt"

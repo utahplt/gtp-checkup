@@ -9,7 +9,6 @@
 (define-type Transition* [Vectorof Transition])
 (define-type Transition [Vectorof State])
 
-(require "benchmark-util.rkt")
 (require/typed "automata.rkt"
  [#:opaque Automaton automaton?]
  (automaton-payoff (-> Automaton Payoff))

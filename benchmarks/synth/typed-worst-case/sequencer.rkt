@@ -1,6 +1,6 @@
 #lang typed/racket/base
 
-(require  
+(require
          "typed-data.rkt")
 
 (require/typed "array-struct.rkt"

@@ -1,7 +1,6 @@
 #lang typed/racket
 
 (require "base-types.rkt")
-(require  )
 (require/typed "bset.rkt"
    [blocks-union (-> BSet BSet BSet)]
    [blocks-max-x (-> BSet Real)]

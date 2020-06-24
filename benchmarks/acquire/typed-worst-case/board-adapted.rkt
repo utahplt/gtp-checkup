@@ -31,7 +31,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-  
  "../base/types.rkt")
 
 (define-type Board (HashTable Tile Content))

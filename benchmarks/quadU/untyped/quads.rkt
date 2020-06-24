@@ -1,27 +1,17 @@
 #lang racket/base
 
 (provide
-  quad
-  quad?
-  quad-attrs?
-  ;;; --
   block
   block-break
-  ;block-break?
   box
   column
   column-break
-  ;column-break?
-  ;column?
-  ;group-quad-list
   line
-  ;line?
   make-quadattrs
   optical-kern
   optical-kern?
   page
   page-break
-  ;page-break?
   piece
   quad->string
   quad-attr-ref
@@ -35,30 +25,23 @@
   quads->doc
   quads->line
   quads->page
-  ;run?
   spacer
-  ;spacer?
   whitespace/nbsp?
   whitespace?
   word
   word-break
-  ;word-break?
   word-string
-  ;word?
  )
 
 ;; -----------------------------------------------------------------------------
 
 (require
  require-typed-check
- "../base/quad-types.rkt"
+ "../base/core.rkt"
+ "../base/untyped.rkt"
  (only-in racket/string string-append*))
 
 ;; =============================================================================
-
-(define (assert v p)
-  (unless (p v) (error 'quad "assert"))
-  v)
 
 (define (listof-usq? v)
   (and (list? v) (andmap usq? v)))

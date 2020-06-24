@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-  
  "modulegraph-adapted.rkt"
  )
 

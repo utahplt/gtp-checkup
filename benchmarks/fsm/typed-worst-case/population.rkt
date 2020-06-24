@@ -27,7 +27,7 @@
   (-> Population Natural [#:random (U False Real)] Population))
 
 ;; =============================================================================
-(require  
+(require
  "automata-adapted.rkt")
 (require/typed "utilities.rkt"
  (choose-randomly

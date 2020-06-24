@@ -27,9 +27,8 @@
 (define-type oAutomaton (Instance Automaton))
 (define-type Payoff Nonnegative-Real)
 
-(provide automaton? defects cooperates tit-for-tat grim-trigger make-random-automaton)
+(provide defects cooperates tit-for-tat grim-trigger make-random-automaton)
 
-(: automaton? (-> Any Boolean))
  (: defects (-> Payoff oAutomaton))
  (: cooperates (-> Payoff oAutomaton))
  (: tit-for-tat (-> Payoff oAutomaton))
@@ -39,9 +38,6 @@
   ;; (make-random-automaton n k) builds an n states x k inputs automaton
   ;; with a random transition table 
   (-> Natural oAutomaton))
-
-(define (automaton? v)
-  (is-a? v automaton%))
 
 ;; =============================================================================
 (define-type Transition* [Vectorof [Vectorof State]])
@@ -63,7 +59,7 @@
     (define PAYOFF-TABLE
       (vector (vector (cons 3 3) (cons 0 4))
               (vector (cons 4 0) (cons 1 1))))
-    
+
     (class object%
       (init-field
        current ;; State 
@@ -71,7 +67,7 @@
        table   ;; [Vectorof [Vectorof State]] 
        (original current))
       (super-new)
-      
+
       (define/public (match-pair other r)
         (: c1 (Boxof State))
         (: y1 (Boxof Payoff))
@@ -99,24 +95,24 @@
         (set-field! current other (unbox c2))
         (set-field! payoff  other (unbox y2))
         (values this other))
-      
+
       (define/public (jump input delta) ;; <--- should be friendly
         (set! current (vector-ref (vector-ref table current) input))
         (set! payoff (+ payoff delta)))
-      
+
       (define/public (pay)
         payoff)
-      
+
       (define/public (reset)
         (new automaton% [current original][payoff 0][table table]))
-      
+
       (define/public (clone)
         (new automaton% [current original][payoff 0][table table]))
-      
+
       (: compute-payoffs (-> State [cons Payoff Payoff]))
       (define/private (compute-payoffs other-current)
         (vector-ref (vector-ref PAYOFF-TABLE current) other-current))
-      
+
       (define/public (equal other)
         (and (= current (get-field current other))
              (= original (get-field original other))

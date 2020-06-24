@@ -3,7 +3,6 @@
 ;; User Interface to `ai.rkt`
 
 (require
-   
   racket/set
   "structs-adapted.rkt"
   "benv-adapted.rkt"

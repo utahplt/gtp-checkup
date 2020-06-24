@@ -1,7 +1,7 @@
 #lang typed/racket
 ;; Movie handlers
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require  
+(require
          "data-adaptor.rkt")
 (require/typed "collide.rkt"
                      [snake-wall-collide? (Snake . -> . Boolean)]

@@ -1,6 +1,6 @@
 #lang typed/racket
 
-(require  
+(require
          "data-adaptor.rkt")
 (require/typed "cut-tail.rkt"
                      [cut-tail ((NEListof Posn) . -> . (Listof Posn))])

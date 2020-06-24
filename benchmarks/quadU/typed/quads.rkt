@@ -1,27 +1,17 @@
 #lang typed/racket/base
 
 (provide
-  quad
-  quad?
-  quad-attrs?
-  ;;; --
   block
   block-break
-  ;block-break?
   box
   column
   column-break
-  ;column-break?
-  ;column?
-  ;group-quad-list
   line
-  ;line?
   make-quadattrs
   optical-kern
   optical-kern?
   page
   page-break
-  ;page-break?
   piece
   quad->string
   quad-attr-ref
@@ -35,16 +25,12 @@
   quads->doc
   quads->line
   quads->page
-  ;run?
   spacer
-  ;spacer?
   whitespace/nbsp?
   whitespace?
   word
   word-break
-  ;word-break?
   word-string
-  ;word?
  )
 
 ;; -----------------------------------------------------------------------------
@@ -53,6 +39,16 @@
  require-typed-check
  "../base/quad-types.rkt"
  (only-in racket/string string-append*))
+
+;; =============================================================================
+
+(: listof-usq? (-> Any Boolean : (Listof USQ)))
+(define (listof-usq? v)
+  (and (list? v) (andmap usq? v)))
+
+(: usq? (-> Any Boolean : USQ))
+(define (usq? v)
+  (or (string? v) (quad? v)))
 
 ;; =============================================================================
 
@@ -82,7 +78,7 @@
 
 (: quad-list (-> Quad (Listof USQ)))
 (define (quad-list q)
-  (cast (cddr q) (Listof USQ)))
+  (assert (cddr q) listof-usq?))
 
 ;;bg;
 (: quad-attr-ref (->* ((U Quad QuadAttrs) Symbol) (Any) Any))
@@ -190,7 +186,7 @@
 
 (: word-string (-> Quad String))
 (define (word-string c)
-  (cast (car (quad-list c)) String))
+  (assert (car (quad-list c)) string?))
 
 ;;; -----------------------------------------------------------------------------
 ;

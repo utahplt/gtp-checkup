@@ -6,7 +6,6 @@
  main)
 
 (require
-   
   typed/racket/class
   "player-types.rkt"
   "dealer-types.rkt"

@@ -14,16 +14,12 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-  
  typed/racket/class
  "../base/cell-types.rkt"
 )
 (require/typed "message-queue.rkt"
   (enqueue-message! (-> String Void))
 )
-;(require/typed racket/dict
-;  (dict-ref (-> CCTable Char Cell%))
-;  (dict-set! (-> CCTable Char Cell% Void)))
 (: dict-ref (-> CCTable Char Cell%))
 (define (dict-ref tbl c)
   (or (hash-ref tbl c #f) (raise-user-error 'dict-ref)))

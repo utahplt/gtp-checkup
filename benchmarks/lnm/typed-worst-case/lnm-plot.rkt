@@ -16,7 +16,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   "pict-adapted.rkt"
   "summary-adapted.rkt"
   plot/typed/pict
@@ -120,7 +119,7 @@
   (define cache (and lim (cache-init sm lim #:L L)))
   (lambda ([N-raw : Real])
     (: N Nonnegative-Real)
-    (define N (if (>= N 0) N (error 'count-variations)))
+    (define N (if (>= N-raw 0) N-raw (error 'count-variations)))
     (: good? (-> String Boolean))
     (define good? (make-variation->good? sm (* N baseline) #:L L))
     (if (and cache lim (<= N lim))

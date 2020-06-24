@@ -17,6 +17,7 @@
  automaton-payoff
  ;; --
  Automaton
+ automaton?
  ;Payoff
 )
  (: defects (-> Payoff Automaton))

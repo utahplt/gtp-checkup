@@ -13,6 +13,8 @@
 
 (require
   require-typed-check
+  "../base/untyped.rkt"
+  "../base/core.rkt"
   "ocm-struct.rkt"
   "penalty-struct.rkt"
   (only-in math/flonum fl+ fl= fl fl/ fl- fl> fl* fllog flabs flmax flexpt)
@@ -30,24 +32,23 @@
   round-float ;(-> Float Float)]
 ))
 (require (only-in "quads.rkt"
-  quad? quad
-  optical-kern ;(->* ((Listof Any)) () #:rest USQ Quad))
-  line ;(->* ((Listof Any)) () #:rest USQ Quad)]
-  optical-kern? ;(-> Any Boolean)]
-  piece ;(->* ((Listof Any)) () #:rest USQ Quad)]
-  word-break ;(->* ((Listof Any)) () #:rest USQ Quad)]
-  quad->string ;(-> Quad String)]
-  quad-attr-ref ;(((U Quad QuadAttrs) Symbol) (Any) . ->* . Any)]
-  quad-attrs ;(-> Quad (Listof Any))]
-  quad-has-attr? ;(-> Quad Symbol Boolean)]
-  quad-list ;(Quad -> (Listof USQ))]
-  quad-name ;(Quad -> Symbol)]
-  make-quadattrs ;(-> (Listof Any) QuadAttrs)]
-  quads->line ;(->; (Listof Quad) Quad)]
-  spacer ;(->* ((Listof Any))()  #:rest USQ Quad)]
-  whitespace/nbsp? ;(-> Any Boolean)]
-  whitespace? ;(-> Any Boolean)]
-  word-string ;(-> Quad String)]
+  optical-kern
+  line
+  optical-kern?
+  piece
+  word-break
+  quad->string
+  quad-attr-ref
+  quad-attrs
+  quad-has-attr?
+  quad-list
+  quad-name
+  make-quadattrs
+  quads->line
+  spacer
+  whitespace/nbsp?
+  whitespace?
+  word-string
 ))
 (require (only-in "world.rkt"
   world:last-line-can-be-short ;Boolean]
@@ -117,15 +118,11 @@
 ))
 ;; =============================================================================
 
-(define (assert v p)
-  (unless (p v) (error 'wrap (format "asert ~a ~a" (object-name p) v)))
-  v)
-
 (define (listof-quad? qs)
   (and (list? qs) (andmap quad? qs)))
 
 (define (positive-flonum? f)
-  (and (positive? f) (flonum? f)))
+  (and (flonum? f) (< 0 f)))
 
 ;; =============================================================================
 
@@ -227,8 +224,8 @@
   (list
    (assert (quad-attr-ref q world:font-size-key) positive-flonum?)
    (assert (quad-attr-ref/parameter q world:font-name-key) string?)
-   (assert (quad-attr-ref/parameter q world:font-weight-key) symbol?)
-   (assert (quad-attr-ref/parameter q world:font-style-key) symbol?)))
+   (assert (quad-attr-ref/parameter q world:font-weight-key) Font-Weight?)
+   (assert (quad-attr-ref/parameter q world:font-style-key) Font-Style?)))
 
 ;;; get the width of a quad.
 ;;; Try the attr first, and if it's not available, compute the width.

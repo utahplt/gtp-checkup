@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "../base/command-types.rkt")
 (require/typed "eval.rkt"
   (forth-eval* (-> (Listof String) (Values Any Any)))

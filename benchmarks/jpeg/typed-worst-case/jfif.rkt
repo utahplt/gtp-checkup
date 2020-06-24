@@ -23,7 +23,6 @@
 
 (require
   "../base/typedefs.rkt"
-   
   (only-in "../base/math/array.rkt"
     Array
     for/array
@@ -688,7 +687,7 @@
             (scan-components : SC* (compute-scan-components frame q-tables)))
        (values
         q-tables
-        (for/array #:shape (array-shape mcu-array)
+        (for/array #:shape (vector-map (ann values (-> Index Integer)) (array-shape mcu-array))
                    ((mcu : MCU (in-array (ann mcu-array (Array MCU)))))
                    : (Vectorof (Listof (Listof Integer)))
           (vector-map

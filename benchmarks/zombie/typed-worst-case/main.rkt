@@ -1,7 +1,6 @@
 #lang typed/racket/base
 
 (require
-   
   "image-adapted.rkt"
 )
 (require/typed "zombie.rkt"
@@ -32,13 +31,23 @@
     (define as (cdar h))
     (case m
      [(on-mouse)
-      (define r (apply (world-on-mouse w) (cast as (List Real Real String))))
+      (define r (apply (world-on-mouse w) (assert as real-real-string-list?)))
       (loop r (cdr h))]
      [(on-tick)
       (define r ((world-on-tick w)))
       (loop r (cdr h))])])))
 
-(define TEST
+(: real-real-string-list? : (Any -> Boolean : (List Real Real String)))
+(define (real-real-string-list? x)
+  (and (pair? x)
+       (pair? (cdr x))
+       (pair? (cdr (cdr x)))
+       (null? (cdr (cdr (cdr x))))
+       (real? (car x))
+       (real? (car (cdr x)))
+       (string? (car (cdr (cdr x))))))
+
+(define DATA
   (with-input-from-file "../base/zombie-hist.rktd" read))
 
 (: main (-> Any Void))
@@ -50,4 +59,4 @@
    [else
     (error "bad input")]))
 
-(time (main TEST))
+(time (main DATA))

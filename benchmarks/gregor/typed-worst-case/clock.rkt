@@ -19,7 +19,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   "../base/types.rkt"
   "tzinfo-adapter.rkt"
   "gregor-adapter.rkt"

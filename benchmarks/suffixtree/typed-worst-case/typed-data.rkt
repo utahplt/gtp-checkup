@@ -14,8 +14,6 @@
   set-node-parent!
   set-node-suffix-link!)
 
-(require  )
-
 (require/typed "data.rkt"
   [#:struct label ([datum : (Vectorof (U Char Symbol))]
                    [i : Natural] [j : Natural])]

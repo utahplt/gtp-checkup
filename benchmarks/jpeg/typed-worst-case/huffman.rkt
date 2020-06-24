@@ -21,8 +21,6 @@
 ;;
 ;;; Code:
 
-(require  )
-
 (require "../base/typedefs.rkt")
 
 (require/typed "bit-ports.rkt"

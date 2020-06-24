@@ -4,7 +4,6 @@
 ;; (i.e. dates and times at the same time)
 
 (require
-   
   "core-adapter.rkt"
   "gregor-adapter.rkt"
   racket/match

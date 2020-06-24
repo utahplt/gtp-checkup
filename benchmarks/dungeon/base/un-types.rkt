@@ -10,5 +10,6 @@
     v
     (raise-user-error 'assert)))
 
-(define (index? v)
-  (and (exact-nonnegative-integer? v) (< v 9999999)))
+(require (only-in racket/unsafe/ops unsafe-fx>=))
+
+(define (index? x) (and (fixnum? x) (unsafe-fx>= x 0) (fixnum? (* x 4))))

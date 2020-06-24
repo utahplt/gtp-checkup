@@ -7,7 +7,6 @@
 ;; including a data structure for internalizing the state of the players
 
 (require
-  
  "board-adapted.rkt"
  "../base/types.rkt"
  typed/racket/class)

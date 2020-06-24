@@ -5,7 +5,6 @@
 ;; Need the requires on top to stop syntax errors; opaques must
 ;; come lexically before their use
 (require
-   
   "../base/types.rkt"
   "gregor-adapter.rkt"
   racket/match
@@ -150,10 +149,7 @@
 
 (: timezone-adjust (-> Moment (U Natural String) Moment))
 (define (timezone-adjust m z)
-  (: dt DateTime)
-  (define dt (error 'foo));(Moment-datetime/local m))
-  (: neg-sec Integer)
-  (define neg-sec (error 'foo));(Moment-utc-offset m))
+  (match-define (Moment dt neg-sec _) m)
   (: dt/utc DateTime)
   (define dt/utc
     (datetime-add-seconds dt (- neg-sec)))

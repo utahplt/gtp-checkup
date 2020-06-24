@@ -8,7 +8,6 @@
   Month)
 
 (require
-   
   "../base/types.rkt")
 
 (require/typed "core-structs.rkt"

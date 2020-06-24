@@ -1,6 +1,6 @@
 #lang typed/racket
 
-(require  
+(require
          "data-adaptor.rkt")
 (require/typed "const.rkt"
                      [BOARD-WIDTH Integer]

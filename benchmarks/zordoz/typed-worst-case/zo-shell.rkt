@@ -7,7 +7,7 @@
  zo-read
  init)
 
-(require  
+(require
          (only-in racket/string string-split string-join string-trim)
          "../base/typed-zo-structs.rkt"
          racket/match)

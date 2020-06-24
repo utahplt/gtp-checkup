@@ -1,6 +1,6 @@
 #lang typed/racket/base
 
-(require  
+(require
          "../base/typed-zo-structs.rkt")
 
 (require/typed "zo-shell.rkt"

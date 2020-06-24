@@ -1,7 +1,5 @@
 #lang typed/racket
 
-(require  )
-
 (require/typed "data.rkt"
   [#:struct posn ([x : Real]
                   [y : Real])]

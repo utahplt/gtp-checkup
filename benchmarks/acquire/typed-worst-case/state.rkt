@@ -139,7 +139,6 @@
 ;; IMPLEMENTATION: 
 
 (require
-  
  "../base/types.rkt"
  "board-adapted.rkt"
  )

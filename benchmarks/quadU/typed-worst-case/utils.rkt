@@ -21,7 +21,6 @@
 ;; -----------------------------------------------------------------------------
 
 (require
-   
   "../base/quad-types.rkt"
   (only-in racket/list append-map empty? empty split-at-right first splitf-at)
   (only-in racket/string string-append*)
@@ -292,7 +291,7 @@
     (for/fold ([new-quads : (Listof Quad) '()]
                [height-so-far : Float 0.0])
               ([q-any : USQ (in-list (quad-list starting-quad))])
-      (define q (cast q-any Quad))
+      (define q (assert q-any quad?))
       (values (cons (quad-attr-set q world:y-position-key height-so-far) new-quads)
               (round-float (+ height-so-far (quad-height q))))))
   (quad (quad-name starting-quad) (make-quadattrs (quad-attrs starting-quad)) (reverse new-quads)))

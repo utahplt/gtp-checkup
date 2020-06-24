@@ -1,7 +1,5 @@
 #lang typed/racket/base
 
-(require  )
-
 (require/typed "image.rkt"
   (#:struct image ((impl : Any)))
   (empty-scene (-> Real Real Image))
