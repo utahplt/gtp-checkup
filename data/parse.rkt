@@ -148,7 +148,9 @@
       #false]
      [(string-prefix? (car cfg-ln*) p-str)
       (if (null? (cdr cfg-ln*))
-        (raise-arguments-error 'parse-timeout "file ended unexpectedly" "context" cfg-ln*)
+        (begin
+          (printf "parse-timeout: text ended unexpectedly~n  context: ~s~n" cfg-ln*)
+          #false)
         (let ((t-val (gtp-checkup-str->timeout (cadr cfg-ln*))))
           (and t-val (make-t t-val))))]
      [else

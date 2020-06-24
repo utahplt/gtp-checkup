@@ -243,6 +243,7 @@
 ;; real -> [values y-max error-y compile-timeout-y run-timeout-y]
 (define (make-extra-y-values max-cpu-time)
   (define mt (exact-ceiling max-cpu-time))
+  #;(values (+ 1 mt) (+ 1 mt) (+ 1 mt) (+ 1 mt))
   (case (order-of-magnitude mt)
     ((0)
      (values (+ 6 mt) (+ 5 mt) (+ 4 mt) (+ 2 mt)))
