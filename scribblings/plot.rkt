@@ -509,7 +509,7 @@
      (raise-argument-error 'kind->point-size "(or/c 'ok 'error 'compile-timeoun 'run-timeout)" x))))
 
 (define configuration-name->color
-  (let ((H #hasheq((typed . "Gold")
+  (let ((H #hasheq((typed . "Goldenrod")
                    (untyped . "Plum")
                    (typed-worst-case . "Cadet Blue"))))
     (lambda (n)
