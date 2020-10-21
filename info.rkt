@@ -22,4 +22,4 @@
 (define version "0.2")
 (define pkg-authors '(ben))
 (define scribblings '(("scribblings/gtp-checkup.scrbl" ())))
-(define compile-omit-paths '("benchmarks/" "src/"))
+(define compile-omit-paths '("benchmarks/"))
