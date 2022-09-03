@@ -28,7 +28,7 @@
   file/glob
   gtp-checkup/data/definition
   gtp-checkup/data/parse
-  (only-in gtp-checkup/private/logger log-gtp-checkup-error)
+  (only-in gtp-checkup/private/logger log-gtp-checkup-warning)
   pict-abbrevs
   racket/generator
   (only-in racket/file file->value)
@@ -249,7 +249,7 @@
           b-id
           (ht-append 10 the-plot (vl-append (* 1/10 (plot-width)) (blank) (make-machine-data-legend)))))))
   (for (((c-hash bm*) (in-hash new-bad-commit*)))
-    (log-gtp-checkup-error "new regression in commit ~s ~s" c-hash bm*))
+    (log-gtp-checkup-warning "new regression in commit ~s ~s" c-hash bm*))
   pict*)
 
 (define (snoc-new sym* sym)
