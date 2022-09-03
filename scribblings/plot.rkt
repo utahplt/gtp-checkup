@@ -97,7 +97,7 @@
 
 (define (make-all-machine-data-pict*)
   (let loop ((acc (make-immutable-hash))
-             (dir* (glob (build-path data-dir "*/"))))
+             (dir* (glob (build-path data-dir "nsa/")))) ;; 2022-09-03 only nsa
     (if (null? dir*)
       acc
       (if (not (directory-exists? (car dir*)))
@@ -233,7 +233,7 @@
                                                                  error-y "Error"))))
             (plot-pict
               (list (make-year-renderer* min-time max-time)
-                    (make-release-renderer* min-time max-time)
+                    (make-release-renderer* min-time max-time y-max)
                     (make-y-discontinuity (mean (list max-cpu-time run-timeout-y)))
                     renderer*)
               #:x-min (- (->posix min-time) time-padding)
@@ -389,16 +389,16 @@
 (define date<=?
   (reduce< date<=?2))
 
-(define (make-release-renderer* min-datetime max-datetime)
+(define (make-release-renderer* min-datetime max-datetime y-posn)
   (define min-date (datetime->date min-datetime))
   (define max-date (datetime->date max-datetime))
   (for/list ((rt (in-list racket-release-date*))
              #:when (date<=? min-date (cadr rt) max-date))
     (define x (->posix (cadr rt)))
     (define r-lbl
-      (point-pict (vector x 0)
+      (point-pict (vector x y-posn)
                   (make-release-pict (car rt))
-                  #:anchor 'bottom
+                  #:anchor 'top
                   #:point-sym 'none
                   #:point-size 0))
     (define r-bar
