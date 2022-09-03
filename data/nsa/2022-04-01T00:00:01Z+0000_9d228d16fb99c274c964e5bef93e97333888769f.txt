@@ -1,0 +1,1115 @@
+raco test: (submod "main.rkt" test)
+raco test: @(test-responsible '(ben))
+gtp-checkup: Checking 'benchmarks/acquire/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 340 real time: 340 gc time: 44
+cpu time: 337 real time: 337 gc time: 43
+cpu time: 338 real time: 338 gc time: 43
+cpu time: 339 real time: 340 gc time: 44
+gtp-checkup: Checking 'benchmarks/acquire/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1788 real time: 1789 gc time: 139
+cpu time: 1777 real time: 1778 gc time: 142
+cpu time: 1780 real time: 1781 gc time: 146
+cpu time: 1786 real time: 1786 gc time: 141
+gtp-checkup: Checking 'benchmarks/acquire/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 287 real time: 287 gc time: 59
+cpu time: 285 real time: 285 gc time: 60
+cpu time: 284 real time: 284 gc time: 59
+cpu time: 283 real time: 283 gc time: 59
+gtp-checkup: Checking 'benchmarks/dungeon/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 138 real time: 139 gc time: 37
+cpu time: 135 real time: 135 gc time: 37
+cpu time: 136 real time: 136 gc time: 37
+cpu time: 138 real time: 139 gc time: 37
+gtp-checkup: Checking 'benchmarks/dungeon/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+gtp-checkup: exceeded time limit (300s)
+gtp-checkup: Checking 'benchmarks/dungeon/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 106 real time: 106 gc time: 8
+cpu time: 106 real time: 106 gc time: 8
+cpu time: 106 real time: 106 gc time: 7
+cpu time: 106 real time: 106 gc time: 8
+gtp-checkup: Checking 'benchmarks/forth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 12 real time: 12 gc time: 1
+cpu time: 12 real time: 12 gc time: 1
+cpu time: 12 real time: 12 gc time: 1
+cpu time: 12 real time: 12 gc time: 1
+gtp-checkup: Checking 'benchmarks/forth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 161771 real time: 161842 gc time: 9335
+cpu time: 152685 real time: 152753 gc time: 9386
+cpu time: 161036 real time: 161108 gc time: 8452
+cpu time: 153431 real time: 153499 gc time: 8420
+gtp-checkup: Checking 'benchmarks/forth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 11 real time: 11 gc time: 0
+cpu time: 11 real time: 11 gc time: 0
+cpu time: 11 real time: 11 gc time: 0
+cpu time: 11 real time: 11 gc time: 0
+gtp-checkup: Checking 'benchmarks/fsm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 80 real time: 80 gc time: 9
+cpu time: 79 real time: 79 gc time: 8
+cpu time: 80 real time: 80 gc time: 8
+cpu time: 79 real time: 79 gc time: 8
+gtp-checkup: Checking 'benchmarks/fsm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 591 real time: 592 gc time: 113
+cpu time: 606 real time: 606 gc time: 113
+cpu time: 613 real time: 613 gc time: 116
+cpu time: 599 real time: 599 gc time: 113
+gtp-checkup: Checking 'benchmarks/fsm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 264 real time: 264 gc time: 7
+cpu time: 262 real time: 262 gc time: 7
+cpu time: 264 real time: 265 gc time: 7
+cpu time: 266 real time: 266 gc time: 7
+gtp-checkup: Checking 'benchmarks/fsmoo/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 315 real time: 315 gc time: 34
+cpu time: 313 real time: 313 gc time: 34
+cpu time: 320 real time: 321 gc time: 34
+cpu time: 315 real time: 315 gc time: 34
+gtp-checkup: Checking 'benchmarks/fsmoo/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 124516 real time: 124575 gc time: 10328
+cpu time: 127603 real time: 127664 gc time: 10342
+cpu time: 127611 real time: 127666 gc time: 10647
+cpu time: 123752 real time: 123810 gc time: 10385
+gtp-checkup: Checking 'benchmarks/fsmoo/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 482 real time: 482 gc time: 50
+cpu time: 492 real time: 492 gc time: 56
+cpu time: 484 real time: 484 gc time: 48
+cpu time: 491 real time: 491 gc time: 49
+gtp-checkup: Checking 'benchmarks/gregor/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 192 real time: 193 gc time: 35
+cpu time: 193 real time: 193 gc time: 35
+cpu time: 180 real time: 180 gc time: 35
+cpu time: 188 real time: 188 gc time: 36
+gtp-checkup: Checking 'benchmarks/gregor/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 404 real time: 404 gc time: 12
+cpu time: 383 real time: 383 gc time: 12
+cpu time: 390 real time: 391 gc time: 12
+cpu time: 401 real time: 401 gc time: 12
+gtp-checkup: Checking 'benchmarks/gregor/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 156 real time: 156 gc time: 21
+cpu time: 165 real time: 165 gc time: 21
+cpu time: 175 real time: 175 gc time: 21
+cpu time: 156 real time: 156 gc time: 22
+gtp-checkup: Checking 'benchmarks/jpeg/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 51 real time: 51 gc time: 5
+cpu time: 51 real time: 51 gc time: 5
+cpu time: 51 real time: 51 gc time: 5
+cpu time: 50 real time: 50 gc time: 5
+gtp-checkup: Checking 'benchmarks/jpeg/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 5895 real time: 5898 gc time: 101
+cpu time: 5782 real time: 5785 gc time: 102
+cpu time: 5945 real time: 5949 gc time: 102
+cpu time: 5707 real time: 5709 gc time: 102
+gtp-checkup: Checking 'benchmarks/jpeg/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 230 real time: 230 gc time: 31
+cpu time: 233 real time: 233 gc time: 31
+cpu time: 237 real time: 237 gc time: 33
+cpu time: 233 real time: 233 gc time: 31
+gtp-checkup: Checking 'benchmarks/kcfa/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 904 real time: 904 gc time: 95
+cpu time: 865 real time: 865 gc time: 95
+cpu time: 851 real time: 852 gc time: 96
+cpu time: 845 real time: 846 gc time: 95
+gtp-checkup: Checking 'benchmarks/kcfa/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 3056 real time: 3057 gc time: 75
+cpu time: 3106 real time: 3107 gc time: 74
+cpu time: 3085 real time: 3088 gc time: 77
+cpu time: 3116 real time: 3117 gc time: 75
+gtp-checkup: Checking 'benchmarks/kcfa/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 833 real time: 834 gc time: 84
+cpu time: 831 real time: 832 gc time: 84
+cpu time: 835 real time: 835 gc time: 85
+cpu time: 842 real time: 842 gc time: 83
+gtp-checkup: Checking 'benchmarks/lnm/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 333 real time: 333 gc time: 45
+cpu time: 332 real time: 332 gc time: 42
+cpu time: 336 real time: 336 gc time: 43
+cpu time: 325 real time: 325 gc time: 42
+gtp-checkup: Checking 'benchmarks/lnm/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 358 real time: 359 gc time: 42
+cpu time: 367 real time: 367 gc time: 42
+cpu time: 360 real time: 360 gc time: 43
+cpu time: 365 real time: 365 gc time: 43
+gtp-checkup: Checking 'benchmarks/lnm/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 406 real time: 406 gc time: 20
+cpu time: 393 real time: 393 gc time: 19
+cpu time: 391 real time: 391 gc time: 19
+cpu time: 391 real time: 391 gc time: 19
+gtp-checkup: Checking 'benchmarks/mbta/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1264 real time: 1264 gc time: 110
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1273 real time: 1274 gc time: 114
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1260 real time: 1261 gc time: 111
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1262 real time: 1263 gc time: 110
+gtp-checkup: Checking 'benchmarks/mbta/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1391 real time: 1391 gc time: 108
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1398 real time: 1399 gc time: 108
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1396 real time: 1397 gc time: 108
+graph?: contract violation
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #<unweighted-graph>
+  This warning will become an error in a future release.
+  in: the 1st argument of
+      a part of the or/c of
+      (or/c
+       struct-predicate-procedure?/c
+       (-> Any boolean?))
+  contract from: (interface for graph?)
+  blaming: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt
+   (assuming the contract is correct)
+  at: <pkgs>/gtp-checkup/benchmarks/mbta/base/t-graph-types.rkt:16:56
+cpu time: 1453 real time: 1454 gc time: 109
+gtp-checkup: Checking 'benchmarks/mbta/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 995 real time: 995 gc time: 91
+cpu time: 999 real time: 1000 gc time: 91
+cpu time: 1002 real time: 1004 gc time: 91
+cpu time: 1025 real time: 1025 gc time: 91
+gtp-checkup: Checking 'benchmarks/morsecode/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1703 real time: 1703 gc time: 80
+cpu time: 1715 real time: 1716 gc time: 82
+cpu time: 1709 real time: 1710 gc time: 81
+cpu time: 1729 real time: 1730 gc time: 81
+gtp-checkup: Checking 'benchmarks/morsecode/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 3108 real time: 3110 gc time: 57
+cpu time: 3087 real time: 3089 gc time: 57
+cpu time: 3090 real time: 3091 gc time: 55
+cpu time: 3084 real time: 3085 gc time: 58
+gtp-checkup: Checking 'benchmarks/morsecode/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1768 real time: 1769 gc time: 68
+cpu time: 1766 real time: 1766 gc time: 69
+cpu time: 1761 real time: 1761 gc time: 70
+cpu time: 1758 real time: 1758 gc time: 69
+gtp-checkup: Checking 'benchmarks/quadT/typed'
+gtp-checkup: compiling 'main.rkt'
+measure.rkt:62:64: Type Checker: could not apply function;
+ wrong number of arguments provided
+  expected: 9
+  given: 11
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/main.rkt
+  location...:
+   measure.rkt:62:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:62:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Smoothing)
+  given: Positive-Float-No-NaN
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/main.rkt
+  location...:
+   measure.rkt:62:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:62:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Style)
+  given: False
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/main.rkt
+  location...:
+   measure.rkt:62:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:62:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Weight)
+  given: Font-Style
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/main.rkt
+  location...:
+   measure.rkt:62:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+Type Checker: Summary: 4 errors encountered
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed/main.rkt
+  location...:
+   measure.rkt:62:64
+   measure.rkt:62:64
+   measure.rkt:62:64
+   measure.rkt:62:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   ...
+gtp-checkup: Checking 'benchmarks/quadT/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+measure.rkt:61:64: Type Checker: could not apply function;
+ wrong number of arguments provided
+  expected: 9
+  given: 11
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:61:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:61:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Smoothing)
+  given: Positive-Float-No-NaN
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:61:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:61:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Style)
+  given: False
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:61:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:61:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Weight)
+  given: Font-Style
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:61:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+Type Checker: Summary: 4 errors encountered
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadT/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:61:64
+   measure.rkt:61:64
+   measure.rkt:61:64
+   measure.rkt:61:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   ...
+gtp-checkup: Checking 'benchmarks/quadT/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 133 real time: 133 gc time: 7
+cpu time: 130 real time: 130 gc time: 7
+cpu time: 131 real time: 131 gc time: 7
+cpu time: 132 real time: 132 gc time: 7
+gtp-checkup: Checking 'benchmarks/quadU/typed'
+gtp-checkup: compiling 'main.rkt'
+measure.rkt:65:64: Type Checker: could not apply function;
+ wrong number of arguments provided
+  expected: 9
+  given: 11
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Smoothing)
+  given: Positive-Float-No-NaN
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Style)
+  given: False
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Weight)
+  given: Font-Style
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   ...
+Type Checker: Summary: 4 errors encountered
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed/main.rkt
+  location...:
+   measure.rkt:65:64
+   measure.rkt:65:64
+   measure.rkt:65:64
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:43:10
+   /home/ben/code/racket/8.5/collects/racket/private/more-scheme.rkt:377:2: hash-ref!
+   /home/ben/.racket/8.5/pkgs/require-typed-check/private/require-typed-check.rkt:159:0
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   ...
+gtp-checkup: Checking 'benchmarks/quadU/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+measure.rkt:65:64: Type Checker: could not apply function;
+ wrong number of arguments provided
+  expected: 9
+  given: 11
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Smoothing)
+  given: Positive-Float-No-NaN
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Style)
+  given: False
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+measure.rkt:65:64: Type Checker: type mismatch
+  expected: (U #<unsafe-undefined> Font-Weight)
+  given: Font-Style
+  in: (make-font #:size max-size #:style style #:weight weight #:face font)
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/utils/tc-utils.rkt:123:0: report-all-errors
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   ...
+Type Checker: Summary: 4 errors encountered
+  compilation context...:
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/measure.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/wrap.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/quad-main.rkt
+   /home/ben/code/racket/fork/extra-pkgs/gtp-checkup/benchmarks/quadU/typed-worst-case/main.rkt
+  location...:
+   measure.rkt:65:64
+   measure.rkt:65:64
+   measure.rkt:65:64
+   measure.rkt:65:64
+  context...:
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:455:0: type-check
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typecheck/tc-toplevel.rkt:682:0: tc-module
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:101:12
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/typed-racket.rkt:22:4
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:685:0: compile-zo*
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:451:15
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:440:12: build
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:411:0: maybe-compile-zo
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:209:0: compile-root
+   /home/ben/code/racket/8.5/collects/compiler/private/cm-minimal.rkt:145:4: compilation-manager-load-handler
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:498:5
+   /home/ben/code/racket/8.5/collects/racket/require-transform.rkt:266:2: expand-import
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:287:21: try-next
+   /home/ben/code/racket/8.5/collects/racket/private/reqprov.rkt:258:2
+   /home/ben/code/racket/8.5/share/pkgs/typed-racket-lib/typed-racket/tc-setup.rkt:58:0: tc-setup
+   ...
+gtp-checkup: Checking 'benchmarks/quadU/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 137 real time: 137 gc time: 13
+cpu time: 137 real time: 137 gc time: 13
+cpu time: 138 real time: 138 gc time: 12
+cpu time: 138 real time: 138 gc time: 13
+gtp-checkup: Checking 'benchmarks/sieve/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1198 real time: 1199 gc time: 144
+cpu time: 1206 real time: 1207 gc time: 145
+cpu time: 1199 real time: 1200 gc time: 146
+cpu time: 1206 real time: 1206 gc time: 149
+gtp-checkup: Checking 'benchmarks/sieve/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 6357 real time: 6360 gc time: 807
+cpu time: 6290 real time: 6293 gc time: 806
+cpu time: 6303 real time: 6307 gc time: 802
+cpu time: 6376 real time: 6379 gc time: 816
+gtp-checkup: Checking 'benchmarks/sieve/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1193 real time: 1194 gc time: 84
+cpu time: 1191 real time: 1192 gc time: 84
+cpu time: 1217 real time: 1217 gc time: 88
+cpu time: 1191 real time: 1192 gc time: 84
+gtp-checkup: Checking 'benchmarks/snake/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 554 real time: 554 gc time: 73
+cpu time: 560 real time: 561 gc time: 74
+cpu time: 579 real time: 579 gc time: 74
+cpu time: 591 real time: 592 gc time: 75
+gtp-checkup: Checking 'benchmarks/snake/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 8864 real time: 8867 gc time: 117
+cpu time: 9110 real time: 9113 gc time: 116
+cpu time: 8950 real time: 8956 gc time: 119
+cpu time: 9474 real time: 9478 gc time: 112
+gtp-checkup: Checking 'benchmarks/snake/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 546 real time: 547 gc time: 33
+cpu time: 551 real time: 551 gc time: 33
+cpu time: 545 real time: 545 gc time: 33
+cpu time: 545 real time: 546 gc time: 34
+gtp-checkup: Checking 'benchmarks/suffixtree/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1964 real time: 1965 gc time: 94
+cpu time: 1954 real time: 1955 gc time: 87
+cpu time: 1935 real time: 1936 gc time: 89
+cpu time: 1945 real time: 1946 gc time: 90
+gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 57684 real time: 57713 gc time: 375
+cpu time: 56758 real time: 56782 gc time: 379
+cpu time: 60323 real time: 60347 gc time: 379
+cpu time: 56643 real time: 56670 gc time: 380
+gtp-checkup: Checking 'benchmarks/suffixtree/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 2882 real time: 2883 gc time: 18
+cpu time: 2915 real time: 2917 gc time: 20
+cpu time: 2877 real time: 2879 gc time: 18
+cpu time: 2906 real time: 2907 gc time: 17
+gtp-checkup: Checking 'benchmarks/synth/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 319 real time: 319 gc time: 75
+cpu time: 317 real time: 317 gc time: 75
+cpu time: 309 real time: 309 gc time: 72
+cpu time: 315 real time: 315 gc time: 75
+gtp-checkup: Checking 'benchmarks/synth/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 18995 real time: 19004 gc time: 207
+cpu time: 19450 real time: 19459 gc time: 213
+cpu time: 20390 real time: 20401 gc time: 215
+cpu time: 18990 real time: 19000 gc time: 211
+gtp-checkup: Checking 'benchmarks/synth/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 296 real time: 296 gc time: 60
+cpu time: 300 real time: 300 gc time: 61
+cpu time: 310 real time: 311 gc time: 61
+cpu time: 301 real time: 301 gc time: 61
+gtp-checkup: Checking 'benchmarks/take5/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 694 real time: 694 gc time: 81
+cpu time: 676 real time: 677 gc time: 81
+cpu time: 688 real time: 689 gc time: 81
+cpu time: 684 real time: 684 gc time: 81
+gtp-checkup: Checking 'benchmarks/take5/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 28554 real time: 28569 gc time: 642
+cpu time: 29584 real time: 29600 gc time: 646
+cpu time: 27331 real time: 27347 gc time: 642
+cpu time: 27491 real time: 27505 gc time: 645
+gtp-checkup: Checking 'benchmarks/take5/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 527 real time: 527 gc time: 27
+cpu time: 524 real time: 524 gc time: 28
+cpu time: 533 real time: 533 gc time: 28
+cpu time: 524 real time: 524 gc time: 27
+gtp-checkup: Checking 'benchmarks/tetris/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 475 real time: 476 gc time: 35
+cpu time: 465 real time: 465 gc time: 33
+cpu time: 461 real time: 461 gc time: 33
+cpu time: 462 real time: 463 gc time: 33
+gtp-checkup: Checking 'benchmarks/tetris/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 8719 real time: 8723 gc time: 154
+cpu time: 8897 real time: 8901 gc time: 148
+cpu time: 8787 real time: 8791 gc time: 149
+cpu time: 9199 real time: 9204 gc time: 148
+gtp-checkup: Checking 'benchmarks/tetris/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 519 real time: 519 gc time: 47
+cpu time: 523 real time: 523 gc time: 49
+cpu time: 520 real time: 520 gc time: 48
+cpu time: 529 real time: 529 gc time: 52
+gtp-checkup: Checking 'benchmarks/zombie/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 59 real time: 59 gc time: 35
+cpu time: 59 real time: 59 gc time: 34
+cpu time: 59 real time: 59 gc time: 34
+cpu time: 60 real time: 60 gc time: 34
+gtp-checkup: Checking 'benchmarks/zombie/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1810 real time: 1812 gc time: 58
+cpu time: 1831 real time: 1832 gc time: 51
+cpu time: 1795 real time: 1796 gc time: 56
+cpu time: 1808 real time: 1809 gc time: 57
+gtp-checkup: Checking 'benchmarks/zombie/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 50 real time: 50 gc time: 24
+cpu time: 48 real time: 48 gc time: 23
+cpu time: 48 real time: 48 gc time: 23
+cpu time: 48 real time: 48 gc time: 22
+gtp-checkup: Checking 'benchmarks/zordoz/typed'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 852 real time: 852 gc time: 99
+cpu time: 865 real time: 865 gc time: 99
+cpu time: 885 real time: 886 gc time: 98
+cpu time: 861 real time: 861 gc time: 99
+gtp-checkup: Checking 'benchmarks/zordoz/typed-worst-case'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 1606 real time: 1607 gc time: 105
+cpu time: 1569 real time: 1570 gc time: 104
+cpu time: 1641 real time: 1643 gc time: 108
+cpu time: 1563 real time: 1564 gc time: 109
+gtp-checkup: Checking 'benchmarks/zordoz/untyped'
+gtp-checkup: compiling 'main.rkt'
+gtp-checkup: running 'main.rkt'
+cpu time: 594 real time: 594 gc time: 75
+cpu time: 593 real time: 593 gc time: 75
+cpu time: 598 real time: 598 gc time: 75
+cpu time: 606 real time: 606 gc time: 78
+gtp-checkup: === FINISHED ===
+gtp-checkup: Error running the following files:
+gtp-checkup: - benchmarks/dungeon/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/quadT/typed/main.rkt
+gtp-checkup: - benchmarks/quadT/typed-worst-case/main.rkt
+gtp-checkup: - benchmarks/quadU/typed/main.rkt
+gtp-checkup: - benchmarks/quadU/typed-worst-case/main.rkt
