@@ -348,6 +348,7 @@ cpu time: 1522 real time: 1524 gc time: 81
 cpu time: 1522 real time: 1525 gc time: 78
 gtp-checkup: Checking 'benchmarks/quadT/untyped'
 gtp-checkup: compiling 'main.rkt'
+SIGSEGV MAPERR si_code 1 fault on addr 0x100000010
 gtp-checkup: Checking 'benchmarks/quadU/typed'
 gtp-checkup: compiling 'main.rkt'
 gtp-checkup: running 'main.rkt'
