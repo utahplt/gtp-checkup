@@ -69,6 +69,9 @@
   (define timeout (or pre-timeout (cons COMPILE-TIME-LIMIT RUN-TIME-LIMIT)))
   (define results
     (parameterize ([current-directory PWD])
+      (raco-setup bin-dir "typed-racket")
+      (raco-setup bin-dir "typed")
+      (raco-setup bin-dir "math")
       (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING)))
         (cons main (checkup-file bin-dir main iterations timeout)))))
   (log-gtp-checkup-info "=== FINISHED ===")
@@ -98,6 +101,9 @@
 (define (run-racket bin name time-limit)
   (shell #:time-limit time-limit (build-path bin "racket") name))
 
+(define (raco-setup bin name)
+  (shell* (build-path bin "raco") (list "setup" name)))
+
 (define (delete-compiled)
   (delete-directory/files "compiled" #:must-exist? #f))
 
@@ -105,8 +111,11 @@
   (define success (box #f))
   (with-handlers ([exn:fail:resource? (handle-resource-failure time-limit)])
     (with-deep-time-limit time-limit
-      (set-box! success (apply system* cmd arg*)))
+      (set-box! success (shell* cmd arg*)))
     (unbox success)))
+
+(define (shell* cmd arg*)
+  (apply system* cmd arg*))
 
 (define (print-summary results)
   (define cwd (current-directory))
