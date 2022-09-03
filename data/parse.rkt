@@ -128,7 +128,7 @@
     (check-equal? (load-name* "gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'")
                   '(suffixtree . typed-worst-case))))
 
-(define (load-data cfg-ln*)
+(define (load-data cfg-ln* filename)
   ;; Either CPU times, or timeout, or error
   (define cpu*
     (for/list ((ln (in-list cfg-ln*))
@@ -136,11 +136,11 @@
       (time-string->cpu-time ln)))
   (or
     (and (not (null? cpu*)) cpu*)
-    (parse-compile-timeout cfg-ln*)
-    (parse-run-timeout cfg-ln*)
+    (parse-compile-timeout cfg-ln* filename)
+    (parse-run-timeout cfg-ln* filename)
     'error))
 
-(define ((make-parse-timeout before-str make-t) cfg-ln*)
+(define ((make-parse-timeout before-str make-t) cfg-ln* filename)
   (define p-str (string-append "gtp-checkup: " before-str))
   (let loop ((cfg-ln* cfg-ln*))
     (cond
@@ -149,7 +149,7 @@
      [(string-prefix? (car cfg-ln*) p-str)
       (if (null? (cdr cfg-ln*))
         (begin
-          (printf "parse-timeout: text ended unexpectedly~n  context: ~s~n" cfg-ln*)
+          (printf "parse-timeout: text ended unexpectedly~n  line: ~s~n  file: ~s~n" cfg-ln* filename)
           #false)
         (let ((t-val (gtp-checkup-str->timeout (cadr cfg-ln*))))
           (and t-val (make-t t-val))))]
@@ -176,12 +176,20 @@
   (define H (make-hasheq))
   (for ((cfg-ln* (in-list (file->configuration-line* ps))))
     (define-values [bm-name config-name] (load-name (car cfg-ln*)))
-    (define t* (load-data (cdr cfg-ln*)))
+    (define t* (load-data (cdr cfg-ln*) ps))
     (hash-update! H bm-name
                   (lambda (h)
                     (hash-set h config-name t*))
                   (make-immutable-hasheq)))
   (hash->immutable-hash H))
+
+;; -----------------------------------------------------------------------------
+
+(module+ main
+  (require racket/cmdline racket/pretty)
+  (command-line
+    #:args (fn)
+    (pretty-write (load-file fn))))
 
 ;; -----------------------------------------------------------------------------
 
