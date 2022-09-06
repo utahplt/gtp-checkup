@@ -69,9 +69,6 @@
   (define timeout (or pre-timeout (cons COMPILE-TIME-LIMIT RUN-TIME-LIMIT)))
   (define results
     (parameterize ([current-directory PWD])
-      (raco-setup bin-dir "typed-racket")
-      (raco-setup bin-dir "typed")
-      (raco-setup bin-dir "math")
       (for/list ((main (in-glob SEARCH-FOR-FILES-MATCHING)))
         (cons main (checkup-file bin-dir main iterations timeout)))))
   (log-gtp-checkup-info "=== FINISHED ===")
