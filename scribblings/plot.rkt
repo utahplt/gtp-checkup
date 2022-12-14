@@ -84,6 +84,7 @@
     ("8.4" ,(date 2022 02 01))
     ("8.5" ,(date 2022 04 01))
     ("8.6" ,(date 2022 08 01))
+    ("8.7" ,(date 2022 11 11))
     ))
 
 (define change-type* '(slower faster new-fail new-fix still-fail))
