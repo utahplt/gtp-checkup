@@ -1,4 +1,4 @@
-;; bad-commit-whitelist
+;; bad-commit-allowlist
 ;; ---
 ;; This file contains a Racket list of commit hashes for commits to the
 ;; [racket/racket](https://github.com/racket/racket) repo.
@@ -18,4 +18,7 @@
 "8d77b8403cbe9bdfa5133a71e10fd372895e52bd"
 "4e07c20afef9a5c5ba5736232a9a4076bc57b43d" ;; forth, failed on Albany, later commits OK
 "9effeef7aba1d685d189daf95c219c7fae45ccde" ;; https://github.com/racket/racket/issues/3127
+"b7fcf4112ac2188f1305b092b8c9cf8f82b352ad"
+"d14940d22d2d448e3f54eb3495551af960b546ca"
+"093c5571bd7b6d3635b3520580da0cb6f6170d17"
 )

@@ -91,8 +91,8 @@
 
 (define-runtime-path data-dir "../data/")
 
-(define bad-commit-whitelist
-  (file->value (build-path data-dir "bad-commit-whitelist.rktd")))
+(define bad-commit-allowlist
+  (file->value (build-path data-dir "bad-commit-allowlist.rktd")))
 
 ;; -----------------------------------------------------------------------------
 
@@ -211,7 +211,7 @@
                            (c-hash (in-list (map (compose1 commit-id->hash commit-data-id)
                                                  (cdr (machine-data-commit* md)))))
                            #:when (and (new-fail? pp)
-                                       (not (member c-hash bad-commit-whitelist string=?))))
+                                       (not (member c-hash bad-commit-allowlist string=?))))
                   (hash-update! new-bad-commit*
                                 c-hash
                                 (lambda (bm*) (snoc-new bm* b-id))
