@@ -447,7 +447,7 @@ cpu time: 355 real time: 356 gc time: 75
 cpu time: 371 real time: 371 gc time: 75
 cpu time: 363 real time: 363 gc time: 81
 cpu time: 416 real time: 416 gc time: 92
-gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: Checking 'benchmarks/synth/typed-worst-case'
 gtp-checkup: compiling 'main.rkt'
 gtp-checkup: running 'main.rkt'
 cpu time: 22430 real time: 22439 gc time: 280
@@ -468,7 +468,7 @@ cpu time: 627 real time: 627 gc time: 29
 cpu time: 630 real time: 630 gc time: 29
 cpu time: 636 real time: 637 gc time: 28
 cpu time: 615 real time: 615 gc time: 28
-gtp-checkup: Checking 'benchmarks/suffixtree/typed-worst-case'
+gtp-checkup: Checking 'benchmarks/take5/typed-worst-case'
 gtp-checkup: compiling 'main.rkt'
 gtp-checkup: running 'main.rkt'
 cpu time: 27350 real time: 27366 gc time: 591

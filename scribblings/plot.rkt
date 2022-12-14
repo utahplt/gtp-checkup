@@ -173,7 +173,8 @@
                 (define commit-seconds
                   (->posix (commit-id->time (commit-data-id cd))))
                 (define r-val
-                  (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg))
+                  (hash-ref (hash-ref (commit-data-benchmark# cd) b-id) cfg
+                            (lambda () (raise-arguments-error 'make-machine-data-pict* "missing config data" "benchmark" b-id "config" cfg))))
                 (cons commit-seconds r-val)))
             (define (point->plot-point p)
               (vector (car p) (result->natural (cdr p) #:compile-timeout compile-timeout-y #:run-timeout run-timeout-y #:error error-y)))
