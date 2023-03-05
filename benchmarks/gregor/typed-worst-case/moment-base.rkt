@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Support for moment.rkt
 ;; (Works together with offset-resolvers.rkt)

@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (provide
  (prefix-out world: logging-level)

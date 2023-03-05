@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (require/typed "image.rkt"
   (#:struct image ((impl : Any)))

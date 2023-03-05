@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Data structure representing the results of one experiment.
 ;; Handles queries for raw data and statistical summary data.

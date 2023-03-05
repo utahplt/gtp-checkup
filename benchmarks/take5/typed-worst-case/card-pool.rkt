@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; a representation of the complete deck of cards 
 
@@ -43,7 +43,7 @@
 ;; pick a random number of BULLS 
 (: random-bulls (-> Bulls))
 (define (random-bulls)
-  (random MIN-BULL (+ MAX-BULL 1) rng))
+  (assert (random MIN-BULL (+ MAX-BULL 1) rng) exact-nonnegative-integer?))
 
 (: card-pool% CardPool%)
 (define card-pool%

@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; An N-states, N-inputs Automaton
 

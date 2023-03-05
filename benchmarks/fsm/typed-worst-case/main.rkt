@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; Run a Simulation of Interacting Automata
 (random-seed 7480)

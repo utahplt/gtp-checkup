@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (require racket/vector
          (only-in racket/fixnum fx+)

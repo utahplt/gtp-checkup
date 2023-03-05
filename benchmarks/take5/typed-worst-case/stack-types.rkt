@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (require "card-adapted.rkt")
 (provide Stack)

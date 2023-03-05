@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (require (only-in racket/fixnum fx<= fxmax fxmodulo)
          (only-in racket/vector vector-append)

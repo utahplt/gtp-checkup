@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; ---------------------------------------------------------------------------------------------------
 ;; a data representation for internal game states 

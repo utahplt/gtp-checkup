@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; ---------------------------------------------------------------------------------------------------
 ;; a data representation for internal game states 
@@ -158,7 +158,7 @@
   (shares-available (-> Shares Hotel Share))
   (shares-available? (-> Shares (Listof Hotel) Boolean))
   (shares-combinable? (-> (Listof Shares) Boolean))
-  (shares-order? (-> Any Boolean))
+  (shares-order? (-> (Listof Hotel) Boolean))
   (shares-minus (-> Shares Shares Shares))
   (shares-plus (-> Shares Shares Shares))
 )

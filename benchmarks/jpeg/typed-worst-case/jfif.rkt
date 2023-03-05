@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 ;; racket-jpeg
 ;; Copyright (C) 2014 Andy Wingo <wingo at pobox dot com>
 

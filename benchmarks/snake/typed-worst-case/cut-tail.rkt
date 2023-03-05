@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (require "data-adaptor.rkt")
 ;; NeSegs is one of:

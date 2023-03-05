@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; the dealer and supervisor of the deck
 
@@ -65,10 +65,20 @@
 
     (field
      [internal% : Internal%
-      (class player%
+      (class object%
+        (super-new)
         (init-field player)
-        (super-new [n (send player name)] [order default-order])
-        (field [my-bulls 0])
+        (field [my-bulls 0]
+
+               ;; dummy fields, never used, only here to satisfy the interface
+               [n 0]
+               [order default-order]
+               [my-cards empty])
+        (define/public (name) (send player name))
+        (define/public (start-round cs) (send player start-round cs))
+        (define/public (start-turn d) (send player start-turn d))
+        (define/public (choose d) (send player choose d))
+
         (define/public (bulls) (get-field my-bulls this))
         (define/public (add-score n)
           (set-field! my-bulls this (+ n (get-field my-bulls this)))))]

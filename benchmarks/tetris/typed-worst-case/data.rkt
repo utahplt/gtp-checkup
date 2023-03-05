@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (struct: posn ([x : Real]
                [y : Real]))

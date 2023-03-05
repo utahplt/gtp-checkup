@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (require/typed "data.rkt"
   [#:struct posn ([x : Real]

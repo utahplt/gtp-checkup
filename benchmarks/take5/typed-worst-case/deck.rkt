@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; representing the deck of STACKS stack on the table 
 

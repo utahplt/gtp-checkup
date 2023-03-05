@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (define-type Color Symbol)
 (require/typed "data.rkt"

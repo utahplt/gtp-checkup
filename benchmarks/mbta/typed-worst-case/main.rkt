@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; stress testing run-t on 100 look ups, plus 5 [dis|en]ables
 

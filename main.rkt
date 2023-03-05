@@ -80,6 +80,7 @@
   (define rel-dir (find-relative-path (current-directory) dir))
   (log-gtp-checkup-info "Checking '~a'" rel-dir)
   (parameterize ([current-directory dir])
+    (putenv "PLT_TR_NO_CONTRACT_OPTIMIZE" "1")
     (and (delete-compiled)
          (log-gtp-checkup-info "compiling '~a'" name)
          (raco-make bin-dir name compile-time-limit)

@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (require "base-types.rkt")
 (require/typed "tetras.rkt"

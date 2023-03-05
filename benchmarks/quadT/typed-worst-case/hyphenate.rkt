@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; bg: removed XML and TxExprs from the original; this only works on strings now
 

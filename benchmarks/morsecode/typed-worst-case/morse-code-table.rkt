@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Copyright 2014 John Clements, except the portion that comes from wikipedia!
 

@@ -20,7 +20,7 @@
 ;;; and consulting, please contact the author.
 ;;; @end legal
 
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;;; @section Introduction
 ;;;

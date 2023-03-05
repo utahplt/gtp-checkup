@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 (define-type Probability Nonnegative-Real)
 (define-type Population (cons Automaton* Automaton*))

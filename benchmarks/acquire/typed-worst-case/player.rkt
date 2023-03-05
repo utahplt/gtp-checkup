@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 ;; ---------------------------------------------------------------------------------------------------
 ;; Acquire player that manages all the interactions; delegates decision making to separate strategies 

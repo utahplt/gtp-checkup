@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Command-line UI for exploring decompiled bytecode.
 ;; (Use `raco make` to generate bytecode)

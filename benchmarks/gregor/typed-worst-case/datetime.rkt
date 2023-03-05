@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Working with DateTime objects
 ;; (i.e. dates and times at the same time)

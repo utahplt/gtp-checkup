@@ -44,12 +44,20 @@ Run @exec{racket main.rkt --help} for more information.
 
 @itemlist[
   @item{
+    @history[#:changed "1.0"
+      @elem{(@emph{March 2023})
+            Updated benchmark code to match GTP Benchmarks v9.2.
+            Disabled Typed Racket optimizations for code and contracts
+            in the worst-case (TWC) configuration.}]}
+  @item{
     @history[#:changed "0.1"
-      @elem{Changed style of benchmarks to focus on one worst-case configuration
+      @elem{(@emph{April 2019})
+            Changed style of benchmarks to focus on one worst-case configuration
             instead of spot-checking N mixed ones.}]}
   @item{
     @history[#:changed "0.1"
-      @elem{Renamed @bm{quadBG} to @bm{quadU} and replaced @bm{quadMB} with @bm{quadT}.
+      @elem{(@emph{April 2019})
+            Renamed @bm{quadBG} to @bm{quadU} and replaced @bm{quadMB} with @bm{quadT}.
             The version notes in
             @other-doc['(lib "gtp-benchmarks/scribblings/gtp-checkup.scrbl")
                        #:indirect "GTP Benchmarks"] explain why.

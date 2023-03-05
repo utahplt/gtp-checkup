@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 (require "data-adaptor.rkt")
 
 (define GRID-SIZE 30)

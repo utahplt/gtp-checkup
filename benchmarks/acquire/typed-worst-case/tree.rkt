@@ -1,4 +1,4 @@
-#lang typed/racket
+#lang typed/racket #:no-optimize
 
 (provide
   tree-state
@@ -17,7 +17,7 @@
 )
 (require/typed "basics.rkt"
   (shares-available? (-> Shares (Listof Hotel) Boolean))
-  (shares-order? (-> Any Boolean))
+  (shares-order? (-> (Listof Hotel) Boolean))
 )
 
 ;; =============================================================================
@@ -100,7 +100,7 @@
 
     ;; template hook pattern: template
     (define/public (founding n order-policies)
-      (unless (shares-order? order-policies)
+      (unless (andmap shares-order? order-policies)
         (error 'atree-founding "Precondition"))
       (traversal n order-policies (is-action FOUNDING)))
 
@@ -276,7 +276,7 @@
           (new lplaced% (state state) (lplaced lplaced))]))
 
 ;; ASSUME: current player has enough money to buy the desired shares
-(: tree-next (-> (Instance ATree%) Tile Hotel Decisions (Listof Hotel) (-> (Listof Tile) Tile) (Values (Option Tile) (Instance ATree%))))
+(: tree-next (-> (Instance ATree%) Tile (Option Hotel) Decisions (Listof Hotel) (-> (Listof Tile) Tile) (Values (Option Tile) (Instance ATree%))))
 (define (tree-next current-tree tile hotel decisions shares-to-buy pick-tile)
   (send current-tree next tile hotel decisions shares-to-buy pick-tile))
 

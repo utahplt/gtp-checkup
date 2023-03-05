@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Much of this comes from reading Dan Gusfield's Algorithms on
 ;; strings, trees, and sequences: computer science and computational

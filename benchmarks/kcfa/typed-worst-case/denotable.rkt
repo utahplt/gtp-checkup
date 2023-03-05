@@ -1,4 +1,4 @@
-#lang typed/racket/base
+#lang typed/racket/base #:no-optimize
 
 ;; Denotable values and stores to hold them.
 ;; A denotable is a set of values

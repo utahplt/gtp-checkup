@@ -21,18 +21,18 @@
      (cond 
        [(not (syntax-local-typed-context?))
         #'(require (prefix-in p m))]
-       [(and (syntax-local-typed-context?)
-             (module->language-info (syntax->datum #'m) #t))
-        #'(typed:require (prefix-in p m))]
+       ;[(and (syntax-local-typed-context?)
+       ;      (module->language-info (syntax->datum #'m) #t))
+       ; #'(typed:require (prefix-in p m))]
        [else 
         #'(require/typed m rt-clause ...)])]
     [(_ m:str rt-clause ...)
      (cond 
        [(not (syntax-local-typed-context?))
         #'(require m)]
-       [(and (syntax-local-typed-context?)
-             (module->language-info (syntax->datum #'m) #t))
-        #'(typed:require m)]
+       ;[(and (syntax-local-typed-context?)
+       ;      (module->language-info (syntax->datum #'m) #t))
+       ; #'(typed:require m)]
        [else 
         #'(require/typed m rt-clause ...)])]))
 
