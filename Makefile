@@ -5,7 +5,7 @@ NIGHTLY=nightly.rkt
 
 all:
 	PLT_TR_NO_CONTRACT_OPTIMIZE=1 ${RACO} make ${MAIN}
-	PLTSTDERR="error info@gtp-checkup" ${RACO} test ${MAIN}
+	PLT_TR_NO_CONTRACT_OPTIMIZE=1 PLTSTDERR="error info@gtp-checkup" ${RACO} test ${MAIN}
 
 nightly:
 	-find . -type d -name "compiled" | xargs rm -rf
